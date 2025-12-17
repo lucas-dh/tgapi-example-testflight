@@ -1,0 +1,281 @@
+[
+	{
+		"name": "北京",
+		"lon": "116.41",
+		"lat": "39.90",
+		"maleCount": "11195390",
+		"femaleCount": "10697705",
+		"maleRate": "51.14",
+		"femaleRate": "48.86"
+	},
+	{
+		"name": "天津",
+		"lon": "117.20",
+		"lat": "39.09",
+		"maleCount": "7144949",
+		"femaleCount": "6721060",
+		"maleRate": "51.53",
+		"femaleRate": "48.47"
+	},
+	{
+		"name": "河北",
+		"lon": "114.502461",
+		"lat": "38.045474",
+		"maleCount": "37679003",
+		"femaleCount": "36931232",
+		"maleRate": "50.50",
+		"femaleRate": "49.50"
+	},
+	{
+		"name": "山西",
+		"lon": "112.549248",
+		"lat": "37.857014",
+		"maleCount": "17805148",
+		"femaleCount": "17110468",
+		"maleRate": "50.99",
+		"femaleRate": "49.01"
+	},
+	{
+		"name": "内蒙古",
+		"lon": "111.77",
+		"lat": "40.82",
+		"maleCount": "12275274",
+		"femaleCount": "11773881",
+		"maleRate": "51.04",
+		"femaleRate": "48.96"
+	},
+	{
+		"name": "辽宁",
+		"lon": "123.44",
+		"lat": "41.84",
+		"maleCount": "21263529",
+		"femaleCount": "21327878",
+		"maleRate": "49.92",
+		"femaleRate": "50.08"
+	},
+	{
+		"name": "吉林",
+		"lon": "125.33",
+		"lat": "43.90",
+		"maleCount": "12018319",
+		"femaleCount": "12055134",
+		"maleRate": "49.92",
+		"femaleRate": "50.08"
+	},
+	{
+		"name": "黑龙江",
+		"lon": "126.66",
+		"lat": "45.74",
+		"maleCount": "15952468",
+		"femaleCount": "15897620",
+		"maleRate": "50.09",
+		"femaleRate": "49.91"
+	},
+	{
+		"name": "上海",
+		"lon": "121.47",
+		"lat": "31.23",
+		"maleCount": "12875211",
+		"femaleCount": "11995684",
+		"maleRate": "51.77",
+		"femaleRate": "48.23"
+	},
+	{
+		"name": "江苏",
+		"lon": "118.76",
+		"lat": "32.06",
+		"maleCount": "43031586",
+		"femaleCount": "41716430",
+		"maleRate": "50.78",
+		"femaleRate": "49.22"
+	},
+	{
+		"name": "浙江",
+		"lon": "120.15",
+		"lat": "30.27",
+		"maleCount": "33680008",
+		"femaleCount": "30887580",
+		"maleRate": "52.16",
+		"femaleRate": "47.84"
+	},
+	{
+		"name": "安徽",
+		"lon": "117.33",
+		"lat": "31.73",
+		"maleCount": "31103394",
+		"femaleCount": "29923777",
+		"maleRate": "50.97",
+		"femaleRate": "49.03"
+	},
+	{
+		"name": "福建",
+		"lon": "119.30",
+		"lat": "26.10",
+		"maleCount": "21466757",
+		"femaleCount": "20073329",
+		"maleRate": "51.68",
+		"femaleRate": "48.32"
+	},
+	{
+		"name": "江西",
+		"lon": "115.892151",
+		"lat": "28.676493",
+		"maleCount": "23318533",
+		"femaleCount": "21870102",
+		"maleRate": "51.60",
+		"femaleRate": "48.40"
+	},
+	{
+		"name": "山东",
+		"lon": "117.02",
+		"lat": "36.67",
+		"maleCount": "51432931",
+		"femaleCount": "50094522",
+		"maleRate": "50.66",
+		"femaleRate": "49.34"
+	},
+	{
+		"name": "河南",
+		"lon": "113.75",
+		"lat": "34.77",
+		"maleCount": "49832349",
+		"femaleCount": "49533170",
+		"maleRate": "50.15",
+		"femaleRate": "49.85"
+	},
+	{
+		"name": "湖北",
+		"lon": "114.34",
+		"lat": "30.55",
+		"maleCount": "29694718",
+		"femaleCount": "28057839",
+		"maleRate": "51.42",
+		"femaleRate": "48.58"
+	},
+	{
+		"name": "湖南",
+		"lon": "112.98",
+		"lat": "28.12",
+		"maleCount": "33995673",
+		"femaleCount": "32449191",
+		"maleRate": "51.16",
+		"femaleRate": "48.84"
+	},
+	{
+		"name": "广东",
+		"lon": "113.280637",
+		"lat": "23.125178",
+		"maleCount": "66873646",
+		"femaleCount": "59138864",
+		"maleRate": "53.07",
+		"femaleRate": "46.93"
+	},
+	{
+		"name": "广西",
+		"lon": "108.33",
+		"lat": "22.82",
+		"maleCount": "25916169",
+		"femaleCount": "24210635",
+		"maleRate": "51.70",
+		"femaleRate": "48.30"
+	},
+	{
+		"name": "海南",
+		"lon": "110.33119",
+		"lat": "20.031971",
+		"maleCount": "5345081",
+		"femaleCount": "4736151",
+		"maleRate": "53.02",
+		"femaleRate": "46.98"
+	},
+	{
+		"name": "重庆",
+		"lon": "106.55",
+		"lat": "29.56",
+		"maleCount": "16202133",
+		"femaleCount": "15852026",
+		"maleRate": "50.55",
+		"femaleRate": "49.45"
+	},
+	{
+		"name": "四川",
+		"lon": "104.065735",
+		"lat": "30.659462",
+		"maleCount": "42289718",
+		"femaleCount": "41385148",
+		"maleRate": "50.54",
+		"femaleRate": "49.46"
+	},
+	{
+		"name": "贵州",
+		"lon": "106.71",
+		"lat": "26.60",
+		"maleCount": "19705293",
+		"femaleCount": "18856855",
+		"maleRate": "51.10",
+		"femaleRate": "48.90"
+	},
+	{
+		"name": "云南",
+		"lon": "102.712251",
+		"lat": "25.040609",
+		"maleCount": "24420924",
+		"femaleCount": "22788353",
+		"maleRate": "51.73",
+		"femaleRate": "48.27"
+	},
+	{
+		"name": "西藏",
+		"lon": "91.12",
+		"lat": "29.65",
+		"maleCount": "1913588",
+		"femaleCount": "1734512",
+		"maleRate": "52.45",
+		"femaleRate": "47.55"
+	},
+	{
+		"name": "陕西",
+		"lon": "108.95",
+		"lat": "34.27",
+		"maleCount": "20226490",
+		"femaleCount": "19302509",
+		"maleRate": "51.17",
+		"femaleRate": "48.83"
+	},
+	{
+		"name": "甘肃",
+		"lon": "103.83",
+		"lat": "36.06",
+		"maleCount": "12700948",
+		"femaleCount": "12318883",
+		"maleRate": "50.76",
+		"femaleRate": "49.24"
+	},
+	{
+		"name": "青海",
+		"lon": "101.78",
+		"lat": "36.62",
+		"maleCount": "3033846",
+		"femaleCount": "2890111",
+		"maleRate": "51.21",
+		"femaleRate": "48.79"
+	},
+	{
+		"name": "宁夏",
+		"lon": "106.26",
+		"lat": "38.47",
+		"maleCount": "3668938",
+		"femaleCount": "3533716",
+		"maleRate": "50.94",
+		"femaleRate": "49.06"
+	},
+	{
+		"name": "新疆",
+		"lon": "87.63",
+		"lat": "43.79",
+		"maleCount": "13354380",
+		"femaleCount": "12497965",
+		"maleRate": "51.66",
+		"femaleRate": "48.34"
+	}
+]

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-综合案例-空战数据分析</title>
+
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="../../js/TGApp.min.js"></script>
+    <script src="../../lib/idb.js"></script>
+    <script src="./index.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .legends {
+        top: 40%;
+        padding: 0;
+        display: none;
+      }
+
+      .current-time {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #2edfff;
+        padding: 0 12px;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .legends .tab {
+        width: 99px;
+        height: 36px;
+        background: #002b32;
+        float: left;
+        text-align: center;
+        line-height: 2;
+        color: #ccc;
+        border-top: 3px solid #031c21;
+        box-sizing: border-box;
+        cursor: pointer;
+      }
+
+      .list-aircraft {
+        height: 400px;
+        width: 200px;
+      }
+      .guided-missile-list {
+        width: 80%;
+        height: calc(25%);
+        color: #ccc;
+        background-image: repeating-linear-gradient(180deg, #031c21 0px, #031c21 30px, #013240 30px, #013240 60px) !important;
+        float: left;
+        overflow: auto;
+      }
+
+      .guided-missile-list > div:nth-child(odd) {
+        background-color: #031c21;
+        /* 设置偶数行背景颜色 */
+        height: 30px;
+        line-height: 1.9;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 20px;
+      }
+
+      .guided-missile-list > div:nth-child(even) {
+        background-color: #013240;
+        /* 设置奇数行背景颜色 */
+        height: 30px;
+        line-height: 1.9;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 20px;
+      }
+
+      .list {
+        width: 80%;
+        height: calc(75% - 30px);
+        color: #ccc;
+        background-image: repeating-linear-gradient(180deg, #013240 0px, #013240 30px, #031c21 30px, #031c21 60px) !important;
+        float: left;
+        overflow: auto;
+      }
+
+      .list > div:nth-child(even) {
+        background-color: #031c21;
+        /* 设置偶数行背景颜色 */
+        height: 30px;
+        line-height: 1.9;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 20px;
+      }
+
+      .list > div:nth-child(odd) {
+        background-color: #013240;
+        /* 设置奇数行背景颜色 */
+        height: 30px;
+        line-height: 1.9;
+        text-align: left;
+        cursor: pointer;
+        padding-left: 20px;
+      }
+
+      .list-right {
+        width: 100%;
+        height: calc(100% - 60px);
+        overflow: auto;
+        color: #ccc;
+      }
+
+      .list-right > div:nth-child(even) {
+        background-color: #031c21;
+        /* 设置偶数行背景颜色 */
+        height: 30px;
+        line-height: 1.3;
+        text-align: center;
+      }
+
+      .list-right > div:nth-child(odd) {
+        background-color: #013240;
+        /* 设置奇数行背景颜色 */
+        height: 24px;
+        line-height: 1.5;
+        text-align: center;
+      }
+
+      .start-btn {
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        float: left;
+        margin-top: 5px;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        border: 2px solid #00accc;
+      }
+
+      .playBack {
+        border-left: 12px solid transparent;
+        border-right: 12px solid transparent;
+        border-bottom: 17px solid #00accc;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, -50%) rotate(90deg);
+      }
+
+      .pause {
+        display: block;
+        font-weight: bold;
+        font-size: 32px;
+        color: #00accc;
+        position: absolute;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-45%, -50%) rotate(90deg);
+      }
+
+      .suspend-btn {
+        width: 48px;
+        height: 48px;
+        margin-right: 10px;
+        float: left;
+        margin-top: 5px;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+        border: 2px solid #00accc;
+      }
+
+      .suspend-icon {
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #00accc;
+      }
+
+      .time-btn {
+        bottom: 21px;
+        position: absolute;
+        width: auto !important;
+        height: auto !important;
+        left: 15px;
+        display: inline-block;
+      }
+
+      .time-panel {
+        position: absolute;
+        bottom: 26px;
+        width: 100%;
+        height: 120px;
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: none;
+        box-sizing: border-box;
+      }
+
+      .time-panel label {
+        font-weight: bold;
+        font-size: 30px;
+      }
+
+      .time-panel span {
+        font-size: 14px;
+      }
+
+      .time-panel .label-btn {
+        width: 60px;
+        height: 24px;
+        font-size: 16px;
+        font-weight: bold;
+        background: rgb(0, 42, 52);
+        color: #ffffff;
+        border-top: 2px solid #007d9d;
+        line-height: 24px;
+        text-align: center;
+        cursor: pointer;
+      }
+
+      .time-panel .time-line {
+        position: absolute;
+        left: 196px;
+        right: 246px;
+        top: 50px;
+        height: 48px;
+      }
+
+      .time-panel .time-line > div {
+        position: absolute;
+        top: 16px;
+        width: 100%;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .time-panel .time-line hr {
+        position: absolute;
+        top: 5px;
+        width: 100%;
+        height: 6px;
+        border-radius: 3px;
+        background: #777777;
+        border: none;
+        outline: none;
+      }
+
+      .time-panel .time-line p {
+        width: 12px;
+        height: 12px;
+        border-radius: 100%;
+        border: none;
+        outline: none;
+      }
+
+      .time-panel .time-line p.complete {
+        position: absolute;
+        background: #fff;
+        z-index: 100;
+      }
+
+      .time-panel .time-line .complete {
+        background: #00add9;
+      }
+
+      .attribute-list {
+        position: absolute;
+        z-index: 20;
+        right: 50px;
+        transform: translateY(-50%);
+        width: 200px;
+        height: 440px;
+        top: 40%;
+        display: none;
+      }
+
+      #btnRotate {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        margin-top: 30px;
+        width: 100%;
+        height: 30px;
+        color: #ccc;
+        background: #013240;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .zoom-list {
+        width: auto;
+        height: 40px;
+        display: block;
+        position: absolute;
+        right: 25px;
+        bottom: 30px;
+      }
+
+      .zoom-list div {
+        width: 50px;
+        height: 40px;
+        background: #032a3b;
+        border-top: 2px solid #007d9d;
+        float: left;
+        line-height: 3;
+        margin: 3px;
+        text-align: center;
+        cursor: pointer;
+        box-sizing: border-box;
+      }
+
+      .time-panel .times {
+        position: absolute;
+        bottom: 5px;
+        left: 196px;
+        right: 246px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .time-panel .mark {
+        z-index: 1;
+      }
+
+      .time-panel .mark img {
+        position: absolute;
+        right: 0;
+      }
+
+      .list-stats {
+        font-size: 20px;
+        color: #00add9;
+      }
+
+      .prompt {
+        width: 105px;
+        height: 33px;
+        position: absolute;
+        transform: translate(-44px, -29px);
+        font-size: 14px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      .list-name {
+        width: calc(20% - 1px);
+        height: calc(75% - 30px);
+        color: #ccc;
+        float: left;
+        background: #031c21;
+        border-right: 1px solid #000000;
+        text-align: center;
+        line-height: 16;
+      }
+
+      .guided-missile-name {
+        width: calc(20% - 1px);
+        height: calc(25%);
+        color: #ccc;
+        float: left;
+        background: #031c21;
+        border-right: 1px solid #000000;
+        text-align: center;
+        line-height: 6;
+      }
+
+      .scroll-bar-list {
+        overflow: auto;
+        height: calc(100% - 30px);
+        width: 100%;
+        color: #ccc;
+      }
+
+      .take-off {
+        padding: 5px 10px;
+        color: #fff;
+        background-color: rgb(0, 42, 52);
+        margin: 4px 0;
+        cursor: pointer;
+        border-top: 3px solid #007d9d;
+        font-size: 14px;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-综合案例-空战数据分析 </span><br />
+        <span class="ctrl">使用 modelTrailLayer 接口大范围移动模型</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <div class="legends">
+        <div class="tab" onclick="aircraftTabClick(1)">红方</div>
+        <div style="width: 2px; height: 36px; float: left"></div>
+        <div class="tab" onclick="aircraftTabClick(2)">蓝方</div>
+        <div style="width: 100%; height: 3px; float: left"></div>
+        <div class="list-aircraft">
+          <div class="list-name">飞机</div>
+          <div class="list"></div>
+          <div style="width: 100%; height: 2px; float: left"></div>
+          <div class="guided-missile-name">导弹</div>
+          <div class="guided-missile-list"></div>
+        </div>
+      </div>
+
+      <!-- 进度条 dom -->
+      <div class="time-panel" v-cloak>
+        <span class="time-btn">
+          <div class="start-btn" onclick="play()">
+            <div class="pause">＝</div>
+            <div class="playBack"></div>
+          </div>
+          <div class="suspend-btn" onclick="reset()">
+            <div class="suspend-icon"></div>
+          </div>
+        </span>
+        <div class="times">
+          <span class="start-time"></span>
+          <span class="current-time"></span>
+          <span class="end-time"></span>
+        </div>
+        <div class="time-line">
+          <div class="line">
+            <p class="complete" style="left: calc(14.4317% - 6px)" onclick="setKeyFrame('2016-6-24 10:29:25',0)"></p>
+            <p class="complete" style="left: calc(32.4775% - 6px)" onclick="setKeyFrame('2016-6-24 11:06:12',1)"></p>
+            <p class="complete" style="left: calc(42.1995% - 6px)" onclick="setKeyFrame('2016-6-24 11:26:01',2)"></p>
+            <p class="complete" style="left: calc(65.2167% - 6px)" onclick="setKeyFrame('2016-6-24 12:12:56',3)"></p>
+            <p class="complete" style="left: calc(72.5266% - 6px)" onclick="setKeyFrame('2016-6-24 12:27:50',4)"></p>
+
+            <div class="prompt take-off" onclick="setKeyFrame('2016-6-24 10:29:25',0)" style="left: calc(14.4317% - 6px)">蓝方导弹发射</div>
+            <div
+              class="prompt take-off"
+              onclick="setKeyFrame('2016-6-24 11:06:12',1)"
+              style="left: calc(32.4775% - 6px); width: 70px; transform: translate(-27px, -29px)"
+            >
+              缠斗
+            </div>
+            <div class="prompt take-off" onclick="setKeyFrame('2016-6-24 11:26:01',2)" style="left: calc(42.1995% - 6px); transform: translate(-27px, -29px)">
+              缠斗2
+            </div>
+            <div class="prompt take-off" onclick="setKeyFrame('2016-6-24 12:12:56',3)" style="left: calc(65.2167% - 6px); transform: translate(-88px, -29px)">
+              红方飞机降落
+            </div>
+            <div class="prompt take-off" onclick="setKeyFrame('2016-6-24 12:27:50',4)" style="left: calc(72.5266% - 6px); transform: translate(-4px, -29px)">
+              蓝方飞机起飞
+            </div>
+            <hr />
+            <!-- <p id="completeId"></p> -->
+          </div>
+          <div class="mark">
+            <hr class="complete" />
+            <div
+              id="imageId"
+              style="
+                width: 20px;
+                height: 20px;
+                right: 0px;
+                position: absolute;
+                border-radius: 100%;
+                background: rgb(204, 204, 204, 0.5);
+                border-radius: 50px;
+                transform: translateX(50%);
+              "
+            >
+              <div style="border-radius: 100%; background: #ffffff; width: 12px; height: 12px; transform: translate(4px, 4px)"></div>
+            </div>
+            <!-- <img  src="" /> -->
+          </div>
+        </div>
+        <span class="zoom-list">
+          <div class="zoomClass" onclick="speedClick(1)">X1</div>
+          <div class="zoomClass" onclick="speedClick(2)">X2</div>
+          <div class="zoomClass" onclick="speedClick(3)">X4</div>
+        </span>
+      </div>
+
+      <div class="attribute-list">
+        <div class="list-right">
+          <div style="padding-left: 20px; text-align: left">当前经度（°）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前纬度（°）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前高度（m）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前偏航角（°）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前俯仰角（°）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前翻滚角（°）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+          <div style="padding-left: 20px; text-align: left">当前速度（km/h）</div>
+          <div style="padding-left: 20px; text-align: left" class="list-stats"></div>
+        </div>
+        <div id="btnRotate">
+          <span>环绕</span>
+          <input type="checkbox" id="chkRotate" onchange="changeRotate()" />
+        </div>
+      </div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  html,
+  body {
+    background-color: #00000000;
+  }
+</style>

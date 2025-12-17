@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>平面中国_摄像机_跟随_运动方式1</title>
+
+  <link rel="stylesheet" href="../../css/common.css" />
+  <script src="../../js/config.js"></script>
+  <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+  <style>
+    #app {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-size: 18px;
+    }
+
+    .divLeft {
+      position: fixed;
+      top: 50%;
+      display: flex;
+      flex-direction: row;
+      justify-content: baseline;
+    }
+    .legends li{
+      width: 208px;
+    }
+    .legends-right{
+      position: absolute;
+      top: 50%;
+      right:3%;
+      transform: translateY(-50%);
+      z-index: 20;
+      padding: 20px;
+      transform: translateY(-50%);
+    }
+    .legends-right li{
+      width: 208px;
+    }
+    .legends-right li{
+      width: 208px;
+      padding: 5px 10px;
+      color: #fff;
+      background-color: rgb(0, 42, 52);
+      margin: 4px 0;
+      cursor: pointer;
+      border-top: 3px solid #007d9d;
+      font-size: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .legends-right li span{
+      display: inline-block;
+      width: 46px;
+      font-size: 20px;
+    }
+    .time-panel {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 150px;
+      padding: 0 70px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+      justify-content: space-evenly;
+    }
+
+    .time-panel .time-line {
+      position: relative;
+      height: 40px;
+      /* margin-left: -65px; */
+    }
+
+    .time-panel .time-line>div {
+      position: absolute;
+      top: 16px;
+      width: 100%;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .time-panel .time-line hr {
+      position: absolute;
+      left: 16px;
+      top: 5px;
+      width: calc(100% - 32px);
+      height: 6px;
+      background: #777777;
+      border: none;
+      outline: none;
+    }
+
+    .time-panel .time-line p {
+      width: 16px;
+      height: 16px;
+      border-radius: 100%;
+      background: #777777;
+      border: none;
+      outline: none;
+    }
+
+    .time-panel .time-line .complete {
+      background: #ffffff;
+    }
+    .time-panel>div {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      /* margin-top: 20px; */
+    }
+
+    .take-off{
+      float: left;
+      display: block;
+      background: #ffffff;
+      color: #000000;
+      font-size: 16px;
+    }
+    .take-off-time{
+      margin: 0 10px;
+      font-size: 16px;
+      margin-top: -1px;
+      float: left;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="https://www.tuguan.net" target="_blank">图观引擎</a>
+      <span>-API代码示例-对象控制-摄像机_跟随_运动方式1</span><br />
+      <span>使用 setModelTransform2 接口在国家级移动模型，跟随视角正确</span>
+      <!-- <img src="//tuguan.gitee.io/tgapiexample/image/tuguan.png" /> -->
+      <img src="/image/tuguan.png" />
+    </div>
+
+    <!-- 场景 -->
+    <div id="container"></div>
+
+    <!-- 按钮 -->
+    <ul class="legends" style="transform: translateY(-50%)">
+      <li class="div" onclick="resetting()">复位</li>
+      <li class="div" onclick="followShotSelf()">模型跟随镜头-自身</li>
+      <li class="div" onclick="followShotWorld()">模型跟随镜头-世界</li>
+      <li class="div">
+        <span>环绕</span>
+        <input type="checkbox" id="surround" onchange="surround()" />
+      </li>
+
+
+      <li class="div" style="margin-top: 50px;" onclick="followShotWorld()">2倍速</li>
+      <li class="div" onclick="followShotWorld()">10倍速</li>
+      <li class="div" onclick="followShotWorld()">50倍速</li>
+
+
+      <!-- <li class="div" onclick="focusingModel()">聚焦模型</li> -->
+      <!-- <li class="div" onclick="mobileLondon()">伦敦</li>
+      <li class="div" onclick="mobileSouthAfrica()">南非</li>
+      <li class="div" onclick="mobileBrazil()">巴西圣保罗</li>
+      <li class="div" onclick="mobileSydney()">悉尼</li>
+      <li class="div" onclick="mobileNewYork()">纽约</li> -->
+      <!-- <li class="div" onclick="mobileBeijing()">北京</li> -->
+    </ul>
+    <ul class="legends-right" >
+      <li class="div" onclick="mobileNewYork()">北京<span>→</span>纽约</li>
+      <li class="div" onclick="mobileLondon()">北京<span>→</span>伦敦</li>
+      <li class="div" onclick="mobileSydney()">北京<span>→</span>悉尼</li>
+      <li class="div" onclick="mobileSouthAfrica()">北京<span>→</span>南非</li>
+      <li class="div" onclick="mobileBrazil()">北京<span>→</span>巴西圣保罗</li>
+    </ul>
+
+    <div class="time-panel">
+      <div>
+        <span>
+          <div class="take-off">起飞</div>
+          <span class="take-off-time">时间：08:15</span>
+        </span>
+        <span>
+          <span class="take-off-time">时间：08:15</span>
+          <div class="take-off">降落</div>
+        </span>
+      </div>
+      <div >
+        <!-- <div class="label-btn" @click="reset('start')">开始</div> -->
+        <span style="font-size: 30px;font-family: bold;">北京大兴机场(PKX)</span>
+        <span style="font-size: 30px;font-family: bold;">肯尼迪国际机场(JFK)</span>
+        <!-- <div class="label-btn" @click="reset('end')">结束</div> -->
+      </div>
+      <div class="time-line">
+        <div class="line">
+          <p class="complete"></p>
+          <hr />
+          <p id="completeId"></p>
+        </div>
+        <div class="mark" style="width: 3%;">
+          <hr class="complete" />
+          <span class="current-time"></span>
+          <div id="imageId" style="width: 48px;height: 48px;right: 0px;position: absolute; background: url('/image/fly.png');border-radius: 50px;" onmousedown="startDragProgressBar()"></div>
+          <!-- <img  src="" /> -->
+        </div>
+      </div>
+    </div>
+</body>
+</html>
+<script src="./index.js"></script>

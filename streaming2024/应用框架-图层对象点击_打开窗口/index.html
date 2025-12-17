@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-应用框架-图层对象点击_打开窗口</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-应用框架-图层对象点击_打开窗口</span><br />
+        <span class="ctrl">点击图层中的“摄像头”，弹窗显示视频画面内容</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                addLandmark();
+                //注册地标图层点击事件
+                onLandmarkLayerClick();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    //添加图层
+    function addLandmark() {
+      let jsonData = {
+        id: 'landmarkLayer', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '地标图层', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        autoScale: false, // 默认false，如果开启true后，图标会按照是摄像机远近自动缩放大小
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+        legends: [
+          // 定义图层包含图例，支持为不同图例定义各自样式
+          {
+            name: '摄像头', // 图层内图例名称，新建时调用者自己传入的唯一名称，用于各种操作的图例识别
+            color: '#73FFFF', // 颜色（HEX 颜色值）
+            iconName: 'camera', // 内置图标名称，见图观官网统一API开发手册
+            iconScale: 0.5, // 默认值是1表示原大，0 - 1：表示缩小倍率，大于1：表示放大倍率
+          },
+        ],
+        data: [
+          // 定义图层可视化数据
+          {
+            id: '1', // 图层子对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+            type: '摄像头', // 地标点的图例类别名称
+            label: '', // 图标标签文本
+            coord: [116.34994620600183, 40.082688024521055], // XY 轴坐标，X：经度；Y：纬度
+            coordZ: 3, // Z 轴高度（单位：米）
+          },
+          {
+            id: '2',
+            type: '摄像头',
+            label: '',
+            coord: [116.34643117370462, 40.08378211577987],
+            coordZ: 0,
+          },
+          {
+            id: '3',
+            type: '摄像头',
+            label: '',
+            coord: [116.34866475629556, 40.08489952796061],
+            coordZ: 14,
+          },
+        ],
+      };
+
+      appInstance.uniCall('addLandmarkLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    //点击弹出视频tip
+    function addTip(ids) {
+      if (!document.getElementById(`${ids}`)) {
+        let videoBox = document.createElement('div');
+        videoBox.id = ids;
+        videoBox.innerHTML = `
+                <div  class="video">
+                    <video autoplay muted loop src="https://projects.obs.cn-north-4.myhuaweicloud.com/TGAPIEX/video/%E8%BD%A6%E9%97%B8.mp4" style="width:100%;height:100%;"></video>
+                </div>
+                        `;
+        document.body.appendChild(videoBox);
+
+        // 动态添加tip
+        let jsonData = {
+          id: ids,
+          url: '',
+          divId: ids,
+          size: [260, 230],
+          offset: [0, -10],
+          isShowClose: true,
+          overlayType: 'landmarkLayer',
+        };
+        appInstance.uniCall('addOverlayTip', jsonData, (result) => {
+          console.log(result);
+        });
+      }
+    }
+
+    function onLandmarkLayerClick() {
+      //开启地标图点击事件
+      appInstance.uniCall(
+        'pickOverlay',
+        {
+          overlayType: 'landmarkLayer',
+          idLayer: '',
+          type: 'click',
+          isShowDecorator: true,
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+      //监听地标图点击事件
+      appInstance.uniCall(
+        'addEventListener',
+        {
+          eventName: 'onLandmarkLayerClick',
+          callback: function (event) {
+            addTip(event.idObj);
+          },
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+    }
+
+    init();
+  </script>
+</html>

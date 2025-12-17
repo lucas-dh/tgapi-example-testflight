@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图观引擎-API代码示例-环境仿真-精确日照_日晷</title>
+
+
+  <link rel="stylesheet" href="../../css/common.css" />
+  <script src="../../js/config.js"></script>
+  <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+  <style>
+    /* ---mystyle--- */
+    .custom-panel {
+      transform: scale(0.88);
+      position: fixed;
+      top: 78px;
+      right: -21px;
+      width: 524px;
+      height: 130px;
+      padding: 20px;
+      border: 1px solid #baafa3;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      color: white;
+      border: 1px solid #a3a4a6;
+    }
+
+    .divMask {
+      position: fixed;
+      width: 524px;
+      height: 130px;
+      padding: 20px;
+      border: 1px solid #baafa3;
+      background-color: rgba(0, 0, 0, 0.36);
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      color: white;
+      border: 1px solid #a3a4a6;
+      display: none;
+      transform: scale(0.88);
+      top: 78px;
+      right: -21px;
+    }
+
+    .blue-box {
+      background-color: #327396;
+      padding: 4px 8px;
+      margin-right: 20px;
+      height: 24px;
+    }
+
+    .blue-box:nth-of-type(1) {
+      width: 192px;
+    }
+
+    .blue-box:nth-of-type(2) {
+      width: 144px;
+    }
+
+    .blue-box:nth-of-type(3) {
+      width: 101px;
+    }
+
+    .divShowValue {
+      font-size: 34px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    button {
+      color: #c2d5e0;
+      background-color: #327396;
+      border: 1px solid #44b3dd;
+      padding: 2px 10px;
+      cursor: pointer;
+      border-radius: 4px !important;
+
+    }
+
+    .blue-box button {
+      float: right;
+      width: 48px;
+      height: 24px;
+      padding: 0px;
+      font-size: 14px;
+    }
+
+    .blue-box .el-icon-close {
+      float: right;
+      scale: 1.3;
+      margin-top: 4px;
+      margin-right: -3px;
+      cursor: pointer;
+    }
+
+    #btnNow {
+
+      float: left;
+      margin-top: 12px;
+      width: 130px;
+      height: 32px;
+      padding: 4px 0px;
+      background-color: #327396;
+      font-size: 16px;
+
+    }
+
+    .speed {
+      grid-column: 2 / span 2;
+    }
+
+    .divWindow {
+      top: 20px;
+      right: 20px;
+      width: 216px;
+      height: 170px;
+      position: fixed;
+      color: white;
+      border: 1px solid #a3a4a6;
+      background-color: rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .divWindow .blue-box {
+      width: 200px;
+    }
+
+
+    select {
+      height: 28px;
+      padding-left: 2px;
+      border-radius: 3px;
+      border-color: #a3a4a6;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      line-height: 30px;
+
+    }
+
+
+    select:focus option:checked {
+      color: white;
+      background-color: 327396;
+    }
+
+    .divWindow .child {
+      width: 170px;
+      margin-top: 15px;
+      margin-left: 20px;
+    }
+
+    .divSelectDate {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .divSelectDate select {
+      margin-right: 3px;
+      font-size: 14px;
+
+    }
+
+    .divSelectDate>:nth-child(1),
+    .divSelectDate>:nth-child(4) {
+      width: 58px;
+
+    }
+
+    .divSelectDate>:nth-child(2) {
+      width: 52px;
+
+    }
+
+    .divSelectDate>:nth-child(3) {
+      width: 52px;
+    }
+
+
+    .divOkButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 20px;
+      margin-right: 12px;
+      margin-bottom: 10px;
+    }
+
+    .divOkButton button {
+      width: 60px;
+      height: 28px;
+      margin-right: 5px;
+    }
+
+    .divSetDate {
+      top: 139px;
+      right: 173px;
+      transform: scale(0.88);
+      display: none;
+    }
+
+    /* .divSetTime {
+      top: 160px;
+      right: 178px
+    } */
+
+    .divSetWeather {
+      top: 160px;
+      right: 40px;
+    }
+
+    .divSetWeather .divOkButton {
+      margin-top: 40px;
+    }
+
+    .divSetWeather .child {
+      margin-top: 35px;
+    }
+    /* ---mystyle--- */
+
+    .custom-panel {
+      width: 390px;
+
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+
+    }
+
+    .divMask {
+      position: fixed;
+      width: 390px;
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      display: none;
+    }
+
+    .riguiIntro {
+      transform: scale(0.88);
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      height: 920px;
+      top: -53px;
+      left: -90px;
+      border: 1px solid #baafa3;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      scale: 80%
+    }
+
+    .riguiIntro .introImg img {
+      margin-top: 10px;
+      width: 600px;
+      height: 400px;
+      margin-bottom: 4px;
+    }
+
+    .riguiIntro .introImg .el-icon-zoom-in {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      scale: 1.4;
+      cursor: pointer;
+      color: black;
+      width: 18px;
+      height: 18px;
+    }
+
+    .riguiIntro .introImg {
+      position: relative;
+      display: inline-block;
+    }
+
+    .riguiIntro .title {
+      font-size: 32px;
+    }
+
+    .riguiIntro .info {
+      grid-column: 1 / span 2;
+      font-size: 18px;
+      margin-top: 12px;
+      margin-bottom: 20px;
+      line-height: 28px;
+      color: #c8c8c8;
+    }
+
+    .riguiIntro .info p {
+      text-indent: 2em;
+      /* 设置首行缩进为2个字符宽度 */
+    }
+
+    .riguiIntro .info .H2 {
+      font-size: 22px;
+      font-weight: bold;
+      color: #e7e6e6;
+      text-indent: 1em;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+
+    .view-image-dialog-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      background-color: #0000007F;
+    }
+
+    .view-image-dialog-container .image-wrapper {
+      width: 960px;
+      height: 640px;
+    }
+
+    .view-image-dialog-container .image-wrapper img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .blue-box:nth-of-type(3) {
+      width: 192px;
+    }
+
+    .blue-box:nth-of-type(4) {
+      width: 144px;
+    }
+
+
+    .divSetDate {
+      top: 160px;
+      right: 222px;
+      display: none;
+    }
+
+    .divSetTime {
+      top: 139px;
+      right: -2px;
+      display: none;
+      transform: scale(0.88);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-环境仿真-精确日照_日晷</span><br />
+      <span>展示时间控制_真实光照</span>
+       <img src="../../image/tuguan.png" />
+    </div>
+    <!-- 场景 -->
+    <div id="container"></div>
+
+
+    <div class="custom-panel">
+
+      <div class="blue-box">日期
+        <button onclick="setDate()">设置</button>
+      </div>
+
+      <div class="blue-box">时间
+        <button onclick="setTime()">设置</button>
+      </div>
+
+      <label class="divShowValue"> </label>
+      <div class="divShowValue"> </div>
+
+      <button id="btnNow" onclick="goToToday()">恢复当前时间</button>
+
+    </div>
+    <div class="divMask" ></div>
+    <!--日期设置窗口-->
+    <div class="divWindow divSetDate" >
+      <div class="blue-box">日期设置
+        <i class="el-icon-close " onclick="closeWindow()"></i>
+      </div>
+      <select id="seasonSelect" class="child" onchange="changeSolarTerms()">
+      </select>
+      <div class="divSelectDate">
+        <select id="seasonSelectOne" onchange="changeYear()">
+        </select>
+        <select id="seasonSelectTwo" onchange="changeMonth()" :disabled="isDateDisabled">
+        </select>
+        <select id="seasonSelectThree" onchange="changeDay()" :disabled="isDateDisabled">
+        </select>
+      </div>
+      <div class="divOkButton">
+        <button onclick="closeWindow()">取消</button>
+        <button onclick="updateDate()">确定</button>
+      </div>
+    </div>
+
+    <!--时间设置窗口-->
+    <div class="divWindow divSetTime">
+      <div class="blue-box">时间设置
+        <i class="el-icon-close" onclick="closeWindow()"></i>
+      </div>
+      <select id="timeSelect" class="child" onchange="changePredefinedTime()">
+      </select>
+      <div class="divSelectDate">
+        <select id="timeSelectOne" onchange="changeHour()" :disabled="isTimeDisabled">
+        </select>
+        <select id="timeSelectTwo" onchange="changeMinute()":disabled="isTimeDisabled">
+        </select>
+        <select id="timeSelectThree" onchange="changeSecond()" :disabled="isTimeDisabled">
+        </select>
+      </div>
+      <div class="divOkButton">
+        <button onclick="closeWindow()">取消</button>
+        <button onclick="updateTime()">确定</button>
+      </div>
+    </div>
+   
+
+    <div class="riguiIntro">
+      <div class="title">日晷</div>
+      <div class="info">
+        <p class="H2">日晷位置</p>
+        <p>当前坐标：东经 116°，北纬 40°，位于北京周边某地。</p>
+
+        <p>
+        <p class="H2">原理介绍</p>
+        <p>
+          日晷是一种利用太阳的位置和阴影来显示时间的仪器。 晷面两面都有刻度，刻度是等分的，分为子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥十二时辰，
+          每个时辰代表两个小时。 </p>
+        <p>当太阳光照在日晷上时，晷针的影子就会投向晷面，太阳由东向西移动，投向晷面的晷针影子也慢慢地由西向东移动。太阳升起时，阴影最短；正午时分，阴影最长；太阳落山时， 阴影再次缩短。
+        </p>
+        <div class="introImg"> 
+          <img class="el-icon-zoom-in" onclick="viewImageClick()" src="./magnifying.png" />
+          <!-- <i onclick="viewImageClick()"></i> -->
+          <img src="./rigui.png" />
+        </div>
+        <p class="H2">使用说明</p>
+        <p>
+          春分至秋分，由于太阳高度大，<label style="color:red">使用日晷的正面晷针读取时间； </label> </p>
+        <p>秋分至冬至，由于太阳高度低，<label style="color:red">使用日晷的背面晷针读取时间；</label></label>
+        </p>
+
+        <P>
+          在春分日和秋分日，由于晷面和赤道平行，太阳照射日晷侧面，日晷不能正常使用。
+        </P>
+      </div>
+    </div>
+    <div class="view-image-dialog-container" onclick="viewOffImageClick()">
+      <div class="image-wrapper">
+        <img src="./rigui.png" alt="">
+      </div>
+    </div>
+  </div>
+  </div>
+
+</html>
+
+<script src="./riGui.js"></script>

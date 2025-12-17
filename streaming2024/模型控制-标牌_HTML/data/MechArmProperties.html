@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <body>
+      <div class="app" id="app">
+        <!-- 场景 -->
+        <div class="placard">
+          <p class="scutcheon-header">
+            <span>对象信息</span>
+            <!-- <span onclick="removeTip()" style="margin-right: -15px;font-size: 25px;text-align: center;cursor: pointer;">×</span> -->
+          </p>
+          <div class="scutcheon">
+            <span>编号：</span>
+            <span>JXB-001</span>
+          </div>
+          <div class="scutcheon" style="margin-top: 3px;">
+            <span>型号：</span>
+            <span>VS65EGM</span>
+          </div>
+          <div class="scutcheon" style="margin-top: 3px;">
+            <span>最大工作范围：</span>
+            <span>R=733mm</span>
+          </div>
+          <div class="scutcheon" style="margin-top: 3px;">
+            <span>最大搬运量：</span>
+            <span>8kg</span>
+          </div>
+          <div class="scutcheon" style="margin-top: 3px;">
+            <span>工作时长</span>
+            <span>6.8h</span>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>
+<script>
+  function removeTip(){
+    var appInstance = window.parent.appInstance;
+    let jsonData = {
+      id: "机械臂底座_0",
+      nodeId: "",
+    };
+    appInstance.uniCall("removeModelTip", jsonData, (result) => {
+      //取消当前选中模型
+      let scene = {
+        id: '机械臂底座_0',
+        modelType: 'model',
+        selected: false,
+      };
+      appInstance.uniCall('clickModel', scene, (result) => {
+        console.log(result);
+      });
+    });
+  }
+</script>
+<style>
+  html,
+  body,
+  #app{
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+  .placard {
+      position: absolute;
+      width: 264px;
+      height: 210px;
+      background: url(./background.png) no-repeat;
+      color: rgb(255, 255, 255);
+      font-family: 微软雅黑;
+      padding: 5px 0px 0px 30px; 
+    }
+  .scutcheon-header{
+    width: 208px;
+    height: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .scutcheon-header span{
+    width: 76px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .scutcheon{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+  .scutcheon span{
+    display: inline-block;
+    width: 50%;
+    font-size: 16px;
+  }
+  .scutcheon span:nth-of-type(2){
+    width: 42%;
+  }
+</style>

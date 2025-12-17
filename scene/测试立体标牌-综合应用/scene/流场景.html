@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>端场景</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <script src="../../lib/axios.js"></script>
+    <style>
+      #container {
+        transform: none;
+        position: static !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <div id="container" class="container"></div>
+    </div>
+  </body>
+  <script>
+    window.needsLoadScene = true;
+    window.appInstance = new TGApp.App();
+    window.appInstance.initService(
+      {
+        container: document.getElementById('container'),
+        mode: 'streaming',
+        token: streamingConfigTest.shequToken, //StreamingServer服务器获取token
+        url: streamingConfigTest.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+      },
+      (result) => {
+        window.appInstance.uniCall(
+          'addEventListener',
+          {
+            eventName: 'onServiceInit',
+            callback: (res) => {
+              setTimeout(() => {
+                if (typeof window.needsLoadScene === 'function') {
+                  window.needsLoadScene && window.needsLoadScene();
+                }
+              }, 1000);
+            },
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
+    );
+  </script>
+</html>

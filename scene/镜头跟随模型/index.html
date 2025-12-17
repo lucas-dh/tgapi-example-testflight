@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图观引擎-API代码示例-视野控制-视点跟随</title>
+  <link rel="stylesheet" href="../../css/common.css" />
+  <link rel="stylesheet" href="../../css/elementui.css" />
+  <script src="../../js/config.js"></script>
+
+ <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+  <script src="../../lib/axios.js"></script>
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/elementui.js"></script>
+  <script src="./main.js"></script>
+  <style>
+    .legends div {
+      width: 200px;
+      padding: 5px 10px;
+      color: #fff;
+      margin: 4px 0;
+      cursor: pointer;
+      font-size: 20px;
+      text-align: center;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(0, 42, 52);
+    }
+
+    .legends div .el-checkbox {
+      width: 40px;
+    }
+
+    .legends div .el-checkbox .el-checkbox__input {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-视野控制-视点跟随</span><br />
+      <span class="ctrl">点击按钮设置镜头跟随模型效果，勾选复选框开启/关闭环绕效果</span>
+      <img src="../../image/tuguan.png" />
+    </div>
+    <!-- 场景 -->
+    <div id="container"></div>
+    <!-- 底部 -->
+    <ul class="legends">
+      <li style="width: 200px" v-for="(item,index) in legendList" :key="item.id"
+        @click.stop="changeModelArticulation(item)" :class="[item.active?'active':'']">
+        {{item.action}}
+      </li>
+      <div><span>环绕</span></el-checkbox><el-checkbox v-model="isSelfActive"
+          @change="changeRelative(isSelfActive)"></el-checkbox></div>
+    </ul>
+    <!-- 底部 -->
+    <div class="footer-box">
+      <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+      <span>版权所有 北京数字冰雹信息技术有限公司</span>
+    </div>
+    <!-- 进度条遮罩 -->
+    <div v-show="isZZ" class="avw-loader">
+      <section><span class="loader-112">L &nbsp; ading </span></section>
+    </div>
+  </div>
+</body>
+
+</html>

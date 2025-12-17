@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型数据图层-模型地标图_动画控制</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .app > .avw-loader {
+        display: none;
+      }
+      .legends {
+        width: 200px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型数据图层-模型地标图_动画控制</span><br />
+        <span>展示通过设置 isReferenceType=true 参数与模型动画，添加“引用型模型地标图”的加载性能</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <ul class="legends">
+        <li onclick="legendClick(0)">随机动画</li>
+        <li onclick="legendClick(1)">机械臂向左</li>
+        <li onclick="legendClick(2)">机械臂向右</li>
+        <li onclick="legendClick(2)">机械臂向前</li>
+        <li onclick="legendClick(2)">机械臂向后</li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var trailData = undefined;
+    var lastState = undefined;
+    var lastIndex = 0;
+    var legends = [
+      {
+        state: '随机动画',
+      },
+      {
+        state: '机械臂向左',
+      },
+      {
+        state: '机械臂向右',
+      },
+      {
+        state: '机械臂向前',
+      },
+      {
+        state: '机械臂向后',
+      },
+    ];
+    var legendPanel = document.querySelector('.legends');
+    var avwLoader = document.querySelector('.avw-loader');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.jxbToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                avwLoader.style.display = 'flex';
+                appInstance.uniCall(
+                  'addEventListener',
+                  {
+                    eventName: 'onStateSwitch',
+                    callback: function (event) {
+                      console.log(event);
+                      avwLoader.style.display = 'none';
+                    },
+                  },
+                  (result) => {
+                    console.log(result);
+                  }
+                );
+                window.appInstance.uniCall(
+                  'switchState',
+                  {
+                    name: '动画',
+                    sceneName: '关节控制',
+                  },
+                  (result) => {
+                    console.log(result);
+                    legendPanel.style.display = 'block';
+                    addStart(trailData, 'modelLayer');
+                  }
+                );
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 设置节点
+    function legendClick(index) {
+      if (lastIndex == index) {
+        return;
+      }
+      legendPanel.children[lastIndex].classList.remove('active');
+      legendPanel.children[index].classList.add('active');
+      lastIndex = index;
+
+      if (lastState) {
+        trailData.map((val, index) => {
+          let jsonData = {
+            id: 'modelLayer' + index,
+            layerId: 'modelLayer',
+            name: lastState == '随机动画' ? val.animationType : lastState,
+            state: 'stop',
+          };
+
+          appInstance.uniCall('playModelAnimation', jsonData, (result) => {
+            console.log(result);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+          });
+        });
+      }
+
+      let item = legends[index];
+      lastState = item.state;
+      trailData.map((val, index) => {
+        let randomNum = Math.floor(Math.random() * 3) + 1;
+        if (item.state == '随机动画') {
+          val.animationType = legends[randomNum].state;
+        }
+        let jsonData = {
+          id: 'modelLayer' + index,
+          layerId: 'modelLayer',
+          name: item.state == '随机动画' ? legends[randomNum].state : item.state,
+          state: 'begin',
+        };
+
+        appInstance.uniCall('playModelAnimation', jsonData, (result) => {
+          console.log(result);
+        });
+      });
+    }
+
+    // 添加模型地标图
+    function addStart(list, id) {
+      let Data = [];
+      list.map((item, index) => {
+        let obj = {
+          id: id + index,
+          label: '',
+          coord: item.coord, // XY 轴坐标，X：经度；Y：纬度
+          coordZ: 0.1, // Z 轴高度（单位：米）
+          rotation: [0, 0, 0],
+          type: 'modelLayer', // 数据点图例类别
+        };
+        Data.push(obj);
+      });
+
+      let jsonData = {
+        id: id, // 模型对象图层 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        coordType: 1, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 1, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        snapSurface: 1, // 启用自动贴地。0：不贴地；1：贴地
+        alpha: 1, // 透明度，0：完全透明；1：完全不透明
+        modelMaxDistance: 1500, // 模型最大可见距离（单位：米），不可见后显示icon
+        iconMaxDistance: 1500, // icon最大可见距离（单位：米），不可见后隐藏
+        modelLandmarkDataId: '', // 对应本服务器上modelLandmark数据Id，如果找到id，则下方的data不起作用
+        visible: true, // 添加当前图层时默认显示还是隐藏
+        isReferenceType: true,
+        legends: [
+          {
+            name: 'modelLayer', // 图层内图例名称，新建时调用者自己传入的唯一名称，用于各种操作的图例识别
+            modelType: '机械臂动画', // 模型类型
+            scale: 1, // 整体放缩倍数（单位：倍）
+            iconName: 'sensor', // 内置图标名称，详见下表：内置图标；或根据项目，在场景中预置好的图标对象的名称，包含文字样式定义
+            labelColor: '#ff0000', // 标签文本颜色，可选值，默认白色
+            labelBackgroundColor: '#333333', // 标签文本背景颜色，可选值，默认灰色
+          },
+        ],
+        data: Data,
+      };
+      appInstance.uniCall('addModelLandmarkLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 创建模型轨迹图数据
+    function createData() {
+      let data = [];
+      for (let n = 0; n < 10; n++) {
+        for (let i = 0; i < 10; i++) {
+          let list = {
+            coord: [-10 + i * 2, -10 + n * 2],
+          };
+          data.push(list);
+        }
+      }
+      trailData = data;
+    }
+
+    createData();
+    init();
+  </script>
+</html>

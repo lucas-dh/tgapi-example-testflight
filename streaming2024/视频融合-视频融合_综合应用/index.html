@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-视频融合-视频融合_综合应用</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="../../js/config.js"></script>
+
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      .message_right {
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        right: 1%;
+        left: auto;
+      }
+
+      .legends li {
+        width: 200px;
+      }
+      .app > .avw-loader {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-视频融合-视频融合_综合应用</span><br />
+        <span class="ctrl">点击按钮选择不同对象，聚焦展示视频内容</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends"></ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var BuildingList = []; //视频融合对象列表
+  var rowData = [
+    {
+      id: 'StaticMeshActor_52', // 视频对象 id，唯一标识，用于各种操作的对象识别
+      duration: 1, // 从上一位置移动到这个新位置花费的时间长度（单位，秒）
+      pitch: -0.98,
+      heading: 0,
+      distance: 370,
+    },
+    {
+      id: 'StaticMeshActor_53', // 视频对象 id，唯一标识，用于各种操作的对象识别
+      duration: 1, // 从上一位置移动到这个新位置花费的时间长度（单位，秒）
+      pitch: 0.3,
+      heading: 0,
+      distance: 240,
+    },
+    {
+      id: 'StaticMeshActor_54', // 视频对象 id，唯一标识，用于各种操作的对象识别
+      duration: 1, // 从上一位置移动到这个新位置花费的时间长度（单位，秒）
+      pitch: 0.2,
+      heading: 0,
+      distance: 243,
+    },
+    {
+      id: 'StaticMeshActor_55', // 视频对象 id，唯一标识，用于各种操作的对象识别
+      duration: 1, // 从上一位置移动到这个新位置花费的时间长度（单位，秒）
+      pitch: 0,
+      heading: 180,
+      distance: 319.3,
+    },
+    {
+      id: 'StaticMeshActor_56', // 视频对象 id，唯一标识，用于各种操作的对象识别
+      duration: 1, // 从上一位置移动到这个新位置花费的时间长度（单位，秒）
+      pitch: 0,
+      heading: 180,
+      distance: 307.5,
+    },
+  ]; //视频融合对象数据视角信息集合
+
+  //改变前端样式方法
+  function initStyle() {
+    var list = document.getElementsByClassName('legends');
+    var removeList = list[0].querySelectorAll('li');
+    removeList.forEach((value) => {
+      value.remove();
+    });
+
+    BuildingList.forEach((value, index) => {
+      // 创建新的li元素
+      var newLi = document.createElement('li');
+      newLi.textContent = value.id;
+      if (value.active) {
+        newLi.class = 'active';
+      } else {
+        newLi.class = '';
+      }
+      // 给新添加的元素添加点击事件
+      newLi.addEventListener('click', (event) => switchState(value, index));
+      list[0].insertBefore(newLi, list[0].firstChild);
+    });
+  }
+
+  var avwLoader = document.querySelector('.avw-loader');
+
+  // 初始化加载图观三维场景服务
+  function init() {
+    // 初始化图观App
+    window.appInstance = new TGApp.App();
+    window.appInstance.initService(
+      {
+        container: document.getElementById('container'),
+        mode: 'streaming',
+        token: streaming2024Config.videoFusionToken, //StreamingServer服务器获取token
+        url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+      },
+      (result) => {
+        window.appInstance.uniCall(
+          'addEventListener',
+          {
+            eventName: 'onServiceInit',
+            callback: (res) => {
+              //添加TGAPI事件回调，图观场景服务初始化成功后
+              // 隐藏遮罩
+              avwLoader.style.display = 'flex';
+              appInstance.uniCall(
+                'switchState',
+                {
+                  name: '默认状态',
+                  sceneName: '视频融合综合应用',
+                },
+                (result) => {
+                  avwLoader.style.display = 'none';
+                  //获取场景视频项
+                  window.appInstance.uniCall('getVideoFusionList', {}, (result) => {
+                    console.log(result);
+                    BuildingList = result.data;
+                    BuildingList.push({
+                      id: '恢复',
+                    });
+                    initStyle();
+                  });
+                }
+              );
+            },
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
+    );
+  }
+
+  // 聚焦视频融合对象
+  function switchState(item, index) {
+    BuildingList.forEach((n) => {
+      if (n.id == item.id) {
+        n.active = true;
+      } else {
+        n.active = false;
+      }
+      if (n.id == item.id) {
+        n.activePlay = true;
+      } else {
+        n.activePlay = false;
+      }
+    });
+    if (index == 1 || index == 2) {
+      BuildingList[1].activePlay = true;
+      BuildingList[2].activePlay = true;
+    } else if (index == 3 || index == 4) {
+      BuildingList[3].activePlay = true;
+      BuildingList[4].activePlay = true;
+    }
+
+    //控制视频流显隐
+    videoConcealment();
+    if (item.id === '恢复') {
+      let jsonData = {
+        name: '默认状态', // 状态名称需要先使用 获取状态信息 接口,获取到状态名称填入此处
+        sceneName: '视频融合综合应用', // 状态所属的场景，如果状态是当前场景的，可以不写
+      };
+
+      appInstance.uniCall('switchState', jsonData, (result) => {
+        console.log(result);
+      });
+      return;
+    }
+    var rowDatas = rowData.find((r) => r.id === item.id);
+    window.appInstance.uniCall('focusVideoFusionObject', rowDatas, function (result) {
+      console.log(result);
+    });
+  }
+
+  //控制视频流显隐
+  function videoConcealment() {
+    BuildingList.forEach((n) => {
+      window.appInstance.uniCall(
+        'setModelVisibility',
+        {
+          ids: [n.id],
+          visible: n.activePlay,
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+    });
+  }
+
+  init();
+</script>

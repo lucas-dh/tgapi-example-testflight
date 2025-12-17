@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <title>图观引擎-API代码示例-综合案例-国际空间站展示</title>
+  </head>
+
+  <style>
+    html,
+    body {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      margin: 0px;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    body {
+      transform-origin: left top;
+    }
+    ::selection {
+      background: transparent !important;
+    }
+
+    #container {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-50%);
+    }
+
+    label {
+      color: #fff;
+    }
+
+    .legends {
+      display: none;
+    }
+
+    .legends li {
+      width: 200px;
+    }
+
+    .legends li.disable {
+      background-color: #8d8d8d;
+      cursor: not-allowed;
+    }
+
+    .legends li.space {
+      margin-bottom: 44px;
+    }
+
+    .panel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 280px;
+      min-height: 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      border: 1px solid #eee;
+      color: #fff;
+      z-index: 999;
+      display: none;
+    }
+
+    .panel.active {
+      display: block !important;
+      /* background-color: transparent !important; */
+      background-color: rgb(0, 42, 52) !important;
+      border: 1px solid #eee !important;
+    }
+
+    .panel input {
+      width: auto;
+      height: auto;
+    }
+
+    .panel .panel_title {
+      position: relative;
+      margin: 0 10px;
+      padding: 2px 0;
+      border-bottom: 1px solid gray;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      line-height: 24px;
+      font-style: normal;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .panel .panel_content {
+      padding: 10px;
+    }
+
+    .panel_time .panel_content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel_content .range {
+      padding: 0 5px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel_content .panel-art {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      margin: 2px 0;
+    }
+
+    .start-btn {
+      width: 48px;
+      height: 48px;
+      margin-right: 10px;
+      float: left;
+      margin-top: 5px;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid #00accc;
+    }
+
+    .playBack {
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 17px solid #00accc;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-45%, -50%) rotate(90deg);
+    }
+
+    .pause {
+      display: block;
+      font-weight: bold;
+      font-size: 32px;
+      color: #00accc;
+      position: absolute;
+      display: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-45%, -50%) rotate(90deg);
+    }
+
+    .suspend-btn {
+      width: 48px;
+      height: 48px;
+      margin-right: 10px;
+      float: left;
+      margin-top: 5px;
+      border-radius: 50%;
+      position: relative;
+      cursor: pointer;
+      border: 2px solid #00accc;
+    }
+
+    .suspend-icon {
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #00accc;
+    }
+
+    .time-btn {
+      bottom: 21px;
+      position: absolute;
+      width: auto !important;
+      height: auto !important;
+      left: 15px;
+      display: inline-block;
+    }
+
+    .time-panel {
+      position: absolute;
+      bottom: 26px;
+      width: 100%;
+      height: 120px;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      box-sizing: border-box;
+      display: none;
+    }
+
+    .time-panel label {
+      font-weight: bold;
+      font-size: 30px;
+    }
+
+    .time-panel span {
+      padding: 0 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .time-panel .label-btn {
+      width: 60px;
+      height: 24px;
+      font-size: 16px;
+      font-weight: bold;
+      background: rgb(0, 42, 52);
+      color: #ffffff;
+      border-top: 2px solid #007d9d;
+      line-height: 24px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .time-panel .time-line {
+      position: absolute;
+      left: 180px;
+      /* right: 296px; */
+      right: 246px;
+      height: 48px;
+      bottom: 21px;
+    }
+
+    .time-panel .time-line hr {
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 100%;
+      height: 6px;
+      border-radius: 3px;
+      background: #777777;
+      border: none;
+      outline: none;
+    }
+
+    .time-panel .time-line p {
+      position: absolute;
+      top: 2px;
+      width: 12px;
+      height: 12px;
+      border-radius: 100%;
+      background: #fff;
+      border: none;
+      outline: none;
+      z-index: 100;
+    }
+
+    .time-panel .time-line .line {
+      position: absolute;
+      top: 16px;
+      height: 16px;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .time-panel .time-line .complete {
+      background: #fff;
+    }
+
+    .zoom-list {
+      width: auto;
+      height: 40px;
+      display: block;
+      position: absolute;
+      right: 25px;
+      bottom: 30px;
+    }
+
+    .zoom-list div {
+      width: 50px;
+      height: 40px;
+      background: #032a3b;
+      border-top: 2px solid #007d9d;
+      float: left;
+      line-height: 3;
+      margin: 3px;
+      text-align: center;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+
+    .time-panel .mark {
+      position: absolute;
+      top: 16px;
+      width: 0;
+      height: 16px;
+      z-index: 100;
+    }
+
+    .time-panel .mark hr {
+      position: absolute;
+      left: 0;
+      width: 100%;
+    }
+
+    .time-panel .marked {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      width: 12px;
+      height: 12px;
+      transform: translateX(50%);
+      border-radius: 100%;
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(204, 204, 204, 0.5);
+    }
+
+    .keyFrameButton {
+      padding: 0 8px;
+      height: 33px;
+      position: absolute;
+      transform: translate(-22px, -29px);
+      font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+      line-height: 2;
+      color: #fff;
+      background-color: rgb(0, 42, 52);
+      margin: 4px 0;
+      border-top: 3px solid #007d9d;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+  </style>
+
+  <body>
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-综合案例-国际空间站展示</span><br />
+      <span class="ctrl">使用 setModelTransform2 接口在地球外太空移动模型，跟随视角正确</span>
+      <img src="/image/tuguan.png" />
+    </div>
+
+    <div id="container"></div>
+
+    <ul class="legends">
+      <li id="btnTime" data-tag="Time" data-show="0" onclick="showPanel(event)">时间</li>
+      <li id="btnArt1" class="art" data-tag="Art1" data-show="0" onclick="showPanel(event)">机械臂</li>
+      <li id="btnArt2" class="art" data-tag="Art2" data-show="0" onclick="showPanel(event)">太阳能板</li>
+      <li id="btnArt3" class="art space" data-tag="Art3" data-show="0" onclick="showPanel(event)">遮阳板</li>
+      <li id="btnCameraSelf" onclick="followingCamera('self')">镜头跟随模型-自身</li>
+      <li id="btnCameraWorld" onclick="followingCamera('world')">镜头跟随模型-世界</li>
+      <li id="btnRotate">
+        <span>环绕</span>
+        <input type="checkbox" id="chkRotate" onchange="changeRotate()" />
+      </li>
+    </ul>
+
+    <div class="panel panel_time">
+      <div class="panel_title">
+        <span>时间</span>
+        <i onclick="closePanel( 'Time')">X</i>
+      </div>
+      <div class="panel_content">
+        <div class="range">
+          <span>0</span>
+          <span>6</span>
+          <span>12</span>
+          <span>18</span>
+          <span>24</span>
+        </div>
+        <input id="inputTime" type="range" value="0" min="0" step="1" max="24" onchange="setEnvTime(event)" />
+      </div>
+    </div>
+
+    <div class="panel panel_art1">
+      <div class="panel_title">
+        <span>机械臂</span>
+        <i onclick="closePanel('Art1')">X</i>
+      </div>
+      <div class="panel_content"></div>
+    </div>
+    <div class="panel panel_art2">
+      <div class="panel_title">
+        <span>太阳能板</span>
+        <i onclick="closePanel('Art2')">X</i>
+      </div>
+      <div class="panel_content"></div>
+    </div>
+    <div class="panel panel_art3">
+      <div class="panel_title">
+        <span>遮阳板</span>
+        <i onclick="closePanel('Art3')">X</i>
+      </div>
+      <div class="panel_content"></div>
+    </div>
+
+    <!-- 进度条 dom -->
+    <div class="time-panel">
+      <span class="time-btn">
+        <div class="start-btn" onclick="play()">
+          <div class="pause">＝</div>
+          <div class="playBack"></div>
+        </div>
+        <div class="suspend-btn" onclick="stop()">
+          <div class="suspend-icon"></div>
+        </div>
+      </span>
+      <div class="time-line">
+        <div class="line">
+          <hr />
+
+          <p data-percent="7" onclick="setKeyFrame('太平洋')" style="left: calc(6.94444% - 6px)"></p>
+          <p data-percent="15" onclick="setKeyFrame('美国')" style="left: calc(14.7222% - 6px)"></p>
+          <p data-percent="26" onclick="setKeyFrame('多米尼加')" style="left: calc(26.3889% - 6px)"></p>
+          <p data-percent="32" onclick="setKeyFrame('巴西')" style="left: calc(31.9444% - 6px)"></p>
+          <p data-percent="42" onclick="setKeyFrame('大西洋')" style="left: calc(41.6667% - 6px)"></p>
+          <p data-percent="53" onclick="setKeyFrame('印度洋')" style="left: calc(52.7778% - 6px)"></p>
+          <p data-percent="66" onclick="setKeyFrame('印度尼西亚')" style="left: calc(65.8333% - 6px)"></p>
+          <p data-percent="69" onclick="setKeyFrame('南海')" style="left: calc(69.4444% - 6px)"></p>
+          <p data-percent="75" onclick="setKeyFrame('日本')" style="left: calc(75.1389% - 6px)"></p>
+
+          <div onclick="setKeyFrame('太平洋')" class="keyFrameButton" style="left: calc(6.94444% - 6px); transform: translate(-21px, -48px)">太平洋</div>
+          <div onclick="setKeyFrame('美国')" class="keyFrameButton" style="left: calc(14.7222% - 6px); transform: translate(-14px, -48px)">美国</div>
+          <div onclick="setKeyFrame('多米尼加')" class="keyFrameButton" style="left: calc(26.3889% - 6px); transform: translate(-28px, -48px)">多米尼加</div>
+          <div onclick="setKeyFrame('巴西')" class="keyFrameButton" style="left: calc(31.9444% - 6px); transform: translate(-14px, -48px)">巴西</div>
+          <div onclick="setKeyFrame('大西洋')" class="keyFrameButton" style="left: calc(41.6667% - 6px); transform: translate(-21px, -48px)">大西洋</div>
+          <div onclick="setKeyFrame('印度洋')" class="keyFrameButton" style="left: calc(52.7778% - 6px); transform: translate(-21px, -48px)">印度洋</div>
+          <div onclick="setKeyFrame('印度尼西亚')" class="keyFrameButton" style="left: calc(65.8333% - 6px); transform: translate(-70px, -48px)">
+            印度尼西亚
+          </div>
+          <div onclick="setKeyFrame('南海')" class="keyFrameButton" style="left: calc(69.4444% - 6px); transform: translate(0px, -48px)">南海</div>
+          <div onclick="setKeyFrame('日本')" class="keyFrameButton" style="left: calc(75.1389% - 6px); transform: translate(-7px, -48px)">日本</div>
+        </div>
+        <div class="mark">
+          <hr class="complete" />
+          <div class="marked"></div>
+        </div>
+      </div>
+      <span class="zoom-list">
+        <div class="active" onclick="setMultiple(0)">X1</div>
+        <div onclick="setMultiple(1)">X2</div>
+        <div onclick="setMultiple(2)">X10</div>
+        <!-- <div onclick="setMultiple(3)">X50</div> -->
+      </span>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-box">
+      <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+      <span>版权所有 北京数字冰雹信息技术有限公司</span>
+    </div>
+  </body>
+  <script>
+    var appInstance = new TGApp.App();
+    var envTimer = null; // 环境时间定时器
+    var lastEvent = null; // 上次面板操作事件
+
+    let trailData = null; // 全部的数据获取
+    let transTimer = null; // 模型位移定时器
+    let artTimer = null; // 关节定时器
+    let current = 0; //当前索引
+    let percent = 0; //进度百分比
+
+    let multiple = 1; // 倍速 默认为正常倍速
+    let running = false; // 是否开始移动
+    let isFollowing = false; // 是否为跟随自身
+    let speeds = [1, 2, 10, 50]; //速度配置项
+    let lastSpeedIndex = 0; //上次速度索引
+
+    // 关键帧配置数据
+    const keyframeDataSet = [
+      { current: 500, percent: 7, name: '太平洋' },
+      { current: 1060, percent: 15, name: '美国' },
+      { current: 1900, percent: 26, name: '多米尼加' },
+      { current: 2300, percent: 32, name: '巴西' },
+      { current: 3000, percent: 42, name: '大西洋' },
+      { current: 3800, percent: 53, name: '印度洋' },
+      { current: 4740, percent: 66, name: '印度尼西亚' },
+      { current: 5000, percent: 69, name: '南海' },
+      { current: 5410, percent: 75, name: '日本' },
+      { current: 6050, percent: 84, name: '俄罗斯远东地区' },
+    ];
+
+    // 获取页面交互操作Dom
+    var articulationNames = [];
+    const inputTime = document.querySelector('#inputTime');
+    const chkRotate = document.querySelector('#chkRotate');
+    const btnCameraSelf = document.querySelector('#btnCameraSelf');
+    const btnCameraWorld = document.querySelector('#btnCameraWorld');
+    const legendPanel = document.querySelector('.legends');
+    const timePanel = document.querySelector('.time-panel');
+    const pause = document.querySelector('.pause');
+    const playBack = document.querySelector('.playBack');
+    const speedPanel = document.querySelector('.zoom-list');
+    const mark = document.querySelector('.mark');
+    const art1Panel = document.querySelector('.panel_art1');
+    const art2Panel = document.querySelector('.panel_art2');
+    const art3Panel = document.querySelector('.panel_art3');
+
+    // 获取json数据
+    getJsonData();
+
+    // 初始化服务
+    init();
+
+    // 初始化
+    function init() {
+      // 初始化服务
+      window.appInstance.initService({
+        container: document.querySelector('#container'),
+        name: '',
+        mode: 'streaming',
+        url: window.streaming2024Config.url,
+        token: window.streaming2024Config.issToken,
+        editMode: false,
+      });
+
+      // 监听服务初始化成功事件
+      window.appInstance.uniCall('addEventListener', {
+        eventName: 'onServiceInit',
+        callback: function () {
+          setBaseCenter();
+          freeCamera();
+          getModelArticulation();
+
+          // 显示工具及属性面板
+          legendPanel.style.display = 'block';
+          timePanel.style.display = 'block';
+
+          // addPathData();
+          // 初始化移动到原点
+          stop();
+
+          // 注册跟随镜头改变事件
+          window.appInstance.uniCall('addEventListener', {
+            eventName: 'onFollowingCameraChanged',
+            callback: (result) => {
+              console.log('onFollowingCameraChanged', result);
+              handleFollowingCameraChanged(result);
+            },
+          });
+        },
+      });
+    }
+
+    // 设置基准点
+    function setBaseCenter() {
+      let jsonData = {
+        originLon: 148.41791380119, // 直接使用路径的第一个点
+        originLat: 25.85347557057,
+        originHeight: 0,
+      };
+      appInstance.uniCall('setBaseCenter', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置环境时间
+    function setEnvTime() {
+      if (envTimer) {
+        return;
+      }
+      envTimer = true;
+      const time = inputTime.value;
+      let jsonData = {
+        envTime: time + ':00', // 设置日期以配合纬度获取正确的日照角度
+        alwaysForward: false, // 时间是否总是向前，false：如果新时间小于当前时间，时间会倒回去，true：如果新时间小于当前时间，会经历 23:59 分再到新时间
+        duration: 2, // 切换时间，秒
+      };
+
+      appInstance.uniCall('setEnvTime', jsonData, (result) => {
+        envTimer = null;
+        console.log(result);
+      });
+    }
+
+    // 开启/停止环绕
+    function changeRotate() {
+      let enableRotate = chkRotate.checked;
+      if (enableRotate) {
+        let jsonData = {
+          enabled: true, // 是否启用相机围绕目标飞行
+          duration: 60, // 飞行一周所需要的秒数，数值越大飞行越慢
+          interruptable: true, // 是否可以被打断，默认为true
+          direction: 'clockwise', // 飞行方向，clockwise 为顺时针，counterclockwise 为逆时针
+        };
+        appInstance.uniCall('rotateCamera', jsonData, (result) => {
+          console.log('rotateCamera', result);
+        });
+      } else {
+        this.stopRotate();
+      }
+    }
+
+    // 停止环绕
+    function stopRotate() {
+      let jsonData = {
+        enabled: false, // 是否启用相机围绕目标飞行
+        duration: 60, // 飞行一周所需要的秒数，数值越大飞行越慢
+        interruptable: true, // 是否可以被打断，默认为true
+        direction: 'clockwise', // 飞行方向，clockwise 为顺时针，counterclockwise 为逆时针
+      };
+
+      appInstance.uniCall('rotateCamera', jsonData, (result) => {
+        console.log('stopRotate', result);
+      });
+    }
+
+    // 解除相机限制
+    function freeCamera() {
+      let jsonData = {
+        state: 'free',
+      };
+      appInstance.uniCall('setCameraRestrictionState', jsonData, (result) => {
+        console.log('freeCamera', result);
+      });
+    }
+
+    //获取模型关节
+    function getModelArticulation() {
+      let jsonData = {
+        id: 'TG_ISS',
+      };
+      appInstance.uniCall('getModelArticulation', jsonData, (result) => {
+        console.log(result);
+        let articulations = result?.data || [];
+        let currentPanel = null;
+        articulations.forEach((art) => {
+          if (art.articulation.includes('机械臂')) {
+            currentPanel = art1Panel;
+          } else if (art.articulation.includes('太阳能板')) {
+            currentPanel = art2Panel;
+          } else if (art.articulation.includes('遮阳板')) {
+            currentPanel = art3Panel;
+          }
+          articulationNames.push(art.articulation);
+          let divInner = document.createElement('div');
+          divInner.classList.add('panel-art');
+          divInner.innerHTML = `<span>${art.articulation}</span><input type="range" value="${art.currentValue}" min="${art.minValue}" step="1" max="${art.maxValue}" onchange="setArt(event,'${art.articulation}')" />`;
+          currentPanel.querySelector('.panel_content').appendChild(divInner);
+        });
+      });
+    }
+
+    // 切换面板显隐
+    function showPanel(event) {
+      if (lastEvent && lastEvent.target != event.target) {
+        showPanel(lastEvent);
+      }
+      let target = event.target;
+
+      if (target.classList.contains('disable')) {
+        return;
+      }
+
+      let tag = target.getAttribute('data-tag');
+      let show = Number(target.getAttribute('data-show'));
+      let panel = document.querySelector(`.panel_${tag.toLowerCase()}`);
+      if (show) {
+        panel.classList.remove('active');
+        target.classList.remove('active');
+        target.setAttribute('data-show', 0);
+        lastEvent = null;
+      } else {
+        panel.classList.add('active');
+        target.classList.add('active');
+        target.setAttribute('data-show', 1);
+        let top = target.offsetTop + target.offsetParent.offsetTop - target.offsetParent.clientHeight / 2;
+        let left = 290;
+        panel.style.top = top + 'px';
+        panel.style.left = left + 'px';
+        lastEvent = event;
+      }
+    }
+
+    // 关闭面板
+    function closePanel(tag) {
+      let btn = document.querySelector(`#btn${tag}`);
+      let panel = document.querySelector(`.panel_${tag.toLowerCase()}`);
+      btn.classList.remove('active');
+      btn.setAttribute('data-show', 0);
+      panel.classList.remove('active');
+      lastEvent = null;
+    }
+
+    // 设置关节
+    function setArt(event, articulation, duration = 1) {
+      let target = event.target;
+      let value = target.value;
+      let jsonData = {
+        id: 'TG_ISS',
+        duration: duration,
+        data: [
+          {
+            articulation,
+            type: 'float',
+            value: value,
+          },
+        ],
+      };
+      appInstance.uniCall('setModelArticulation', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 模型跟随镜头
+    function followingCamera(relative) {
+      if (relative === 'self') {
+        this.enableRotate = false;
+        stopRotate();
+      }
+      // heading : 270 /0
+      let jsonData = {
+        modelId: 'TG_ISS', // 镜头跟踪的模型Id，镜头和模型之前保持相对静止关系，支持运动的模型
+        distance: 200, // 镜头与被跟踪物体的距离(单位:米)
+        distanceMin: 10, // 镜头与被跟踪物体的最近距离(单位:米)
+        distanceMax: 20000000, // 镜头与被跟踪物体的最远距离(单位:米)
+        pitch: 30, //镜头俯仰角(5~89)
+        heading: 0, //镜头偏航角(0正北, 0~359)
+        relative: relative, // 视角的相对位置，"self"，视角相对模型固定，"world"，视角相对世界固定。鼠标可以支持环绕模型旋转和缩放。如果在self模式下，鼠标旋转了，会自动变为world模式，直到用户重新调用followingCamera设置为self模式。
+      };
+
+      appInstance.uniCall('followingCamera', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置关键帧
+    function setKeyFrame(mode) {
+      clearInterval(transTimer);
+      transTimer = undefined;
+      keyframeDataSet.forEach((value) => {
+        if (value.name === mode) {
+          current = value.current;
+          percent = value.percent;
+        }
+      });
+      setModelTransform2(0, () => {
+        if (running) {
+          runTimer();
+        }
+      });
+    }
+
+    // 播放/暂停
+    function play() {
+      if (!running) {
+        if (current === trailData.length - 1) {
+          stop();
+        }
+        // 标记启动
+        running = true;
+        pause.style.display = 'block';
+        playBack.style.display = 'none';
+
+        let btnArts = document.querySelectorAll('li.art');
+        btnArts.forEach((btn) => {
+          if (btn.classList.contains('active')) {
+            btn.click();
+            resetArticulation();
+          }
+          btn.classList.add('disable');
+        });
+
+        // 立即执行
+        runTimer();
+      } else {
+        // 停止定时器
+        clearInterval(transTimer);
+        // 暂停
+        running = false;
+        pause.style.display = 'none';
+        playBack.style.display = 'block';
+        setModelTransform2(0);
+      }
+    }
+
+    // 停止
+    function stop() {
+      // 复位重置定时器和倍速选项
+      clearPlayTimer();
+      current = 0;
+      percent = 0;
+      running = false;
+
+      pause.style.display = 'none';
+      playBack.style.display = 'block';
+      // 复用事件函数设置相机模式和环绕按钮状态
+      handleFollowingCameraChanged({
+        relative: 'self',
+        enableRotate: false,
+      });
+      // 初始化位置
+      setModelTransform2(0, followingCamera('self'));
+
+      resetArticulation();
+      let btnArts = document.querySelectorAll('li.art');
+      btnArts.forEach((btn) => {
+        btn.classList.remove('disable');
+      });
+    }
+
+    // 清空播放相关定时器
+    function clearPlayTimer() {
+      clearInterval(transTimer);
+      clearInterval(artTimer);
+      transTimer = undefined;
+      artTimer = undefined;
+    }
+
+    // 重置关节数据
+    function resetArticulation() {
+      articulationNames.forEach((name) => {
+        setArt({ target: { value: 0 } }, name, 0);
+      });
+      art1Panel.querySelectorAll('input').forEach((input) => {
+        input.value = 0;
+      });
+      art2Panel.querySelectorAll('input').forEach((input) => {
+        input.value = 0;
+      });
+      art3Panel.querySelectorAll('input').forEach((input) => {
+        input.value = 0;
+      });
+    }
+
+    // 执行关节旋转
+    function runArticulation() {
+      if (!artTimer) {
+        setArt({ target: { value: 100 } }, '太阳能板框架01', (10 * 60) / multiple);
+        setArt({ target: { value: 100 } }, '太阳能板框架02', (10 * 60) / multiple);
+        setArt({ target: { value: 100 } }, '太阳能板01-01', (10 * 60) / multiple);
+        setArt({ target: { value: 100 } }, '太阳能板01-02', (10 * 60) / multiple);
+        setArt({ target: { value: 100 } }, '太阳能板02-01', (10 * 60) / multiple);
+        setArt({ target: { value: 100 } }, '太阳能板02-02', (10 * 60) / multiple);
+
+        artTimer = setInterval(() => {
+          resetArticulation();
+          setArt({ target: { value: 100 } }, '太阳能板框架01', (10 * 60) / multiple);
+          setArt({ target: { value: 100 } }, '太阳能板框架02', (10 * 60) / multiple);
+          setArt({ target: { value: 100 } }, '太阳能板01-01', (10 * 60) / multiple);
+          setArt({ target: { value: 100 } }, '太阳能板01-02', (10 * 60) / multiple);
+          setArt({ target: { value: 100 } }, '太阳能板02-01', (10 * 60) / multiple);
+          setArt({ target: { value: 100 } }, '太阳能板02-02', (10 * 60) / multiple);
+        }, (10 * 60 * 1000) / multiple);
+      }
+    }
+
+    // 相机回调事件
+    function handleFollowingCameraChanged(r) {
+      if (r.relative === 'self') {
+        btnCameraSelf.classList.add('active');
+        btnCameraWorld.classList.remove('active');
+      } else if (r.relative === 'world') {
+        btnCameraSelf.classList.remove('active');
+        btnCameraWorld.classList.add('active');
+      }
+      chkRotate.checked = r.enableRotate;
+    }
+
+    // 开始计时器移动模型
+    function runTimer() {
+      // 开始时先移动一次和定时器衔接
+      current += multiple;
+      setModelTransform2();
+
+      transTimer = setInterval(() => {
+        current += multiple;
+        if (current >= trailData.length) {
+          clearPlayTimer();
+          current = trailData.length - 1;
+          running = false;
+          pause.style.display = 'none';
+          playBack.style.display = 'block';
+          setModelTransform2(0);
+          return;
+        }
+
+        setModelTransform2();
+      }, 1000);
+
+      runArticulation();
+
+      // 循环旋转太阳能板
+    }
+
+    // 模型移动 setModelTransform2
+    function setModelTransform2(duration = 1.1, callback) {
+      let jsonData = {
+        id: 'TG_ISS',
+        coordType: 0,
+        coordTypeZ: 0,
+
+        coordX: trailData[current].Lontitude,
+        coordY: trailData[current].Latitude,
+        coordZ: trailData[current].Altitude,
+
+        rotationX: (180 - trailData[current].Yaw) % 360,
+        rotationY: 0,
+        rotationZ: trailData[current].Roll,
+        scaleX: 1,
+        scaleY: 1,
+        scaleZ: 1,
+        duration: duration,
+      };
+
+      appInstance.uniCall('setModelTransform2', jsonData, (result) => {
+        // console.log(result);
+        percent = (current / trailData.length) * 100;
+        mark.style.width = `${percent}%`;
+        callback && callback();
+      });
+    }
+
+    // 获取数据
+    function getJsonData() {
+      fetch('./json/data.json', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then((res) => {
+          trailData = res;
+        });
+    }
+
+    // 获取数据添加路径
+    function addPathData() {
+      let jsonData = {
+        id: 'path', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '路径', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        type: 'Segment06', // 路线样式类别 Arrow01 Arrow02 Arrow03 Arrow04 Arrow05 Arrow06 Arrow07 Segment01 Segment02 Segment03 Segment04 Segment05 Segment06 Segment07 Segment08 ModelCube ModelCylinder
+        texture: 'cableFlow.png', // 材质贴图名称，只有当 type 为 Model 开始的类型，才有用。端渲染：在场景中预置好的图片名称或外部图片 url，流渲染：服务器应用目录里的资源图片
+        textureSpeed: 0, // 材质贴图的 UV 动画速度，默认：0，0为不运动，其他数值沿着路径模型方向前进，负数为反向
+        color: '#ff0000', // 路线颜色，颜色透明（HEX 颜色值）
+        colorPass: '#0000FF', // 模型对象 移动经过后的 路径颜色（HEX 颜色值）
+        width: 40, // 路径宽度（单位：米）
+        tag: 'custominfo', // 用户自定标签，用户保存用户的扩展数据
+        autoScale: false, // 线是否近大远小，false，镜头无论远近，看起来线一样大，true，镜头近线粗，镜头远线细
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+        lineDataId: '', // 对应本服务器上线数据对象，如果找到 lineDataId，则下方的 points 不起作用
+        snapSurface: 0, // 启用自动贴地，0：不贴地，1：自动贴地。默认值是0。
+        points: [],
+      };
+      for (let i = 0; i < trailData.length; i += 60) {
+        jsonData.points.push({
+          coord: [trailData[i].Lontitude, trailData[i].Latitude], // XY 轴坐标，X：经度；Y：纬度
+          coordZ: trailData[i].Altitude,
+        });
+      }
+
+      appInstance.uniCall('addPath', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置倍速
+    function setMultiple(index) {
+      if (index == lastSpeedIndex) return;
+
+      // 控制倍速按钮的高亮显示
+      speedPanel.children[lastSpeedIndex].classList.remove('active');
+
+      lastSpeedIndex = index;
+      multiple = speeds[index];
+
+      speedPanel.children[lastSpeedIndex].classList.add('active');
+
+      if (!running) {
+        if (current >= trailData.length - 1) {
+          clearPlayTimer();
+          current = trailData.length - 1;
+          percent = 100;
+          setModelTransform2(0);
+          resetArticulation();
+        }
+        return;
+      }
+
+      clearPlayTimer();
+      resetArticulation();
+      setModelTransform2(0, () => {
+        runTimer();
+      });
+    }
+  </script>
+</html>

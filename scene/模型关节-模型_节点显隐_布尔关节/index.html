@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型关节-模型_节点显隐_布尔关节</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .app .legends {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型关节-模型_节点显隐_布尔关节</span><br />
+        <span class="ctrl">点击按钮查看节点显隐效果</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends">
+        <li class="active" onclick="legendClick(0)">显示</li>
+        <li onclick="legendClick(1)">隐藏</li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var lastIndex = 0;
+    var legends = [
+      {
+        action: '显示',
+        value: false,
+      },
+      {
+        action: '隐藏',
+        value: true,
+      },
+    ];
+    var legendPanel = document.querySelector('.legends');
+    var avwLoader = document.querySelector('.avw-loader');
+
+    // 获取场景token
+    function getToken() {
+      fetch(`https://www.tuguan.net/api/user/v1/visitorScene/${sceneConfig.articulationUrl18}`, {
+        method: 'POST',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          init(data.accessToken);
+        });
+    }
+
+    // 初始化加载图观三维场景服务
+    function init(token) {
+      //使用授权码读取模型文件初始化场景
+      window.appInstance = new TGApp.App();
+      window.appInstance.initService(
+        {
+          container: document.getElementById('container'),
+          mode: 'scene',
+          token: token,
+          url: `https://www.tuguan.net/publish/scene/api/${sceneConfig.articulationUrl18}`, //模型地址
+          resourceBasePath: 'https://www.tuguan.net/public/tgapp/scene', //在线引用资源地址
+        },
+        (result) => {
+          if (result.result == 1) {
+            avwLoader.style.display = 'none';
+            legendPanel.style.display = 'block';
+
+            showSceneInfo();
+          }
+        }
+      );
+    }
+
+    // 显示场景信息
+    function showSceneInfo() {
+      appInstance.uniCall(
+        'showSceneInfo',
+        {
+          isOpen: true,
+        },
+        (result) => {}
+      );
+    }
+
+    //设置节点
+    function legendClick(index) {
+      if (lastIndex == index) {
+        return;
+      }
+      legendPanel.children[lastIndex].classList.remove('active');
+      legendPanel.children[index].classList.add('active');
+      lastIndex = index;
+      let jsonData = {
+        id: '机械臂',
+        layerId: '',
+        duration: 0,
+        data: [
+          {
+            articulation: '节点显隐_布尔型',
+            type: 'bool',
+            value: legends[index].value,
+          },
+        ],
+      };
+      appInstance.uniCall('setModelArticulation', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    getToken();
+  </script>
+</html>

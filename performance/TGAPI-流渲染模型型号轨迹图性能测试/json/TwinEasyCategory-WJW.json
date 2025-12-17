@@ -1,0 +1,38 @@
+[
+  {
+    "twinCategoryConfigID": "eyyhc6357ppbjhnr",
+    "twinCategoryID": "5wz1rv4bgl994jyu",
+    "twinCategoryName": "红方导弹",
+    "exampleCount": 54,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MobileEquipmentThree",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ijg6hufivlrywjlf",
+    "twinCategoryID": "sx4rc8qyssgq6xe5",
+    "twinCategoryName": "红方飞机",
+    "exampleCount": 23,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MobileEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "zq84rn7x464mteyq",
+    "twinCategoryID": "5wz1rv4bgl994jyu",
+    "twinCategoryName": "蓝方导弹",
+    "exampleCount": 75,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MobileEquipmentThree",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d2qjy9cmjugu7r6n",
+    "twinCategoryID": "v5blohv3jxwrljjm",
+    "twinCategoryName": "蓝方飞机",
+    "exampleCount": 15,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MobileEquipment",
+    "dataType": "StaticInput"
+  }
+]

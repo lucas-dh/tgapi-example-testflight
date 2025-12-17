@@ -1,0 +1,49 @@
+{
+  "id": "warning",
+  "name": "layername",
+  "coordType": 0,
+  "coordTypeZ": 0,
+  "visible": true,
+  "legends": [
+    {
+      "name": "告警事件",
+      "icon": "event_01",
+      "iconScale": 0.5,
+      "type": "wave",
+      "color": "#ff0000",
+      "fillArea": "type01",
+      "speed": 30,
+      "radius": 40
+    }
+  ],
+  "data": [
+    {
+      "id": "告警事件-1",
+      "coord": [116.34604498244003, 40.08517488539747],
+      "coordZ": 0,
+      "message": "",
+      "type": "告警事件"
+    },
+    {
+      "id": "告警事件-2",
+      "coord": [116.34754288555993, 40.08496779932537],
+      "coordZ": 0,
+      "message": "",
+      "type": "告警事件"
+    },
+    {
+      "id": "告警事件-3",
+      "coord": [116.35010571077703, 40.08410474697603],
+      "coordZ": 0,
+      "message": "",
+      "type": "告警事件"
+    },
+    {
+      "id": "告警事件-4",
+      "coord": [116.35069067444728, 40.085065435328424],
+      "coordZ": 0,
+      "message": "",
+      "type": "告警事件"
+    }
+  ]
+}

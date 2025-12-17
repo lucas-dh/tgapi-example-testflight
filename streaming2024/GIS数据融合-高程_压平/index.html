@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-GIS数据融合-高程_压平</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-GIS数据融合-高程_压平</span><br />
+        <span>展示高程数据压平效果</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.globalgisToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                setBaseCenter();
+                freeCamera();
+                addgisMap();
+                setCamera();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 添加GIS地图
+    function addgisMap() {
+      let jsonData = {
+        id: 'gisMapLayer', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: 'layerName', // 图层名称，支持为图层自定义名称
+        maps: [
+          // 流渲染和端渲染最多都可以添加3个MapUrl
+          {
+            mapUrl: 'https://mapserver.obs.cn-north-4.myhuaweicloud.com/bj/wmts_sat/{z}/{x}/{y}.png?epsg=3857', // 地图瓦片地址 流渲染TMS类型的map填写tileset.json文件的完整URL路径，WMTS类型的填写不带Token的图层地址，类似：http://t0.tianditu.gov.cn/img_w/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=w&FORMAT=tiles&TILEMATRIX={z}&TILEROW={x}&TILECOL={y} 端渲染填写https://abc.xyz.com/{z}/{x}/{y}.jpg 或 png 的格式，只支持 256x256 的影像瓦片
+            mapType: 'WMTS', // 地图瓦片数据格式类别，支持"TMS"或"WMTS"两种类型
+            mapTokenName: '', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 name，在 URL 请求时当作 parameter 的 key 传入
+            mapTokenValue: '', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 value，在 URL 请求时当作 parameter 的 value 传入
+            mapLOD: 2, // 地图瓦片数据细节加载系数，表示在当前视野距离下，加载地图层级的级别系数。流渲染默认值是 2，如果想更加清晰，可以设置 1 或者 0.5
+          },
+        ],
+        terrainUrl: 'https://mapserver.obs-website.cn-north-4.myhuaweicloud.com/bj/terrain/layer.json', // 高程瓦片入口描述文件地址
+        terrainType: 'TMS', // WMTS 的高程数据格式类别，目前仅支持 "TMS"
+        terrainToken: '', // 预留字段
+        visible: true, // 显隐控制，true：显示；false：隐藏
+        alpha: 1, // 透明度，0：完全透明；1：完全不透明
+      };
+
+      appInstance.uniCall(
+        'clearOverlayType',
+        {
+          overlayType: 'gisMap', // 覆盖物类型，支持 all
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+      appInstance.uniCall('addGISMap', jsonData, (result) => {
+        console.log(result);
+        addArea();
+      });
+    }
+
+    // 添加区域
+    function addArea() {
+      let jsonData = {
+        id: 'Area', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '区域轮廓', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        coordZ: 0, // 高度（单位：米）
+        type: 'Segment03', // 区域边界样式类别 Arrow01 Gradient01 Gradient02 Gradient03 Grid01 Grid02 Grid03 Grid04 Grid05 Segment01 Segment02 Segment03
+        color: '#FF0000', // 颜色（HEX 颜色值）
+        alpha: 0.5, // 透明度，0：完全透明；1：完全不透明，默认值1，暂时只支持端渲染
+        areaHeight: 2000, // 围栏高度（单位：米）
+        fillArea: 'Gradient01', // 区域填充样式类别 Gradient01 Gradient02 Grid01 Grid02 Segment01 Segment02 Solid01 Solid02 Solid03 Solid04 Solid05
+        fillPosition: 'none', // 区域填充的位置，top/bottom，默认top
+        tag: 'custominfo', // 用户自定标签，用户保存用户的扩展数据
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+        snapSurface: 0, // 启用自动贴地，0：不贴地，1：自动贴地。默认值是0。开启自动贴地，fillPosition、areaHeight、type属性无效。
+        points: [
+          {
+            coord: [115.84875499087, 39.79064998379],
+          },
+          {
+            coord: [115.86347165012, 39.72859367635],
+          },
+          {
+            coord: [115.91943496796, 39.72440020097],
+          },
+          {
+            coord: [115.93170612804, 39.78670969562],
+          },
+        ],
+      };
+
+      appInstance.uniCall(
+        'clearOverlayType',
+        {
+          overlayType: 'area', // 图层对象类别
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+      appInstance.uniCall('addArea', jsonData, (result) => {
+        console.log(result);
+        addTerrainProcess();
+      });
+    }
+
+    // 添加地形处理
+    function addTerrainProcess() {
+      let jsonData = {
+        id: 'idObj', //图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        terrainType: 'GISMap', //需要处理的地形类型，"3dtile"：通过add3DTile添加的倾斜摄影，"GISMap“，通过addGISMap添加的GIS地图
+        terrainId: 'gisMapLayer', //add3DTile添加的倾斜摄影或者通过addGISMap添加的GIS地图时传入的id
+        areaId: 'Area', //需要处理的区域范围，需要之前通过addArea添加一个区域对象，这里填入区域的Id。此指令执行完成后，原area对象可以删除或者更新，并不影响之前已经处理的范围。
+        processType: 'flatten', //地形处理的类型，"dig"：挖洞，"flatten"：压平
+        flattenFeather: 10, //压平的羽化范围，可以让压平的边缘看起来更加自然（单位：米）
+      };
+
+      appInstance.uniCall('addTerrainProcess', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置基准点
+    function setBaseCenter() {
+      let jsonData = {
+        originLon: 115.84875499087, // 中心点经度
+        originLat: 39.79064998379, // 中心点纬度
+        originHeight: 0, // 单位m
+      };
+      appInstance.uniCall('setBaseCenter', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 取消限制镜头
+    function freeCamera() {
+      let jsonData = {
+        state: 'free', //restricted：受限；free：不受限制
+      };
+      appInstance.uniCall('setCameraRestrictionState', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置相机
+    function setCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        centerCoord: [115.89842221768, 39.74250874993], // 中心点的坐标 lng,lat
+        coordZ: 0, // Z 轴高度（单位：米）
+        distance: 11000, // 镜头距中心点距离(单位:米)
+        pitch: 50, // 镜头俯仰角(5~89)
+        heading: 0, // 镜头偏航角(0正北, 0~359)
+        fly: false, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+        // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+        duration: 0, // 飞行时间，秒
+      };
+
+      appInstance.uniCall('setCamera', jsonData, (result) => {
+        console.log(result);
+        restrictCamera();
+      });
+    }
+
+    // 限制镜头
+    function restrictCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        limitPitch: [10, 89], //摄像机 镜头垂直俯仰角 限制 (-89~89)
+        limitYaw: [0, 359], //摄像机 镜头水平摇摆角 限制 (0正北, 0~359)
+        limitCoordZ: [0, 2500], //摄像机 坐标高度限制 (单位:米)
+        limitDistance: [100, 30000], //摄像机 镜头距离限制 (单位:米)
+        center: [115.89842221768, 39.74250874993], //视点 限制区中心坐标
+        radius: 30000, //视点 限制区半径，会形成一个球体，并在所有条件中取交集
+      };
+      appInstance.uniCall('restrictCamera', jsonData, (result) => {
+        console.log(result);
+      });
+
+      let jsonData2 = { state: 'restricted' }; //restricted：受限；free：不受限制
+      appInstance.uniCall('setCameraRestrictionState', jsonData2, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

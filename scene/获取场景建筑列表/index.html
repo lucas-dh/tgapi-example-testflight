@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-建筑对象-获取场景建筑列表</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="../../js/config.js"></script>
+
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <script src="../../lib/axios.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/elementui.js"></script>
+    <script src="./main.js"></script>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-建筑对象-获取场景建筑列表</span><br />
+        <span class="ctrl">点击按钮显示场景建筑列表</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends" style="top: 14%">
+        <li v-for="(item,index) in legendList" :key="item.id" @click="changeModelArticulation(item)" :class="[item.active?'active':'']">{{item.action}}</li>
+      </ul>
+      <div class="message message_left">
+        <code>
+          <pre>{{BuildingList.length?BuildingList:''}}</pre>
+        </code>
+      </div>
+      <div class="message message_right">
+        <ul v-for="(item,index) in BuildingList" :key="index">
+          <li class="building">{{item.id}}</li>
+          <ul v-for="(item2,index2) in item.floors" :key="index2+100">
+            <li class="building" style="padding-left: 40px">{{item2.num}}层</li>
+            <ul v-for="(item3,index3) in item2.rooms" :key="index3+1000">
+              <li class="building" style="padding-left: 70px">{{item3.name}}</li>
+            </ul>
+          </ul>
+        </ul>
+      </div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div v-show="isZZ" class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>

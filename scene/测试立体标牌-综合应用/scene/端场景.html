@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>端场景</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <script src="../../lib/axios.js"></script>
+    <style>
+      #container{
+        transform: none;
+        position: static;
+      }
+    </style>
+  </head>
+
+  <body style="width: 1920px;height: 1080px;">
+    <div class="app" id="app">
+      <div id="container" class="container"></div>
+    </div>
+  </body>
+  <script>
+    window.needsLoadScene = true;
+    // 创建TGAPI对象
+    window.appInstance = new TGApp.App();
+    axios.post('https://www.tuguan.net/api/user/v1/visitorScene/' + sceneConfig.lineUrl6).then((res) => {
+      console.log(res);
+      // 初始化服务
+      window.appInstance.initService(
+        {
+          name: 'community', // 服务名称，用于切换服务时使用
+          container: document.getElementById('container'),
+          mode: 'scene', // scene代表端渲染 streaming代表流渲染
+          // 服务地址
+          url: 'https://www.tuguan.net/publish/scene/api/' + sceneConfig.lineUrl6, //模型地址
+          token: res.data.accessToken, // token，如果服务地址需要token验证，在此填入
+          resolution: [1920, 1080], // 控件 像素分辨率，宽，高
+          resourceBasePath: 'https://www.tuguan.net/public/tgapp/scene', // 在线引用的资源地址
+          editMode: false, // 是否开启编辑模式，默认不开启，编辑模式的鼠标交互和非编辑模式的不同
+        },
+        (res) => {
+          console.log(res);
+          setTimeout(() => {
+            if (typeof window.needsLoadScene === 'function') {
+              window.needsLoadScene && window.needsLoadScene();
+            }
+          }, 1000);
+        }
+      );
+    });
+  </script>
+</html>

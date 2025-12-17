@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-GIS数据融合-WMTS_影像加载</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-GIS数据融合-WMTS_影像加载</span><br />
+        <span>展示WMTS-影像数据加载情况</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var center = [116.38807742332, 39.90537311039]; // 视点中心
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.globalgisToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                setBaseCenter();
+                freeCamera();
+                clearMap();
+
+                addgisMap();
+                setCamera();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 清空所有图层
+    function clearMap() {
+      let jsonData = {
+        overlayType: 'all',
+      };
+
+      appInstance.uniCall('clearOverlayType', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置场景中心点
+    function setBaseCenter() {
+      let jsonData = {
+        originLon: center[0],
+        originLat: center[1],
+        originHeight: 0,
+      };
+      appInstance.uniCall('setBaseCenter', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 解除摄像机限制
+    function freeCamera() {
+      let jsonData = {
+        state: 'free',
+      };
+      appInstance.uniCall('setCameraRestrictionState', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 添加GIS地图
+    function addgisMap() {
+      let jsonData = {
+        id: 'gisMapLayer', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: 'layerName', // 图层名称，支持为图层自定义名称
+
+        maps: [
+          {
+            // 天地图影像
+            mapUrl:
+              'https://t0.tianditu.gov.cn/img_c/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=img&STYLE=default&TILEMATRIXSET=c&FORMAT=tiles&TILEMATRIX={z}&TILEROW={x}&TILECOL={y}',
+            mapType: 'WMTS', // 地图瓦片数据格式类别，支持"TMS"或"WMTS"两种类型
+            mapTokenName: 'tk', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 name，在 URL 请求时当作 parameter 的 key 传入
+            mapTokenValue: 'bca97764cdd425b124df714eb1631935', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 value，在 URL 请求时当作 parameter 的 value 传入
+            mapLOD: 2, // 地图瓦片数据细节加载系数，表示在当前视野距离下，加载地图层级的级别系数。流渲染默认值是 2，如果想更加清晰，可以设置 1 或者 0.5
+          },
+          {
+            // 天地图影像
+            mapUrl:
+              'https://t0.tianditu.gov.cn/cia_c/wmts?SERVICE=WMTS&REQUEST=GetTile&VERSION=1.0.0&LAYER=cia&STYLE=default&TILEMATRIXSET=c&FORMAT=tiles&TILEMATRIX={z}&TILEROW={x}&TILECOL={y}',
+            mapType: 'WMTS', // 地图瓦片数据格式类别，支持"TMS"或"WMTS"两种类型
+            mapTokenName: 'tk', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 name，在 URL 请求时当作 parameter 的 key 传入
+            mapTokenValue: 'bca97764cdd425b124df714eb1631935', // 可以为""，或者如果地图瓦片需要 token，这里填写 token 的 value，在 URL 请求时当作 parameter 的 value 传入
+            mapLOD: 2, // 地图瓦片数据细节加载系数，表示在当前视野距离下，加载地图层级的级别系数。流渲染默认值是 2，如果想更加清晰，可以设置 1 或者 0.5
+          },
+        ],
+        terrainUrl: 'https://mapserver.obs-website.cn-north-4.myhuaweicloud.com/global/terrain0/layer.json',
+        terrainType: 'terrain',
+        terrainToken: '',
+        visible: true, // 显隐控制，true：显示；false：隐藏
+        alpha: 1, // 透明度，0：完全透明；1：完全不透明
+      };
+
+      appInstance.uniCall('addGISMap', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置镜头
+    function setCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        centerCoord: center, // 中心点的坐标 lng,lat
+        coordZ: 0, // Z 轴高度（单位：米）
+        distance: 3000, // 镜头距中心点距离(单位:米)
+        pitch: 56, // 镜头俯仰角(5~89)
+        heading: 0, // 镜头偏航角(0正北, 0~359)
+        fly: false, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+        // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+        duration: 0, // 飞行时间，秒
+      };
+
+      appInstance.uniCall('setCamera', jsonData, (result) => {
+        console.log(result);
+        restrictCamera();
+      });
+    }
+
+    // 限制镜头
+    function restrictCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        limitPitch: [30, 89], //摄像机 镜头垂直俯仰角 限制 (-89~89)
+        limitYaw: [0, 359], //摄像机 镜头水平摇摆角 限制 (0正北, 0~359)
+        limitCoordZ: [0, 100], //摄像机 坐标高度限制 (单位:米)
+        limitDistance: [0, 15000], //摄像机 镜头距离限制 (单位:米)
+        center: center, //视点 限制区中心坐标
+        radius: 100000, //视点 限制区半径，会形成一个球体，并在所有条件中取交集
+      };
+      appInstance.uniCall('restrictCamera', jsonData, (result) => {
+        console.log(result);
+      });
+      let jsonData2 = { state: 'restricted' }; //restricted：受限；free：不受限制
+      appInstance.uniCall('setCameraRestrictionState', jsonData2, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

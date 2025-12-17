@@ -1,0 +1,4781 @@
+[
+  {
+    "twinCategoryConfigID": "hzkxxdqnmhppm8f8",
+    "twinCategoryID": "jp2izkdja2qoeu3s",
+    "twinCategoryName": "48口千兆",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ibkklw558b8lumb0",
+    "twinCategoryID": "y73gnz11nbeqs1vx",
+    "twinCategoryName": "宝德 PR210K",
+    "exampleCount": 7,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qetjxxewroi9esh6",
+    "twinCategoryID": "v3sty6no194nut4t",
+    "twinCategoryName": "宝德 PR210KHX",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xrzjtoe4iruuimwx",
+    "twinCategoryID": "ij8xf88lj8osu1jh",
+    "twinCategoryName": "测试火箭_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jpfn9xgcyvt1wn9e",
+    "twinCategoryID": "71q79b2uinlyun1o",
+    "twinCategoryName": "迪普 防火墙FW1000-TC-G",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qn007s58vz8fxth6",
+    "twinCategoryID": "drx7zqnjg2weytt3",
+    "twinCategoryName": "电源柜",
+    "exampleCount": 18,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ska9jmc3gyrojzbr",
+    "twinCategoryID": "5qvtac7fdm9d9ya3",
+    "twinCategoryName": "海康威视 DS-AL11124S",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7mdps8qqtmhtfp1q",
+    "twinCategoryID": "imkgc0zu80perp12",
+    "twinCategoryName": "海康威视 DS-VR2208X-TD3",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s6jgfr1hvi86mo0r",
+    "twinCategoryID": "xpyij4nynox5z0ib",
+    "twinCategoryName": "海康威视 DS-VR2208X-TD4",
+    "exampleCount": 3,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pgo3ebx14y26q0cp",
+    "twinCategoryID": "mlvfybph7cums6g9",
+    "twinCategoryName": "华为 CE6881-48S6CQ-B",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "13sja02bqtcyd4fb",
+    "twinCategoryID": "65thzo8iz3bhhpt5",
+    "twinCategoryName": "华为 OptiX-OSN-1800V",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0jupx3u4qywb1j6v",
+    "twinCategoryID": "rgf3r7rje6nkhb2t",
+    "twinCategoryName": "华为 S5700-48TP-SI-AC",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "in1iz27ykpn5gyru",
+    "twinCategoryID": "p3yb5t1sljd58il0",
+    "twinCategoryName": "华为 S5731-H48T4XC",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "kd6a36dk6cp2yv3t",
+    "twinCategoryID": "7f11y4umdyfhrh1s",
+    "twinCategoryName": "华为-CE6881-48S6CQ",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ld39geo5r7r8gaf4",
+    "twinCategoryID": "uu2tbu48b1ku1euj",
+    "twinCategoryName": "华为OceanStor 5510F V5",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "68mem7tvyqjnsdkf",
+    "twinCategoryID": "9p9ynfxh92aqmtze",
+    "twinCategoryName": "机柜",
+    "exampleCount": 159,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MotorRoomCabinet",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q6ltdfdoqnwpby5m",
+    "twinCategoryID": "natef5gkhn8bz2y3",
+    "twinCategoryName": "浪潮 NF5280M5",
+    "exampleCount": 52,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cb8gg12btlj0r6zd",
+    "twinCategoryID": "47g7o5kj74fq3k4g",
+    "twinCategoryName": "浪潮 NF5280M6",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ahgb3duo9c1nmu8l",
+    "twinCategoryID": "tlzub9y5um6sgvph",
+    "twinCategoryName": "浪潮 TS860G3",
+    "exampleCount": 10,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "byihewd62sqrxwb6",
+    "twinCategoryID": "ebiog0psxz9az5sy",
+    "twinCategoryName": "浪潮NF5280M4",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8f4bm66kvi7yichf",
+    "twinCategoryID": "ohxm0rfbpkeze3sv",
+    "twinCategoryName": "浪潮NF8460M4H",
+    "exampleCount": 33,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m4fsj8mailyquuv6",
+    "twinCategoryID": "8d69dllv2wzc4hi8",
+    "twinCategoryName": "日立 HUS110-A0001.S",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rnk3b1yb3rkck7o7",
+    "twinCategoryID": "luchrgo5vddfpgdq",
+    "twinCategoryName": "日立 USP  vm",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wtz65pojm9c85ps1",
+    "twinCategoryID": "h7183004u5e1n216",
+    "twinCategoryName": "锐捷 RG-S5760C-48GT4XS-X",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vjve5bh9jmsvyyun",
+    "twinCategoryID": "f5s9oe5ysm0a3tfa",
+    "twinCategoryName": "锐捷 RG-S6250-48XS8CQ",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "th4ujtw2qfbinziv",
+    "twinCategoryID": "cbfhw12hbrqr1ly0",
+    "twinCategoryName": "锐捷RG-S5760C-24GT8XS-X",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9q2esnoe8jxg3h8z",
+    "twinCategoryID": "85nvx4f31aikpsgn",
+    "twinCategoryName": "上卷下钻",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hgcb581d87hqan1a",
+    "twinCategoryID": "b5kj6i6zpzqs3u3y",
+    "twinCategoryName": "设备连线",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "RelationshipLine",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ersr9f4l8l1tc1hk",
+    "twinCategoryID": "9oi8jbdar2pz0ao3",
+    "twinCategoryName": "深信服 应用交付网关AD-1000-GA220 V7.0",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6qdjcx2oer5vdeqn",
+    "twinCategoryID": "oquhb6nsyoyasjqc",
+    "twinCategoryName": "深信服 AF-1000",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lzoqduz70ypw14el",
+    "twinCategoryID": "tx0iqthmm0wmki7s",
+    "twinCategoryName": "深信服 VDC-1000-B1100",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "taungx6nadt7gfjs",
+    "twinCategoryID": "k8qfhpp0u5wgtp2p",
+    "twinCategoryName": "深信服 VDC-2500",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "uwugwoo457ezbcgy",
+    "twinCategoryID": "m9xq7t7uk6x6cxnm",
+    "twinCategoryName": "深信服 VDS-R-7550",
+    "exampleCount": 12,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0uux54x95zkernc5",
+    "twinCategoryID": "3le73ve5tltun0i8",
+    "twinCategoryName": "深信服AF-1000-FH130OA-WY",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nm1vuyzc7gjlwqzh",
+    "twinCategoryID": "ifzuic3rsez2hiur",
+    "twinCategoryName": "盛科 E550-24T16Y",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "evpklb94llxsbx5r",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "盛科E680-48Y8C",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2d4ws1zg02dj6c64",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "盛科E680-48Y8C_1110",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yxtcvmpirbglwkh3",
+    "twinCategoryID": "zgdlndsx5t3sj5jo",
+    "twinCategoryName": "曙光 H620-G30A",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lf6xjaukwxpx7z3r",
+    "twinCategoryID": "exd34tlxgzitzf15",
+    "twinCategoryName": "武汉光迅 MMBC-8x12-850-50-00-00-LC/UPC-11",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j1kbjeduxwg5urko",
+    "twinCategoryID": "3le73ve5tltun0i8",
+    "twinCategoryName": "新建1",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sb2bhvyl4rr75stm",
+    "twinCategoryID": "oquhb6nsyoyasjqc",
+    "twinCategoryName": "新建10",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pzf3j04u8hsayeks",
+    "twinCategoryID": "ebiog0psxz9az5sy",
+    "twinCategoryName": "新建11",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nfc2lsxzlv484wbo",
+    "twinCategoryID": "4r5itrjfmthh7q11",
+    "twinCategoryName": "新建12",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "e7b3wjeoj5i3iogg",
+    "twinCategoryID": "qrsojiu5krzs5uyk",
+    "twinCategoryName": "新建13",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ib0wafiv5sb3mhw0",
+    "twinCategoryID": "y73gnz11nbeqs1vx",
+    "twinCategoryName": "新建14",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "f2qxjcw5wys6liav",
+    "twinCategoryID": "vcb4wjc3bfmym20v",
+    "twinCategoryName": "新建15",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7jlchxnj9ci4tbh4",
+    "twinCategoryID": "y73gnz11nbeqs1vx",
+    "twinCategoryName": "新建16",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vfsvlhbzk9ppcvw7",
+    "twinCategoryID": "7yiks3rulkwj4iuz",
+    "twinCategoryName": "新建17",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "c0e5prwbv9d028ah",
+    "twinCategoryID": "p3yb5t1sljd58il0",
+    "twinCategoryName": "新建18",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l04cogshg2xvlab0",
+    "twinCategoryID": "ebiog0psxz9az5sy",
+    "twinCategoryName": "新建19",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xwtjk8oy2xyhm59j",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建2",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vsvkbih0ns0uom0z",
+    "twinCategoryID": "71q79b2uinlyun1o",
+    "twinCategoryName": "新建20",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "udg3zdck6r3y9nkf",
+    "twinCategoryID": "h7183004u5e1n216",
+    "twinCategoryName": "新建21",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "w6qh8z3vuysgwv4w",
+    "twinCategoryID": "8rhqqn332zgwbb3l",
+    "twinCategoryName": "新建22",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jmtg9jlgs4bpkpwx",
+    "twinCategoryID": "vcb4wjc3bfmym20v",
+    "twinCategoryName": "新建23",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7bi96fd940e8900y",
+    "twinCategoryID": "4r5itrjfmthh7q11",
+    "twinCategoryName": "新建24",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qyvibuj0opntat7m",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建25",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "is5276vfrb22bm7h",
+    "twinCategoryID": "3le73ve5tltun0i8",
+    "twinCategoryName": "新建26",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "orbm3y8i0dsnfbco",
+    "twinCategoryID": "n6wkvs1qbork970u",
+    "twinCategoryName": "新建27",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9z232ehj4qxyrho0",
+    "twinCategoryID": "i91wbezt27td6mrz",
+    "twinCategoryName": "新建28",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4jjhm1ej2l0y8th5",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建29",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7ksemyuuh84s7r5g",
+    "twinCategoryID": "tlzub9y5um6sgvph",
+    "twinCategoryName": "新建3",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mbn8ujoblei00ktb",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建30",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wz7katgkqsyitsa1",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建31",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "herkmc6fzna48395",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建32",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "f7lhojgmicii37sb",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建33",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lmoolazlgttdj15k",
+    "twinCategoryID": "4r5itrjfmthh7q11",
+    "twinCategoryName": "新建4",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ehmqodohj37rygf3",
+    "twinCategoryID": "y823fgojni2ausxc",
+    "twinCategoryName": "新建5",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2phco7ajnicu5c3v",
+    "twinCategoryID": "m9xq7t7uk6x6cxnm",
+    "twinCategoryName": "新建6",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bgl3zuwz19qf8m9h",
+    "twinCategoryID": "tlzub9y5um6sgvph",
+    "twinCategoryName": "新建7",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "f19e8s2buh161usa",
+    "twinCategoryID": "tlzub9y5um6sgvph",
+    "twinCategoryName": "新建8",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8g259400cax87rm7",
+    "twinCategoryID": "ifzuic3rsez2hiur",
+    "twinCategoryName": "新建9",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1kuyaz51wzatabgn",
+    "twinCategoryID": "ydt6uk6xmotif5p0",
+    "twinCategoryName": "巡检机器人",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "MobileEquipmentThree",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "00sxp66434i3oki5",
+    "twinCategoryID": "z69pacjv2gidlocf",
+    "twinCategoryName": "长江计算R221K V2",
+    "exampleCount": 14,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "e64i6e29etsy29bg",
+    "twinCategoryID": "pnch6c50rsw31u29",
+    "twinCategoryName": "中舰博海 NC632-220V",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ia79ciow9fg5ise5",
+    "twinCategoryID": "tmf176t80w5f90m6",
+    "twinCategoryName": "中科可控 H620-G30",
+    "exampleCount": 9,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "grfrztiihdu24igp",
+    "twinCategoryID": "fiv3zwko2y78m709",
+    "twinCategoryName": "中科可控R6240H0",
+    "exampleCount": 15,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9qea642ks9dhzt4i",
+    "twinCategoryID": "vnhmywlsb7x6qozm",
+    "twinCategoryName": "紫光恒越UNIS S7800XP-48X8C-G L3",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wwa0eajqbmwk3m5b",
+    "twinCategoryID": "erygwvaca90c15pw",
+    "twinCategoryName": "A10 thunder TH3030S",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bac4kdqh7apaoq4w",
+    "twinCategoryID": "cbj3p6ionn4p60iz",
+    "twinCategoryName": "AD-1000 L482",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s5xq3aihfspf8th2",
+    "twinCategoryID": "yb9rs8eka1js0es5",
+    "twinCategoryName": "AF-1000",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ajagy7eon0fr4uqw",
+    "twinCategoryID": "4t5h8wcis6535xlb",
+    "twinCategoryName": "BES-53248",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "98pe0dfezkakj0ds",
+    "twinCategoryID": "ovhs5wjwd14q5sde",
+    "twinCategoryName": "C-E51621",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "31g1176iqcork6fx",
+    "twinCategoryID": "at8pjogtp2ihdhcr",
+    "twinCategoryName": "CS5280H2",
+    "exampleCount": 34,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "or0undzqoj5n4opx",
+    "twinCategoryID": "mw5x78lig3z60ini",
+    "twinCategoryName": "DAS 5000A",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dpo09zbeu44iwy53",
+    "twinCategoryID": "fpdqfiazu7x7rcin",
+    "twinCategoryName": "Dell EMC NX3240",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "b8ub639ux0saolj3",
+    "twinCategoryID": "2w561lkb3m7wa29r",
+    "twinCategoryName": "Dell MD1420",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ieq8qvu4i3giw7v9",
+    "twinCategoryID": "zp3rkhl49x7kj7hi",
+    "twinCategoryName": "Dell MD3820f",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "omn3kv328xjxfua2",
+    "twinCategoryID": "1bwsptnoflal96yi",
+    "twinCategoryName": "Dell MD3820f_1110_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "utvq9wx4vi3q4ta2",
+    "twinCategoryID": "x2kbytarqbx4jhpy",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "se5tjqxyvu1ry1pm",
+    "twinCategoryID": "2z98o94kysdiqoas",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9dbf1l48f6e44g3d",
+    "twinCategoryID": "ij8bekdq3yi41bh1",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "g3jmkpofhzzmv4fz",
+    "twinCategoryID": "dk71nch28yunojbf",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qjeskou09301te3k",
+    "twinCategoryID": "lspky8yidfmp8i9e",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s6s81zrmqxbjffz8",
+    "twinCategoryID": "blpu6auz9zeugmgf",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ffr03c96uexz5dv5",
+    "twinCategoryID": "lk1fstsph38w18zq",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "943133qo1blwcclc",
+    "twinCategoryID": "ywd65swbxncths56",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qofqkgh89qyxrb49",
+    "twinCategoryID": "f5kyg5v1g7rp9sed",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "czqtc2v6haq39ye0",
+    "twinCategoryID": "jy214k7gxjmuerna",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ler13tljnl1webeo",
+    "twinCategoryID": "xes765p2hce6tu12",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "loptmuthahzxlhqo",
+    "twinCategoryID": "7ge7i770rc5vvseq",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "acv8kdmhq8spgomi",
+    "twinCategoryID": "u8joxrjz2rpn9qte",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rwuc82dn59tl6t6h",
+    "twinCategoryID": "nv6qbfi4kgsc2c2y",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pma2qnw58ufinmv3",
+    "twinCategoryID": "k4cr3wcothn7vpew",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9v105a76s8606nqu",
+    "twinCategoryID": "vze005yw70fperuj",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rnc1vw2j6zshaslo",
+    "twinCategoryID": "66f9a3rbgkm6mjmf",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0ndb5j5cnmy53bee",
+    "twinCategoryID": "olg65ra3nmqdv6us",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k6dudgrb9ra656l7",
+    "twinCategoryID": "5vhs60rn17q4c40i",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pn7zj6sp8uqindho",
+    "twinCategoryID": "r1evoovswsfz4iqg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1v7qj4jb5xce463m",
+    "twinCategoryID": "mvd679s32k2aazsn",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "u9px19qprvi42hca",
+    "twinCategoryID": "3vi9vl8ou4thgdxd",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "825464m70iuz6pie",
+    "twinCategoryID": "sjou3q6lko4x3c3y",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "z1wz4poukpzbk602",
+    "twinCategoryID": "tdi13f2n39a28zyq",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sj7myphkfkucyowo",
+    "twinCategoryID": "r1gdkf521vdupjfl",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "aqwke2aimliu01yx",
+    "twinCategoryID": "24b576fccd4jfiu0",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ji286q6387gkxvkw",
+    "twinCategoryID": "kta7genkvm0c8onz",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ushi9vuwsdoeo6fw",
+    "twinCategoryID": "gmn4xewa81f1njd7",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "36zsjv8pcmevwsqi",
+    "twinCategoryID": "cqvg90tkszvfolb2",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vops1tlln0pp8sov",
+    "twinCategoryID": "nbpjwlhfy9nsj1jq",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8yn6jc0lf3km9npb",
+    "twinCategoryID": "cr6o0samog7fdyel",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dheo5pi885exryjc",
+    "twinCategoryID": "ow7svm14grq1605x",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "acturbl6zfquzdj4",
+    "twinCategoryID": "7q7hpjgi9cwgqghh",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "36boagjppouvty5v",
+    "twinCategoryID": "qxeqgh60mojnpoq9",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ui0b4wa0e76jxwra",
+    "twinCategoryID": "sulanskbibs19kfj",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "r330h3uhvtxifxgs",
+    "twinCategoryID": "hysc3hna3pmvf7q1",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "djvg9frle7n2j46e",
+    "twinCategoryID": "wcuehus85mktzm01",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(10)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d3sq78ag0s2f1ybe",
+    "twinCategoryID": "e3izlpxz6chnogc6",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(10)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rz6k0ac95awdb0q8",
+    "twinCategoryID": "ghbuj3p32ilx3x8r",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(10)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wnl7we5tc5rjy99h",
+    "twinCategoryID": "ysggkecfzizimwj5",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(10)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "r1kr7n1s32prp3x7",
+    "twinCategoryID": "mju12fswxjdg849l",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vti44vut4c9d8l24",
+    "twinCategoryID": "s6vm0yjzv8nbz0og",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(11)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "gcj5xca0m9b5x59r",
+    "twinCategoryID": "lfb3a8u47oi34p6t",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qijdh5frf3p7zwza",
+    "twinCategoryID": "7ok4arwsyhc8q622",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(13)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7e5k3rwahhlnd2e8",
+    "twinCategoryID": "3jzrzl4h3vh9idj2",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(14)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "277n2u1ml8i73cv4",
+    "twinCategoryID": "8lhqswizizefvd9l",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8clhfvg84ybd5tbs",
+    "twinCategoryID": "uzulfj3fg093c4ob",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qkutenzxvtf1wuo9",
+    "twinCategoryID": "mb7ytibamafj0bcw",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7rp275j9sptrzjzb",
+    "twinCategoryID": "s17hw3ehhsh6fki2",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1ydzlopvla8d6krc",
+    "twinCategoryID": "iq5zbkg8tffd3fze",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k4urw0w7fydt44nv",
+    "twinCategoryID": "kczx6twyt0u4v5f1",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jqsq5rocyp43ghgp",
+    "twinCategoryID": "1ysuqawd1q5a4fpi",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7uwyu780o2rrvaw6",
+    "twinCategoryID": "k2c34cl9n34nbseg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "3czgs44uoxmy6noq",
+    "twinCategoryID": "dr32aocfq315t6cr",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l7cd3qngc0f08sl5",
+    "twinCategoryID": "7ltiuuzw2n8hykin",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d21jwgl3yjwlwdhr",
+    "twinCategoryID": "tnj6jfnov2mgunjg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "30wnctl56hvcsstd",
+    "twinCategoryID": "rpe11uf9zybavwe9",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0o9g5prm4mj6ha1e",
+    "twinCategoryID": "ko3bx3l58bcmh3ws",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "937mk7i8su5l57sd",
+    "twinCategoryID": "p0d5lylhqt2t77h6",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "n9p65awcg5mtrp1f",
+    "twinCategoryID": "rzakcch52yf5sgmw",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6hgnqemkwcuedea1",
+    "twinCategoryID": "xa8w1xs44251z0b0",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lbuy8ij26docvbi4",
+    "twinCategoryID": "cdnzne4u76jutywj",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s2b2urko7z492do7",
+    "twinCategoryID": "87qj5xes7vjbcupg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d8twrri2zd4j38nr",
+    "twinCategoryID": "mf9j2hnprqsjo5vh",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hieyxflqyp1ufgh8",
+    "twinCategoryID": "8uzfa5citoalfawh",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1ckewy2ulpr42xf6",
+    "twinCategoryID": "l4tjxnyhropaoe51",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ils3v8pfkcsuuaqy",
+    "twinCategoryID": "le9hba8sbyr93px8",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5006sc6s0gpaxaab",
+    "twinCategoryID": "p64ut7y1fmmtbaob",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m3p4q2wj3zox82b2",
+    "twinCategoryID": "8vb472ls6c4jngew",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dog88r8a3lsi3rgq",
+    "twinCategoryID": "6ktlvgvovy7qch5p",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m3sk6n0gbpn10fvt",
+    "twinCategoryID": "7dp6nyrctrlte8bg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "37j7ob9t2bstlhjx",
+    "twinCategoryID": "m9hofwsw49a72uuh",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "31upj27himrywu9k",
+    "twinCategoryID": "cobo5zye6187acgl",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5xcq033zdhsqhkc9",
+    "twinCategoryID": "2j9kezvphcukea8r",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qc7ca87p3t11jvbs",
+    "twinCategoryID": "upgl0y0g5jtolgsz",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9c45nm4a5xmqltng",
+    "twinCategoryID": "vjz5rlj71cosp1mi",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "e6fq6vi3l92e3aw6",
+    "twinCategoryID": "gzyxkpw6n7c2tykd",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "etqxu201wblmtzze",
+    "twinCategoryID": "do5ioodleqcg6ntv",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "33gs83e95zgbptlj",
+    "twinCategoryID": "or3v56tc6s0coq08",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(2)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4fnkl6ggflsjpoyv",
+    "twinCategoryID": "sj6f4d022ahclmis",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wnk3bifihpzboe6a",
+    "twinCategoryID": "lhs4yspphyj7dehr",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m5idf209zoccmfas",
+    "twinCategoryID": "hkouuozhw426ofhh",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1znvb9754puc17v8",
+    "twinCategoryID": "ul6imltllgn56jmj",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sxaf9cui6ttpg7f7",
+    "twinCategoryID": "s49raddoeezkcnzg",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "21w02pdlegamd7lj",
+    "twinCategoryID": "wkejzfef3rcv7e5a",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d3zkjdpzbvgk7nf3",
+    "twinCategoryID": "eegzw1bsq20atjg7",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "x23szcnqz7nlrn6t",
+    "twinCategoryID": "4bn0y8nqoxyld1cw",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "48fn4f73hwbqjg3f",
+    "twinCategoryID": "hax67srbt404iv4k",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0g8vytb1tvetjhqb",
+    "twinCategoryID": "x9b7jciohsm5d78j",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ng4i3ueq99q6l7fu",
+    "twinCategoryID": "xddlm57yf76rh1jo",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cf7kbhmpdsedmkor",
+    "twinCategoryID": "ld09n729ge1lxx4f",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lwxnxxl8twe2wofr",
+    "twinCategoryID": "kpm339pby90p5rik",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wgq6x3jh3q1g86s6",
+    "twinCategoryID": "ajqleybpg9pxxgh3",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tg9ebtn3bdugsg40",
+    "twinCategoryID": "dqxk5qgb3bgcruwa",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "r5fpmlwblx60t458",
+    "twinCategoryID": "o03a50pbze1357o3",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(3)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "27jxn60o0nl5l4ki",
+    "twinCategoryID": "ut5n88dsgaayaltv",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "smaam18k8njti9dk",
+    "twinCategoryID": "md8fi68mkcll5c84",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "h2wl5d69wl3havw7",
+    "twinCategoryID": "p6vtf0hlazqzvjr3",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qrmv58xowwr2b7ru",
+    "twinCategoryID": "qbg3c0ujup3ou5w2",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vzoj2uckaa5zgef5",
+    "twinCategoryID": "05858bczeg93wp36",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "kl7e5tymhm9j68b9",
+    "twinCategoryID": "qnak4ohv71wl914b",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "40ya7r9v337lexoa",
+    "twinCategoryID": "ivkfdd8o0i2t9qc0",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "p07mhybqyct0cto5",
+    "twinCategoryID": "364ma3gxge43nwd2",
+    "twinCategoryName": "Dell MD3820f_1110_(1)_(4)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s3x0xuj8obvuyq6t",
+    "twinCategoryID": "z49wj05vnzqc97uq",
+    "twinCategoryName": "DELL R230",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2kngww9odry5b5bs",
+    "twinCategoryID": "szsoq7f2baqeo7rt",
+    "twinCategoryName": "DELL R530",
+    "exampleCount": 17,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6uh2mqqiiqj8dt1w",
+    "twinCategoryID": "v60tnd3ipeay871j",
+    "twinCategoryName": "DELL R730",
+    "exampleCount": 18,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8xgg8ruc2qkk8pw9",
+    "twinCategoryID": "imef108vsg3zpc1n",
+    "twinCategoryName": "DELL R740",
+    "exampleCount": 29,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hmrdn6zld63xcus5",
+    "twinCategoryID": "4908o47haumb6uzd",
+    "twinCategoryName": "DELL R740（深信服）",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "a3lualr3s6qa07dq",
+    "twinCategoryID": "nj7glsq660ddusw0",
+    "twinCategoryName": "DELL R740xd",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xsfdfeh4w9usvzpq",
+    "twinCategoryID": "uhddrjdunjqqx7kx",
+    "twinCategoryName": "DELL R741xd（740xd）",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jo7a1juux1cs8ltx",
+    "twinCategoryID": "a40h62rtsmlsh1sf",
+    "twinCategoryName": "DELL R840",
+    "exampleCount": 6,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9w6sferual9h1voy",
+    "twinCategoryID": "wu9kszwscagfg731",
+    "twinCategoryName": "DELL R930",
+    "exampleCount": 45,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vc8wq4kn70ex406i",
+    "twinCategoryID": "srkiqmcauy8lidxu",
+    "twinCategoryName": "DELL R940",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rvqmqphb0iupwt37",
+    "twinCategoryID": "4xrzj0r4u15quanf",
+    "twinCategoryName": "DK2000",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ylvj1d77s0mw44ae",
+    "twinCategoryID": "vwlczdeejjzj0jjf",
+    "twinCategoryName": "DL380 G7",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bwkho3m33hf82oui",
+    "twinCategoryID": "0i100djp9uehl2jp",
+    "twinCategoryName": "DL380 G9",
+    "exampleCount": 20,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "115vleh3hkqoogl5",
+    "twinCategoryID": "qrsojiu5krzs5uyk",
+    "twinCategoryName": "DL388 G8",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "80v9hmcsjz2sfo2o",
+    "twinCategoryID": "yl26a3xse7mf5p7a",
+    "twinCategoryName": "DL580 G5",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "laazk648jotxzw48",
+    "twinCategoryID": "supstx9z0oglzxx1",
+    "twinCategoryName": "DL580 G9",
+    "exampleCount": 6,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rdofoqaricbpqslu",
+    "twinCategoryID": "hlee5z7a0h3vezl7",
+    "twinCategoryName": "DNS域名解析服务器",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nya9t86cyswvh1oc",
+    "twinCategoryID": "xsq7clr4ulqximf9",
+    "twinCategoryName": "DS-A5120RL-CVMN",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lxaexqf8li76ptp5",
+    "twinCategoryID": "apgimmjwbz2b2h3h",
+    "twinCategoryName": "DS-AT7000S",
+    "exampleCount": 3,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "al551ibiq1dxi7g8",
+    "twinCategoryID": "5bprr46q9ze78spy",
+    "twinCategoryName": "DS-IP2050-U/QD",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ek4bbz2c4tlvv1t9",
+    "twinCategoryID": "zfo0oc8v1twfcb2p",
+    "twinCategoryName": "DS-IQ2008-A7U/AI",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "h2xu5jkadkl1ot6i",
+    "twinCategoryID": "cl6vprqixclhf0qx",
+    "twinCategoryName": "DSA-USM-A2000-KU",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rvnjtdmxbymi4vq1",
+    "twinCategoryID": "mj0uxew8615a3fec",
+    "twinCategoryName": "DSVS500-G",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fm3jc972gvf5idmy",
+    "twinCategoryID": "gytglkg4txbfvrvc",
+    "twinCategoryName": "F5 F5-BIG-LTM-I5600",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0ji9z4qgulmy0d5v",
+    "twinCategoryID": "3zy21goh6p6uvdbd",
+    "twinCategoryName": "GZ3000-FT10",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lajefwylw98lo6b6",
+    "twinCategoryID": "067bdeaws7njx1b9",
+    "twinCategoryName": "H3C 6520X-54QC-EI",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "019z49vva3w3yaea",
+    "twinCategoryID": "8vkxpofeqkrafxko",
+    "twinCategoryName": "H3C R4900 G3",
+    "exampleCount": 108,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rz4i98f68w7cwd9h",
+    "twinCategoryID": "k6u2phpoxv2rdoio",
+    "twinCategoryName": "H3C R4900 G5",
+    "exampleCount": 81,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6nb58lgxbtm5it2c",
+    "twinCategoryID": "fqtsgysy7fcekvyt",
+    "twinCategoryName": "H3C R4930 G5",
+    "exampleCount": 6,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4qgikyi2v0jiuecb",
+    "twinCategoryID": "opz3nd70z30pp2zm",
+    "twinCategoryName": "H3C S10508",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8els7q7il93qfawn",
+    "twinCategoryID": "5lp03y4p83zkarzf",
+    "twinCategoryName": "H3C S10508_1217_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "euo6c1zjavfb530d",
+    "twinCategoryID": "9hxl4744osy9m8gd",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "uuu0vkc5o38d2ltt",
+    "twinCategoryID": "2xtu0054ac81l8bk",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cqpcrhs0wrqtru34",
+    "twinCategoryID": "e37ojk7xnl9y628a",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8wdle6kmjzro7xh5",
+    "twinCategoryID": "p9izni47qfpytohg",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bjotx8n26l3ltm3b",
+    "twinCategoryID": "idybqb24ll95opp5",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ejiftccqzwiyvf2a",
+    "twinCategoryID": "ey2hmbbrbygeu9ca",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nnoaxfj73fh4zn7b",
+    "twinCategoryID": "07y2yqzf37ivx5bs",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "50ugrv1bp8z792c4",
+    "twinCategoryID": "epepanoub33uqqpx",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "c0is3tmkez0h8bh0",
+    "twinCategoryID": "1hi59tkex7rgcgio",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "473kqhsyu30kgrb2",
+    "twinCategoryID": "3v62kb7s905wa5ds",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tnarg0w5y8u9159l",
+    "twinCategoryID": "isuetql4hbqzq8gw",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "x0cmgtmgrbemwmdb",
+    "twinCategoryID": "6no1drshjlu56fbe",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7veinqzlkl7lyqmy",
+    "twinCategoryID": "tng5287ky9fjp5pq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j983tgxbhpbakwc1",
+    "twinCategoryID": "ln0psifpsofxf44s",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "81zzw82hzwh6ctoj",
+    "twinCategoryID": "aw0fgklssw5wozfq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "r84x706sc7nl8yiy",
+    "twinCategoryID": "xas8iq62eut09usn",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "3xaw0dzk8dv6551n",
+    "twinCategoryID": "hrs3eruoe1kvy14e",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "a5l4vgsphf0psuer",
+    "twinCategoryID": "jqf7u8gruikjpbda",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5srp95uh3sn6wgsx",
+    "twinCategoryID": "y9oem79krmt9metg",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nh8fve7z26c23k6z",
+    "twinCategoryID": "8vv57tmtoxnlww82",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2n0z67hdr366p7iq",
+    "twinCategoryID": "icgclufeufueg2p5",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6rjeod4frp4bmhn3",
+    "twinCategoryID": "ms3a3hrcmqn7r9ym",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "16o7kbr9aplfmo9e",
+    "twinCategoryID": "92n5xx59o836o4d7",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ron2jnvt4ejp2hz2",
+    "twinCategoryID": "vz770f16bolyfx6r",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vrcgt7b02dr48qhl",
+    "twinCategoryID": "tt402i1d4397t4p1",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "etz31e9fvu8jezy7",
+    "twinCategoryID": "tqdjofpuy8e8la2j",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1huilr27cismyn9j",
+    "twinCategoryID": "ee950ih2eq4z3nv9",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lgaqxrk5gq34k8qe",
+    "twinCategoryID": "7cimnc41v5xry825",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "miuofsssucfyc41h",
+    "twinCategoryID": "kpm5zazn8ufljntq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dq6tlpyl5ljaikx1",
+    "twinCategoryID": "pet56hertz7iplkl",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qt98o3niv5wqp7bg",
+    "twinCategoryID": "7hj5mjy1s12t0jyq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "snzx1fb3lrtfx4z7",
+    "twinCategoryID": "u4923bs9frn5t9zw",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jm009u8gwmixwlsc",
+    "twinCategoryID": "ybbtujageq0w36w0",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "gilmftoo2m1r054q",
+    "twinCategoryID": "9e5u5big5bp959lf",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xonkjmubev3v3lqs",
+    "twinCategoryID": "ybr6zeoed2voyqkp",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "w1s2iqwtyohc57c8",
+    "twinCategoryID": "l8h9lb3btdkxgjgv",
+    "twinCategoryName": "H3C S10508_1217_(1)_(1)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1xb8j2iyxwws4jcy",
+    "twinCategoryID": "qtl57ikw4tpiwwfn",
+    "twinCategoryName": "H3C S10508_1217_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "a94ym0qsl5vm9gjr",
+    "twinCategoryID": "4uvjzyjs3mqxc7mz",
+    "twinCategoryName": "H3C S10508_1217_(1)_(10)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fhqrwzi272xyptee",
+    "twinCategoryID": "9m15wh68qf3fnvqp",
+    "twinCategoryName": "H3C S10508_1217_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q3t1y41bwvmycdsq",
+    "twinCategoryID": "dyh69ahkn5ehx5q3",
+    "twinCategoryName": "H3C S10508_1217_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "if9najxkdujsz882",
+    "twinCategoryID": "4dmlu0g1mi3nii3y",
+    "twinCategoryName": "H3C S10508_1217_(1)_(13)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "s30j0k4anoba58k8",
+    "twinCategoryID": "gcle8yf6057t71vp",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "z0gxzmrmaxey4jja",
+    "twinCategoryID": "tizgx6qmwh2k8jep",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fu8etuioavu9vle6",
+    "twinCategoryID": "sij3b1gnpmf1xthv",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "22gx2fsd2zb3cu3u",
+    "twinCategoryID": "qjbb0e93ujci3zp1",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "11saohob81p4qtaz",
+    "twinCategoryID": "a8nnmk7iiuns1zqa",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "zx15w4s92ra3u9zt",
+    "twinCategoryID": "4yrsn4o6iqai733g",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "22crupowtj6p0rw7",
+    "twinCategoryID": "eca4sfu5euvksuql",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pr8rx5u8cfitnfqw",
+    "twinCategoryID": "cmqo90krizum7l6y",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j5qt9el3a383txsu",
+    "twinCategoryID": "ey019dgdxhpsmzdh",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "inakucxu6xszmmr9",
+    "twinCategoryID": "fnpkln7elhhq89sx",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "u8hvlbcswtk6ku4s",
+    "twinCategoryID": "ty5qu5d3txvhhczr",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mh2sejx88407ya8d",
+    "twinCategoryID": "cbwo2grccf6bactf",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jb0m3voyv4c78pbc",
+    "twinCategoryID": "bvqx8zqho2obj6t3",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "89qlv9bw1agxpumq",
+    "twinCategoryID": "mr9abo16124e6sz6",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9wuqbxozhkxnnhkm",
+    "twinCategoryID": "yjde72qkmpou99vr",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "b66a1l8tiqwyuq6o",
+    "twinCategoryID": "fur17d4ho9dbb4tp",
+    "twinCategoryName": "H3C S10508_1217_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yavqhc1gkghyfvwp",
+    "twinCategoryID": "3g12rhh4dwpbj6mc",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mtceddp3usv5xp4j",
+    "twinCategoryID": "inv03vyv2gx6crcf",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "x365frpvbrqeflh5",
+    "twinCategoryID": "u7peroj9suzijfty",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "oo0yxwl0abec9c5a",
+    "twinCategoryID": "gso51ixllqsufjnq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xpxa0p6pbm5k34dk",
+    "twinCategoryID": "wc7uyf0kqghdq277",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "feblthmqo34cvc70",
+    "twinCategoryID": "pap3qdudec7vi1s6",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9mc8fp4rtfvn4i5u",
+    "twinCategoryID": "pjx0uv13uvqg56ab",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7q2vynpkrb86ivdj",
+    "twinCategoryID": "xfgkzn5j3stmhnh9",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "736i4wzupr15q7yn",
+    "twinCategoryID": "kbodcuh3i9ej4rqq",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "woagclsbgdvy3erq",
+    "twinCategoryID": "bc9q2otx0xpax064",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2yctty46mpjw7dse",
+    "twinCategoryID": "ccmraqoig9i96rm2",
+    "twinCategoryName": "H3C S10508_1217_(1)_(3)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "oo2im38fkp2e0yjn",
+    "twinCategoryID": "p3fapjeizblylwjg",
+    "twinCategoryName": "H3C S10508_1217_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "h9jsybf99j8euv10",
+    "twinCategoryID": "ylhqoif3waj027m9",
+    "twinCategoryName": "H3C S10508_1217_(1)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j2k41f90v6hzeyg8",
+    "twinCategoryID": "ig7fxhorltgjum53",
+    "twinCategoryName": "H3C S10508_1217_(1)_(4)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "iw905rublwyn1bdq",
+    "twinCategoryID": "y0y12ntpxmbpmqsn",
+    "twinCategoryName": "H3C S10508_1217_(1)_(4)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "n07bzaorxyqfxjvi",
+    "twinCategoryID": "c8njkj38hghazqck",
+    "twinCategoryName": "H3C S10508_1217_(1)_(4)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1xr2zdbphxy3tzji",
+    "twinCategoryID": "t5y0gcvu24tzd2ac",
+    "twinCategoryName": "H3C S12504X-AF",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "luet3k2xe1x6jf0j",
+    "twinCategoryID": "kcjmgn7e1s82nnmh",
+    "twinCategoryName": "H3C S3100V3-52TP-EI",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "98w19libke8wtbmw",
+    "twinCategoryID": "dhj3o9q3wuy1gaph",
+    "twinCategoryName": "H3C S5048PV5-EI",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "atgv368npdy0gfjy",
+    "twinCategoryID": "1cdzu729ni00fgm2",
+    "twinCategoryName": "H3C S5130-54H3C S-HI",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4mi2nbtr6u2gawtv",
+    "twinCategoryID": "fbcnxoezt1xrsdqx",
+    "twinCategoryName": "H3C S5130S-52S-HI",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4n4241kt68b0yeaq",
+    "twinCategoryID": "1209vmmm0zqq4xt1",
+    "twinCategoryName": "H3C S5500",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "c2tjx9lyo8rhqy0w",
+    "twinCategoryID": "go123k72kn1oik3d",
+    "twinCategoryName": "H3C S5560X-30C-EI",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9uoay0r4587jc1mr",
+    "twinCategoryID": "ue2ngkmv6ba8hnj3",
+    "twinCategoryName": "H3C S5560X-54C-EI L3",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hgibfx6ag8tu4upq",
+    "twinCategoryID": "qzt67myjvc6n3sri",
+    "twinCategoryName": "H3C S5800",
+    "exampleCount": 8,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6xy1gg0kss90x4bn",
+    "twinCategoryID": "rk45vb912hz12845",
+    "twinCategoryName": "H3C S5850-54QH3C S",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "oz2l52h3b7gufck8",
+    "twinCategoryID": "vmj5zzl3l7pgfbte",
+    "twinCategoryName": "H3C S6800-2C",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vhoi7fn1txnciwly",
+    "twinCategoryID": "3d4y3g9yl2m5ojkv",
+    "twinCategoryName": "H3C S6800-54QF",
+    "exampleCount": 13,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "294s8rpriiify5yc",
+    "twinCategoryID": "lmaijve8xxiuh6fm",
+    "twinCategoryName": "H3C S6805-54HF",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yozxuud2fedu1241",
+    "twinCategoryID": "v1ppkwyzl40er6wp",
+    "twinCategoryName": "H3C S6805-54HF L3",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ho5byqjblo505wuk",
+    "twinCategoryID": "sqssavrdeptahfsg",
+    "twinCategoryName": "H3C S7503E",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1m73392mzwdy4jia",
+    "twinCategoryID": "ch0qllz40ooe63lz",
+    "twinCategoryName": "HDS BR6510",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0z3u34m0th5fkv8k",
+    "twinCategoryID": "tkcez7oqzl61p324",
+    "twinCategoryName": "HDS BR6520",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pqketgbedmdc40f0",
+    "twinCategoryID": "ug2pzu8v1ehhbtdg",
+    "twinCategoryName": "HDS VSP G1500",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qx1swlullu0638vh",
+    "twinCategoryID": "exh5x6et3k8q6hhm",
+    "twinCategoryName": "HDS VSP G200",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "372512tzoqe8nz6f",
+    "twinCategoryID": "m3d63rlemfjt86up",
+    "twinCategoryName": "Hillstone SG6000 E5600",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tanfsbu57k8hz78y",
+    "twinCategoryID": "zvnqn84xcbtysmth",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC",
+    "exampleCount": 10,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "g8lzwhqq3w7zkumn",
+    "twinCategoryID": "o4e50wbzegxrlnod",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "o1et6b926icyjfw4",
+    "twinCategoryID": "y8069w7kiovbg6ms",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "575eutxoe128cmv5",
+    "twinCategoryID": "jqfhnh1zlxvhvukm",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rcpdon6r7wxgbw34",
+    "twinCategoryID": "dznukuvggaraon4c",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m62y268nu1dlent1",
+    "twinCategoryID": "1aym30jyxaixxd0i",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j31i8h9z794rgk20",
+    "twinCategoryID": "yy5fegswa9lj3wy2",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l2zcuhqhsftjc67m",
+    "twinCategoryID": "jar6pofi8xgtnpl4",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yc2wkz6cttbhusxd",
+    "twinCategoryID": "l8rm6emh99joh9iz",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "phpwo8y4whflyc1u",
+    "twinCategoryID": "rgrla1hka5umxat8",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "15riu6f1f1ffudmp",
+    "twinCategoryID": "17ag4lvkz3zi1ebq",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "b5gifnxei0bg9zvq",
+    "twinCategoryID": "je4nj6uskjqnxi1b",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0d6nztz9sjhoe85u",
+    "twinCategoryID": "79y8ydxj45ti4qvz",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rgz4r085ely5mexe",
+    "twinCategoryID": "2nbtsn8ndvoc0lp7",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6nfkic6x2yzkgy0v",
+    "twinCategoryID": "hpb3jrrychy05do8",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "59046bqhwlsneqa3",
+    "twinCategoryID": "788v6cmsirp1oobn",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l9fzjxjqx541lbu0",
+    "twinCategoryID": "6axmty09xr35uooo",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xhx47crmmrxjujhv",
+    "twinCategoryID": "auc4928k713vxmmw",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "iachobqsin6fcs7b",
+    "twinCategoryID": "93b4e4xz59qw3437",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jvfvjrj6uw2f0pud",
+    "twinCategoryID": "4sfshjkqap6qcsey",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wluvgvdsyst55hfo",
+    "twinCategoryID": "3u6p6xnpi9zxxawk",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "t7h3jkjynaiqi96u",
+    "twinCategoryID": "ypjwo8g5yf8n1gam",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ulzoenvx4361gdhw",
+    "twinCategoryID": "nkyfzmuoctogext6",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yzgyhfce7p6fk14t",
+    "twinCategoryID": "72rropl4gx8iwpwo",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2i7avkmqero06tj0",
+    "twinCategoryID": "v78arjv7h7n3b9vg",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "p6osgledgwjc1sny",
+    "twinCategoryID": "gy2v97yitramzckp",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "g9skhk1nmmqr36mc",
+    "twinCategoryID": "na43epknux7mftaw",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "g0h6rlyxnmj5w997",
+    "twinCategoryID": "ux9mli0nsffbi3xf",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2xtegjzqfgp6sby3",
+    "twinCategoryID": "8y17tb47h5660q02",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d2o1ucafqg91d6ye",
+    "twinCategoryID": "koxbfoix35s6jh2o",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rask9u5e4cpas7l3",
+    "twinCategoryID": "qsmldkickm2ulltx",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bpasxmyil67anl85",
+    "twinCategoryID": "lwofcj1qt4qmbv49",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nh4xcz9nfm2ovp64",
+    "twinCategoryID": "ugzc4fjmete373bo",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fmeeyyg24r0va6cc",
+    "twinCategoryID": "3h7hrh4t3d65qw22",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9qgsfcqkjbv3w97d",
+    "twinCategoryID": "n7t2lsrwv6x31qg7",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j2ekqlx6anq1a3bp",
+    "twinCategoryID": "epslb1rvsp3dpkps",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "c6ywyucem5nusbqt",
+    "twinCategoryID": "l2zn8um8grr1x9zi",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cxm3441t11cbf1vs",
+    "twinCategoryID": "i7wia7r36btmudon",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(10)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "y9m5ex1j5hiqjdys",
+    "twinCategoryID": "55n0tgkl47r95zhu",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(10)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ssnnm4vgwmqaawqv",
+    "twinCategoryID": "6zgy3jyzfzpgsu05",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1luci13gr8ogdisk",
+    "twinCategoryID": "0yj56yyeoc4r63n4",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rfukrto6nn304dzp",
+    "twinCategoryID": "g2tiqfvqu2iz6ohm",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(13)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k2i642asfuyj3mpd",
+    "twinCategoryID": "47jses8yyfppjjc6",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(14)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wc5w72kxkpnvst1w",
+    "twinCategoryID": "k1wlqaibuxxgswth",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tvhn55mg7el1nyqe",
+    "twinCategoryID": "j7i76wkwtbhtwqh7",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "68mt4ckb5fuvy6kd",
+    "twinCategoryID": "u3udxlr1jpwbs4yc",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9r4ia07hss0kllfj",
+    "twinCategoryID": "eie27ibuxzcpnixr",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0v3lo594ot6l00fk",
+    "twinCategoryID": "ip5dceqhmm5djo2d",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "92x8a9qjwyltkz9m",
+    "twinCategoryID": "njm90qjisf158wog",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "kg3t891iurniqw9k",
+    "twinCategoryID": "9s7cniznddt21va1",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "uow1l6kksgney0bu",
+    "twinCategoryID": "fn1syr9txct2zypj",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j3r8vgsstejqh61f",
+    "twinCategoryID": "9fshtx68wsw25c1o",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "iwe8surgkam5wjmm",
+    "twinCategoryID": "r0c1rzfwisop0one",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sy4kf2eto5jubk58",
+    "twinCategoryID": "we57x0g5kjrnzbzf",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rv4ndh6svzgr7gb1",
+    "twinCategoryID": "zb5nu1qzrup71xbn",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "96vxxejccbv3fo0x",
+    "twinCategoryID": "m98zpurha3i951bd",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4fcc5nb0ls1nrjja",
+    "twinCategoryID": "651336eq4w4n3ubf",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "t2t16yz2goojx42e",
+    "twinCategoryID": "p7v3uv9infinqaeb",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1iyp6nyczk2keos9",
+    "twinCategoryID": "ls59dg1n5vg4irei",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jl62fb0dtdb8bt9p",
+    "twinCategoryID": "7b999ckzlb4g1mp0",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mqawohxyydv76a5f",
+    "twinCategoryID": "gvdgzcdwdfuc3g4o",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4c03zaulum7snqpm",
+    "twinCategoryID": "gk6efmg0g1vypyog",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vwpbsh480w65h86w",
+    "twinCategoryID": "lpl3tlmvkdsae9wb",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sx9kd6zf1k8iatpo",
+    "twinCategoryID": "oysurk5w2cmrmf5u",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6ws282dmfuehtpwk",
+    "twinCategoryID": "k3h0uevcuw6yfr2c",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8fsjuee8ekmjtzsn",
+    "twinCategoryID": "5e3wmij2735jmibw",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "odsf1l1a14zjeux8",
+    "twinCategoryID": "5cwvrlplpn0yp4jy",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4yccmmcni6vadccx",
+    "twinCategoryID": "hpqqub32mxiyeo3r",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ke0c6pcrywhr212q",
+    "twinCategoryID": "lnhsauupwa0xt5uq",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ozbg0qlbow5j3239",
+    "twinCategoryID": "4nkwqcta7r8hc3ub",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cdbbbjf47nbklqpg",
+    "twinCategoryID": "oxxnx1ot5ljrgcct",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7c17e2wr516r3ggm",
+    "twinCategoryID": "u3uioeqndokvn1pb",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "opbcrqekyag352pm",
+    "twinCategoryID": "cu830pgc32whm57v",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "95r8o7azr9wd4hrm",
+    "twinCategoryID": "q77dxy16nbieplb1",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "w40129qmrzbbr3uq",
+    "twinCategoryID": "mfr4x72ly7hamsbq",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sl1fygb1cwad3fxy",
+    "twinCategoryID": "0vk1j5n3as4vbz2d",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "et8w2evpshk7h0mm",
+    "twinCategoryID": "244bq0dx58twne7q",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7dmidbus439kog3v",
+    "twinCategoryID": "mw4oaub4t1m2c0fk",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q55wgkhdroizd44i",
+    "twinCategoryID": "95gpgemg8kuqhcml",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cymxbq1l9cdma31g",
+    "twinCategoryID": "71908bhpb1hs3dnw",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nsessfxyr93ks7dk",
+    "twinCategoryID": "qya6eft0zyqqm20y",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lo6ihc6j9m7s3jza",
+    "twinCategoryID": "4f1a2733ciy2orty",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fipu5ykq93k13ryn",
+    "twinCategoryID": "9f2n1dfek1zv9e69",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l97kqj6t1oogtc7y",
+    "twinCategoryID": "3sbjwjc93g199zzq",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yl8o3xlowln2oo0n",
+    "twinCategoryID": "ogury63a79mqsow5",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "x30fa5mspfob2air",
+    "twinCategoryID": "7kxfvlionk7qa9k4",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "easno2drgyynkmnk",
+    "twinCategoryID": "6sqkmxbxnr6mcvxj",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "icl17ydkv6lisvc3",
+    "twinCategoryID": "13clxilmstmutbax",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ityj2ddxx81qkw3v",
+    "twinCategoryID": "wq9vqiztc3royk5x",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sx0jjq3hij2oahu8",
+    "twinCategoryID": "qltgkhigx90t8n0m",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ordxw9tpl7edifm6",
+    "twinCategoryID": "wnsp52bpvc73npes",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "isv0hdtotcz7uayu",
+    "twinCategoryID": "gw4unbt3x43qzw7k",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rkbsams9z59sevee",
+    "twinCategoryID": "ey42s3zw34gbnnyn",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1ox62j35z5sarsm6",
+    "twinCategoryID": "p5gbtl7b5oda1qqo",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "cx8r28qla8549ucg",
+    "twinCategoryID": "x1kir80x0rk9x8r5",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lif9f1kjo15crdme",
+    "twinCategoryID": "05acvg8dbh5xxgqz",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "a33izavwjwb7u21h",
+    "twinCategoryID": "v6om74vqelvso184",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(3)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5ajaq71azrkpp7pj",
+    "twinCategoryID": "8wgi7mt8xvsokurc",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "p83ma7kmz0fzg03x",
+    "twinCategoryID": "d29u41m0z3lpt9wg",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k051fo5wespwsm1x",
+    "twinCategoryID": "nzxh1n1nsbfb6jzh",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "m4c22kfggh47iccz",
+    "twinCategoryID": "rzdov2zbh2p07gpc",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4nah8tc7d3lxk095",
+    "twinCategoryID": "hh5t4r5ftlfdyej5",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "pn6519tzadbbstey",
+    "twinCategoryID": "0vqlokb40tanxn0t",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hamqfz8ollcas39r",
+    "twinCategoryID": "921016d8kh6wm5lr",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "p2oa59gtybzcauid",
+    "twinCategoryID": "8ihneq83ld4hlcsh",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "7z4u1ssz75m8q1ul",
+    "twinCategoryID": "zbbj62bury3l69fx",
+    "twinCategoryName": "HUAWEI S5731-H48T4XC_1110_(1)_(4)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "3mk639hbj7q00xju",
+    "twinCategoryID": "z0iaettno8dxnvx0",
+    "twinCategoryName": "HUAWEI S6730-H48X6C",
+    "exampleCount": 8,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fhpzjbse40xr40qm",
+    "twinCategoryID": "blj1cz6ypn7zq9tu",
+    "twinCategoryName": "HUAWEI USG6615E",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "u1nq8kyo4y85l4fr",
+    "twinCategoryID": "zwap863kqnhjr96v",
+    "twinCategoryName": "ICX-6430-24",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "362z2gp3vpckx0yb",
+    "twinCategoryID": "3mltkaav6s168df9",
+    "twinCategoryName": "ICX-6430-24_1110_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "onlhbtowv715q9nc",
+    "twinCategoryID": "huf42nb27m0hsfx4",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "o4oowcv5ggq1oomk",
+    "twinCategoryID": "xmcg2mjljkd91sxn",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "o72g126qbxd0ptcs",
+    "twinCategoryID": "yznu42qbo2liljdp",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "h5xuoddgzcp36r1s",
+    "twinCategoryID": "fbal3e8mfk85yqdl",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9ymg8ljehpmow03d",
+    "twinCategoryID": "xau3ochjhp5s7pnp",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k3px1k4iic332skj",
+    "twinCategoryID": "p8jztpvz5mb4j0yl",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "3qumv8m87k49l5wo",
+    "twinCategoryID": "aiaa01g3qp2onmms",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "58d4urp2uo2fjede",
+    "twinCategoryID": "u441idlgvem2z7dv",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "oqghlyke6vo5duzl",
+    "twinCategoryID": "sluzop2z6fih46c5",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d9i7tc09hdns69g0",
+    "twinCategoryID": "8rqqpx2ka1zxgetz",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8zhyy6d47lx5rbga",
+    "twinCategoryID": "m44cm8uylpklykww",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "gwe9x48rvshykoyp",
+    "twinCategoryID": "vh3s30wiqf8fq6wt",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "je97jjz4zgo780db",
+    "twinCategoryID": "8lwjblob6r84w5vb",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qbj4wlhepa628mbs",
+    "twinCategoryID": "f8t19umm9emeflhw",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6d8hz412c3wd9bss",
+    "twinCategoryID": "1u377arjvymgty9l",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9hrux9fo6h1of55o",
+    "twinCategoryID": "u44pyhahltqo9zdz",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "we6u5s4c749192qh",
+    "twinCategoryID": "v7kxkh3srdgwra2f",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1n7pg1x7hcc1dzia",
+    "twinCategoryID": "ctiq09psoi1t6wss",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "yf6nfpg4jl6zomae",
+    "twinCategoryID": "0ohjplfd8phka41i",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "gh0i33cp4jbuar8u",
+    "twinCategoryID": "mv45euvij5bw16wy",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0vpwri6csz6v8abp",
+    "twinCategoryID": "xuojipdh42qs60xm",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1mnrt63r1icbfb83",
+    "twinCategoryID": "67j27v3yvqi0mcw7",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tqsk2w74w4eeb3fa",
+    "twinCategoryID": "rkiwa38ev709dw5c",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rydk0lztkonodqcl",
+    "twinCategoryID": "xnuzmflpu4dgcskk",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fkwcvffxztdxyw1b",
+    "twinCategoryID": "emcqfko6v4xrzqa2",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dd3zfjpsjda18xgk",
+    "twinCategoryID": "byp23lqbit03zr1j",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5wuoi5830jsahhf2",
+    "twinCategoryID": "kcx4urx8i7ul6axo",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1cce50fpofl5zjfm",
+    "twinCategoryID": "puamdenzufn6oz93",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lmda710pu7ftu027",
+    "twinCategoryID": "pt0px982ie3k822c",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "51iguyzqz3t3fhnw",
+    "twinCategoryID": "z6ddrd2alct2k7fu",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(2)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mnhofmf6nyoddsdo",
+    "twinCategoryID": "21mrwpbj57x2dxon",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "fkm434uorr5f08gt",
+    "twinCategoryID": "3vo07nl1qjjucicx",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "oht9044hg1u5vjmt",
+    "twinCategoryID": "gb7zo8porqc7lvab",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "irvapmkkhj4gye0d",
+    "twinCategoryID": "qxgh5qf7sccu4uo2",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "eu5yv38vdyjika5k",
+    "twinCategoryID": "32daovaxsjjs51l5",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "j52q258v5mlj4t82",
+    "twinCategoryID": "5y604dqnbmhh0h11",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1u9l7yn5dzpzrof9",
+    "twinCategoryID": "sdpqz2r68ata3wu7",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(10)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ef5urbj2ux7d6t3o",
+    "twinCategoryID": "n4ryv4fc12u40225",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dbr7rdijswmx8bol",
+    "twinCategoryID": "px5qy7zr8tdoo7sm",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(12)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "tvd1vxpio3oyatkt",
+    "twinCategoryID": "zx89cyo28h52z7cr",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(13)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ppvdx8lhbv7c6sq1",
+    "twinCategoryID": "g8hfp60l03buwhtd",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "443y3nr4k8xmx0zw",
+    "twinCategoryID": "sm5rr17de4hzq156",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "0gd5au7tbej7zhc5",
+    "twinCategoryID": "c13m3w0sbg83e2jx",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rqcgimbixagoojsl",
+    "twinCategoryID": "eu66xye7yuk9u01x",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mzmr9tjk78nyn8zo",
+    "twinCategoryID": "40j9lya37avai8it",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2aev4o6empzfif1z",
+    "twinCategoryID": "c6cris0k9yht4t6q",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vimvdz8rr66k8ybd",
+    "twinCategoryID": "slaopoq3t5hs0r0a",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "i70kl0ruyrljka9p",
+    "twinCategoryID": "zvg95yit5nng0rgs",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "i0nodig8r34etv04",
+    "twinCategoryID": "n90foabzl0b1e3jt",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(1)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q5w7m9g7k78ietfw",
+    "twinCategoryID": "9ugxx2zgpj1x9rke",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(10)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "txnumn1ccvvtfb2y",
+    "twinCategoryID": "oww4aytle1rzqswe",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(11)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "u6p8wedzz7rsts6k",
+    "twinCategoryID": "8nl337wpc9z83cfd",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "suw7p9qttd47jzxk",
+    "twinCategoryID": "b1c87vwvzp8ciaiz",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(2)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "32e9z6vsrj2terqj",
+    "twinCategoryID": "7qhahlp5rk0whsmp",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(2)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "rzs9y7ww1hr76ml5",
+    "twinCategoryID": "1o6cs6twuaiv0oe5",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(2)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "8109hagwvbna67t3",
+    "twinCategoryID": "cosx52kaorsc3b4l",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "99ppa07bs77vzqn8",
+    "twinCategoryID": "ygs2ueh3fgoc5ru4",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(2)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "p3afom5bqj6173y0",
+    "twinCategoryID": "dhwu92jq6gjlbglg",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vrsp5dikyln25dl6",
+    "twinCategoryID": "oa9rg3rbwxxlmuku",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "nrmb1gn3ceijdcaj",
+    "twinCategoryID": "jjukkty4ovbiezrn",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(1)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "z8ouf5j3mtwmw1ee",
+    "twinCategoryID": "2w6f9pa4wht598wd",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(1)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "ulfrh1mllafshk75",
+    "twinCategoryID": "nt289jd57ru1nf8h",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "hyuru6rmat0wvovh",
+    "twinCategoryID": "trrkracn216x1ef4",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "io8thbb5muhblcxh",
+    "twinCategoryID": "ark58jzl29eoy2f8",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "l52okix6a75u7y4s",
+    "twinCategoryID": "a6jqz729c0umtl2p",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(3)_(5)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "e434xz8je0jmdxsk",
+    "twinCategoryID": "cwplobme1u760vuk",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "wo3siehpvlxeqltf",
+    "twinCategoryID": "3myxqq0zt69ars7q",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(4)_(1)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "a7v0udwfh0fk0l0n",
+    "twinCategoryID": "vvmb89ba0yjbcwr3",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(4)_(2)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bvywcmhgyarjkrhn",
+    "twinCategoryID": "o9tmmye6an57v3jy",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(4)_(3)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q9t9nttlalisrjel",
+    "twinCategoryID": "th1mxjxjp3s6cewk",
+    "twinCategoryName": "ICX-6430-24_1110_(1)_(4)_(4)",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "k6h1dhlwr3dtfchv",
+    "twinCategoryID": "cmmq50vs97myz3n9",
+    "twinCategoryName": "IS5030",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "f2xyqgbamvidx9y6",
+    "twinCategoryID": "d2ffa2ns0oyxoprf",
+    "twinCategoryName": "KunLun 2280",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sd1c2zr5p248t1pd",
+    "twinCategoryID": "4ypphzt9s6tir9pk",
+    "twinCategoryName": "LS-5130S-52S-HI",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "aczzyqr5f2b5rmn5",
+    "twinCategoryID": "lnlgjnf3vargnq08",
+    "twinCategoryName": "LS-6800-54QF-H3",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "74yhyv84fzo2b0pt",
+    "twinCategoryID": "u6qcezvlyw91sbq3",
+    "twinCategoryName": "Mellanox MSB 7800",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "naz4vlqfxc0aijze",
+    "twinCategoryID": "hly47uprqbmjrg64",
+    "twinCategoryName": "Mellanox SX6025",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1ljz29c5fvjkzl23",
+    "twinCategoryID": "n6wkvs1qbork970u",
+    "twinCategoryName": "NAC V3100",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4jkuycirq6v8hzm2",
+    "twinCategoryID": "6mlitmp4exiopglo",
+    "twinCategoryName": "NetApp FAS8200",
+    "exampleCount": 3,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "y7125xa1eorpsufs",
+    "twinCategoryID": "8eehdlbvga66zyoh",
+    "twinCategoryName": "NetApp FAS8300",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "2wwik1q0lfillqzg",
+    "twinCategoryID": "e3lrtjms3sumj8zl",
+    "twinCategoryName": "NF5280M6",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "9zzpu1wnnuxbisqb",
+    "twinCategoryID": "vcxfiaocaf176o5v",
+    "twinCategoryName": "NG2506SX-H",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "qzaez34wts0prbs8",
+    "twinCategoryID": "0dxycdijzpgt5nbh",
+    "twinCategoryName": "OCEAN STOR 5510 V5",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "c5ed0jva7e1y95ef",
+    "twinCategoryID": "ejpkr5rkpc44kb0n",
+    "twinCategoryName": "QAXQAS-CodeSafe-7500",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "4ggmiqj8f46lv92t",
+    "twinCategoryID": "y04bxfikcqipj8i4",
+    "twinCategoryName": "Quidway S5700-48TP-SI-AC",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "d82tqs1mq6rlvj2f",
+    "twinCategoryID": "l219j29206nvlzxj",
+    "twinCategoryName": "R221K V2",
+    "exampleCount": 11,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "bi3uexn1396ezyoi",
+    "twinCategoryID": "gv2y1wqoknryidq5",
+    "twinCategoryName": "R420 G30",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "dcgg4m5rgxc3v43m",
+    "twinCategoryID": "muwm0u4tqmqflbgr",
+    "twinCategoryName": "RG-S5310-48GT4XS-E",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "jwp21mw217x6nk75",
+    "twinCategoryID": "3rxhxe8wtfkm2iw8",
+    "twinCategoryName": "RG-S6000C-48GT4XS-E",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "i9u98kg6ce2tbwsx",
+    "twinCategoryID": "nfe9qbslpays42ef",
+    "twinCategoryName": "RG-S6250-48XS8CQ",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "x926ds0gsm9v81pt",
+    "twinCategoryID": "08xmvxfek6jncodj",
+    "twinCategoryName": "S5700-48TP-SI-AC",
+    "exampleCount": 3,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5o1bw03wnwu1pe41",
+    "twinCategoryID": "jt6ug3yfjt8lu0u6",
+    "twinCategoryName": "S6805-54HF",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "q9l9rs63xabqaa37",
+    "twinCategoryID": "4cvku2s00k4b2z3a",
+    "twinCategoryName": "Scalar i6",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "lr3ryx3wqkrrnema",
+    "twinCategoryID": "yfj1x1hvsu3bbtof",
+    "twinCategoryName": "signone认证服务一体机",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "eps8m05upsamwfkb",
+    "twinCategoryID": "7yiks3rulkwj4iuz",
+    "twinCategoryName": "SJJ1748",
+    "exampleCount": 4,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "vjt9sp6eg0ks35mm",
+    "twinCategoryID": "p5ckbao7c13couat",
+    "twinCategoryName": "SL-H20-HG-6000",
+    "exampleCount": 1,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "1sqhppi34zc1rn2i",
+    "twinCategoryID": "i91wbezt27td6mrz",
+    "twinCategoryName": "SMB-S1848G",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "xxctqz8hmgrly4qb",
+    "twinCategoryID": "uq8df4teshh8ycj1",
+    "twinCategoryName": "SVS-2000C",
+    "exampleCount": 5,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "sal6w7y3mxds73d0",
+    "twinCategoryID": "tk7xpqajrobd0afv",
+    "twinCategoryName": "TG225 B1",
+    "exampleCount": 11,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "iaghlmnyrklg55lb",
+    "twinCategoryID": "nbar5voq6atjk8be",
+    "twinCategoryName": "UNIS Server R3830 G5",
+    "exampleCount": 25,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "06x85wk6ivfdwvnr",
+    "twinCategoryID": "4r5itrjfmthh7q11",
+    "twinCategoryName": "V580-48X6Q-TAP",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "n4ym3hzgqyfb2c76",
+    "twinCategoryID": "4r5itrjfmthh7q11",
+    "twinCategoryName": "V580-48X6Q-TAP_1110",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "csesudw7rkaih0n7",
+    "twinCategoryID": "8rhqqn332zgwbb3l",
+    "twinCategoryName": "WAF10000-M",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "mr5u4yyqaaa9p141",
+    "twinCategoryID": "8rhqqn332zgwbb3l",
+    "twinCategoryName": "WAF10000-M_1110",
+    "exampleCount": 0,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "CabinetServer",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "6uw8exdf8h5wiprt",
+    "twinCategoryID": "j8pnjo5z6nv1hrt0",
+    "twinCategoryName": "WOQUTECH(DELL R940)",
+    "exampleCount": 2,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  },
+  {
+    "twinCategoryConfigID": "5wkf6ijubh4blu2h",
+    "twinCategoryID": "vcb4wjc3bfmym20v",
+    "twinCategoryName": "XR-H10-T10",
+    "exampleCount": 3,
+    "twinCategorySource": "UserData",
+    "twinCategoryType": "FixedEquipment",
+    "dataType": "StaticInput"
+  }
+]

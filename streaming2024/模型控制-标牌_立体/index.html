@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型控制-标牌_立体</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .placard {
+        /* width: 230px; */
+        background: url(./img/background.png) no-repeat;
+        width: 264px;
+        height: 210px;
+        position: absolute;
+        color: rgb(255, 255, 255);
+        font-family: 微软雅黑;
+        padding: 5px 0px 0px 30px;
+      }
+
+      .scutcheon-header {
+        width: 208px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .scutcheon-header span {
+        width: 76px;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      .scutcheon {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 28px;
+      }
+
+      .scutcheon span {
+        display: inline-block;
+        width: 50%;
+        font-size: 16px;
+      }
+
+      .scutcheon span:nth-of-type(2) {
+        width: 42%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型控制-标牌_立体</span><br />
+        <span>点击机械臂，使用 addModelTip 接口传入 url 和 is3D=true 参数添加立体标牌并弹出</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 被点击的模型的名称
+    var modelName = '机械臂底座_0';
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.jxbToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                setCamera();
+                //开启模型点击
+                modelClick();
+                // //开启模型鼠标移入移出
+                // mouseEvent();
+                //挂载模型各种事件集合
+                onModelEvent();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 开启鼠标事件
+    function mouseEvent() {
+      var paramsObj = {
+        modelType: 'model',
+        type: 'hover',
+        allowMultiple: false, // 是否支持多选，false：单选，true：多选
+        isShowDecorator: false, // 表示是否显示选中的高亮装饰符，true：显示，false：不显示，默认：true
+      };
+      window.appInstance.uniCall('pickModel', paramsObj, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 开启模型点击
+    function modelClick() {
+      var paramsObj = {
+        modelType: 'model',
+        type: 'click',
+        allowMultiple: false, // 是否支持多选，false：单选，true：多选
+        isShowDecorator: false, // 表示是否显示选中的高亮装饰符，true：显示，false：不显示，默认：true
+      };
+
+      window.appInstance.uniCall('pickModel', paramsObj, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 挂载模型事件回调
+    function onModelEvent() {
+      //模型点击回调
+      window.appInstance.uniCall('addEventListener', {
+        eventName: 'onModelClick', // 事件名称 见图观官网统一API开发手册
+        callback: (result) => {
+          if (result.id != modelName) return;
+          if (result.selected) {
+            //添加html标牌
+            var obj = {
+              id: result.id, //模型对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+              nodeId: '', // 节点对象Id，该属性不为空时，表示在模型的这个节点上添加弹框，无该属性或者该属性值为空时，表示在模型上添加弹框
+              url: location.href.replace('index', 'data/MechArmProperties'), //Tip 窗口页面地址
+              divId: '', //HTML 侧弹出标牌的 dom div id，如果这个不为""，url 属性不起作用
+              isShowClose: true, //是否显示右上角关闭按钮，默认显示关闭按钮
+              is3D: true, //是否是立体标牌，false：不是3D立体标牌，true：是。默认值false。
+              size: [1, 0.833], //Tip 窗口宽高 xy，x：窗口宽；y：窗口高（单位：像素）
+              offset: [0.5, 0, 0], //Tip 左上角相对 对象中心点 偏移量 xy，x：为正，向右偏移；y：为正，向上偏移（单位：像素）
+              rotation: [0, 0, 0], //Tip 中心点相对 对象中心点 旋转量 xyz，x：以x轴旋状，y：以x轴旋状，z：以z轴旋状（只有当立体标牌的时候有效）（单位：角度，0到360度）
+              autoScale: true,
+            };
+            window.appInstance.uniCall('addModelTip', obj, (result) => {
+              console.log(result);
+            });
+          } else {
+            //移除弹出框
+            let jsonData = {
+              id: modelName,
+              nodeId: '',
+            };
+            appInstance.uniCall('removeModelTip', jsonData, (result) => {
+              console.log(result);
+            });
+          }
+        },
+      });
+
+      //模型鼠标移入回调
+      window.appInstance.uniCall(
+        'addEventListener',
+        {
+          eventName: 'onModelHover',
+          callback: function (event) {
+            if (event.id === modelName) {
+              document.querySelector('body').style.cursor = 'pointer';
+            }
+          },
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+
+      //模型鼠标移除回调
+      window.appInstance.uniCall(
+        'addEventListener',
+        {
+          eventName: 'onModelUnhover',
+          callback: function (event) {
+            if (event.id === modelName) {
+              document.querySelector('body').style.cursor = 'default';
+            }
+          },
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+    }
+
+    //设置场景镜头视野
+    function setCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        centerCoord: [0, 0], // 中心点的坐标 lng,lat
+        coordZ: 0.25, // Z 轴高度（单位：米）
+        distance: 5, // 镜头距中心点距离(单位:米)
+        pitch: 41, // 镜头俯仰角(5~89)
+        heading: 324, // 镜头偏航角(0正北, 0~359)
+        fly: false, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+        // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+        duration: 0, // 飞行时间，秒
+      };
+
+      appInstance.uniCall('setCamera', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

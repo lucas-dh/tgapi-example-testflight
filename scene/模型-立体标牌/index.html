@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图观引擎-API代码示例-模型控制-标牌_立体</title>
+  <link rel="stylesheet" href="../../css/common.css" />
+  <link rel="stylesheet" href="../../css/elementui.css" />
+  <script src="../../js/config.js"></script>
+
+ <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+  <script src="../../lib/axios.js"></script>
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/elementui.js"></script>
+  <script src="./main.js"></script>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型控制-标牌_立体</span><br />
+      <span>点击机械臂，使用 addModelTip 接口传入 url 和 is3D=true 参数添加立体标牌并弹出</span>
+      <img src="../../image/tuguan.png" />
+    </div>
+    <!-- 场景 -->
+    <div id="container"></div>
+    <!-- 底部 -->
+    <div class="footer-box">
+      <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+      <span>版权所有 北京数字冰雹信息技术有限公司</span>
+    </div>
+    <!-- 进度条遮罩 -->
+    <div v-show="isZZ" class="avw-loader">
+      <section><span class="loader-112">L &nbsp; ading </span></section>
+    </div>
+  </div>
+</body>
+
+</html>
+<style>
+  .placard {
+    /* width: 230px; */
+    background: url(./img/background.png) no-repeat;
+    width: 264px;
+    height: 210px;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-family: 微软雅黑;
+    padding: 5px 0px 0px 30px;
+  }
+
+  .scutcheon-header {
+    width: 208px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .scutcheon-header span {
+    width: 76px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .scutcheon {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 28px;
+  }
+
+  .scutcheon span {
+    display: inline-block;
+    width: 50%;
+    font-size: 16px;
+  }
+
+  .scutcheon span:nth-of-type(2) {
+    width: 42%;
+  }
+</style>

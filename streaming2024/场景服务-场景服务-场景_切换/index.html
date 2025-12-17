@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-场景服务-场景服务-场景_切换</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <script src="./switchScene.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-场景服务-场景服务-场景_切换</span><br />
+        <span>展示场景切换效果</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+
+      <!-- 场景 -->
+      <div id="container"></div>
+
+      <!-- 按钮 -->
+      <ul class="legends" style="transform: translateY(-50%); display: none">
+        <li class="div" onclick="legendClick(0)">切换到社区</li>
+        <li class="div active" onclick="legendClick(1)">返回到地球</li>
+      </ul>
+    </div>
+  </body>
+</html>

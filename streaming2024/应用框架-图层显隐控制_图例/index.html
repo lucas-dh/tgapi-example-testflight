@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-应用框架-图层显隐控制_图例</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .legends {
+        display: none;
+      }
+      .legends input {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-应用框架-图层显隐控制_图例</span><br />
+        <span>勾选图例中图层对象，控制该图层在三维场景中的显隐</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <ul class="legends">
+        <li onclick="legendClick(this,'landmarkLayer','landmarkLayer')">
+          <span class="eventWidth">摄像头</span>
+          <input type="checkbox" readonly checked="checked" />
+        </li>
+        <li onclick="legendClick(this,'heatMapLayer','heat1')">
+          <span class="eventWidth">热力图</span>
+          <input type="checkbox" readonly checked="checked" />
+        </li>
+        <li onclick="legendClick(this,'eventLayer','warning')">
+          <span class="eventWidth">告警事件</span>
+          <input type="checkbox" readonly checked="checked" />
+        </li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var legendPanel = document.querySelector('.legends');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                legendPanel.style.display = 'block';
+
+                // 添加各类型图层
+                addCamera();
+                addWarning();
+                addFloorHot();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    //添加摄像头
+    function addCamera() {
+      getJsonData('./json/markLayer.json').then((jsonData) => {
+        appInstance.uniCall('addLandmarkLayer', jsonData, (result) => {
+          console.log(result);
+        });
+      });
+    }
+
+    //添加告警事件
+    function addWarning() {
+      getJsonData('./json/warning.json').then((jsonData) => {
+        appInstance.uniCall('addEventLayer', jsonData, (result) => {
+          console.log(result);
+        });
+      });
+    }
+
+    //添加热力图
+    function addFloorHot() {
+      getJsonData('./json/floorHot.json').then((jsonData) => {
+        appInstance.uniCall('addHeatMapLayer', jsonData, (result) => {
+          console.log(result);
+        });
+      });
+    }
+
+    //控制显示隐藏
+    function legendClick(li, overlayType, tcId) {
+      li.children[1].checked = !li.children[1].checked;
+      let jsonData = {
+        id: tcId,
+        overlayType: overlayType,
+        visible: li.children[1].checked,
+      };
+
+      appInstance.uniCall('setOverlayVisibility', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 获取数据
+    function getJsonData(url) {
+      return new Promise((resolve) => {
+        fetch(url, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then((res) => {
+            resolve(res);
+          });
+      });
+    }
+
+    init();
+  </script>
+</html>

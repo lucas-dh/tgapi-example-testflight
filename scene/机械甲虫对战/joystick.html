@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <title>Joystick</title>
+    <meta name="viewport" content="viewport-fit=cover" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16px;
+        touch-action: none;
+      }
+      #gameInfo {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        text-align: center;
+        background-color: #2a2a2f;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAWCAQAAAAccsYGAAAC6UlEQVR4AWWVoW/jShDGf2SRyRKjkBATo5CSIJMjRSHlD8S9tlfpIp0sRdFJRSYhr6QkxCQmIUUmJUWHQ4JCSu7PCHhzo08rv6tGW7X75Tf77exMCkeLOVMC0VcEXmi0P+fIjgx8QWDgTMVcegFOACOOncWRKwJo5XwxsMP2PWVOEDixmDPg+66XTkxkqRLnbjbP8ZlnCA7ml8CWhdyE9ZRgwSVcIGtzKk4cExeVFIJprXPsKB6rNm/H16ApKE1pYDX7URLI5TRbzR4rIhuM+6P9QPfIsKTGzehYDl8f2ty3Z37ixHHu6vpQv9w2t5ABIZ0X9tndP8u3evf1we/noUOzn5P7xfKXn0C86DRIrgqvEmlNR38VejbEkH6fyFRyGSVNwaUsqVGePAjIt9TkM+3r5MA1Lb8snliQ6+NB+g2tP9qGUv5dcyPXbI1641/voCkSA7Dgld8mN5w5pIS5gxWdqR+mNDwIC0D0JEPiXona9zrkrDgyeKt09NRyU5oGjWFnejpTT9w4JkM0Y46Vqq/Sv3tnaoo4qE2Cx4EPw+bjKUoV/4uTf/XfgTOaEotmVO/IYGEupXejh+ETN/ERuWARKF2UGwHRBzSjoqFKbmZE16JqOuL22R6CSk62z1jRy83CTmMcbDnJTWPNNarp/7n1dI0FrPX+36++Q0f3HO9v1lONg9f7Er59ofRHK5qizX0XP5g2d65nt8/ub0zL1b4+nDa3t5vlYEO7svNGXlzl23Xd191jJS2mByn22Z+BXg53tbkOIjQJAdKI+U+NJeljQcmccEe5WHz5E2nQlUICwZOFVFUERXANdaLv+VJiJ9LIvLKhIqCLqiAVrTf1C+Wn74cZW44ceOLq7+8H0zYMcLbYUhJGKWf0/ObDO7RnASA154pXjrwnTgVU8x2c83ZYuIsgtKA28MyJyuLESj2Jl2plWMNCXKm3cMeJU//5gBElvvFBn/5HPbkWFAPvPuviCBTpXd5x7j9xcCijPNryDQAAAABJRU5ErkJggg==');
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        -webkit-touch-callout: none;
+      }
+      #gameInfo span {
+        color: #ffffff;
+        width: 80%;
+        font-size: 2rem;
+      }
+      .panel {
+        position: relative;
+        float: left;
+        width: 50%;
+        height: 100%;
+      }
+      #buttonStick {
+        border-radius: 50%;
+        width: 15rem;
+        height: 15rem;
+        background-color: #66666666;
+        position: absolute;
+        bottom: 60px;
+        left: 80px;
+      }
+      #buttonStick:active {
+        background-color: #ffffff00;
+      }
+      #buttonFire {
+        border-radius: 50%;
+        width: 15rem;
+        height: 15rem;
+        background-color: #ffffff66;
+        position: absolute;
+        bottom: 60px;
+        right: 80px;
+      }
+      #buttonFire:active {
+        background-color: #ffffff99;
+      }
+      #buttonOccupy {
+        border-radius: 3%;
+        width: 28rem;
+        height: 6rem;
+        background-color: #ffffff66;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 999;
+        font-size: 3rem;
+        line-height: 5.6rem;
+        color: #ffffff;
+        vertical-align: middle;
+      }
+      #buttonOccupy:active {
+        background-color: #ffffff99;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gameInfo">
+      <p><span id="instruction">您的 ID</span></p>
+      <p><span id="myID"></span></p>
+      <p><span id="gameFeedback">等待游戏开始。</span></p>
+      <div id="buttonOccupy">抢夺</div>
+    </div>
+    <div id="left" class="panel">
+      <div id="buttonStick"></div>
+    </div>
+    <div id="right" class="panel">
+      <div id="buttonFire"></div>
+    </div>
+    <script src="./lib/nipplejs.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      function throttle(func, wait) {
+        let lastTime = null;
+        let timeout = null;
+        return function () {
+          let context = this;
+          let now = Date.now();
+          // 如果上次执行的时间和这次触发的时间大于一个执行周期，则执行
+          if (now - lastTime - wait > 0) {
+            // 如果之前有了定时任务则清除
+            if (timeout) {
+              clearTimeout(timeout);
+              timeout = null;
+            }
+            func.apply(context, arguments);
+            // 这里lastTime是上次的触发时间
+            lastTime = now;
+          } else if (!timeout) {
+            timeout = setTimeout(() => {
+              // 改变执行上下文环境
+              func.apply(context, arguments);
+            }, wait);
+          }
+        };
+      }
+      const game = {
+        state: 'waiting',
+      };
+      const ws = {
+        socket: undefined,
+        occupied: false,
+        clientID: `${Math.random()}`.replace('0.', '').substring(0, 4),
+        init: (container) => {
+          if (!window.io) {
+            return;
+          }
+          myID.innerText = ws.clientID;
+          ws.socket = io();
+          ws.socket.on('game-feedback', function (msg) {
+            const log = `${new Date().toLocaleTimeString()} GAME FEEDBACK: ${msg}`;
+            console.log(log);
+            // gameFeedback.innerText = log;
+            const command = JSON.parse(msg);
+            if (command.clientID !== '' && command.clientID !== ws.clientID) {
+              return;
+            }
+            switch (command.action) {
+              case 'ping':
+                break;
+              case 'start':
+              case 'reset':
+                game.state = 'started';
+                ws.occupied = false;
+                gameFeedback.innerText = `点击“抢夺”按钮获取机器人控制权。`;
+                break;
+              case 'finish':
+                if (command.data === ws.clientID) {
+                  gameFeedback.innerText = `胜利！等待下一局游戏开始。`;
+                } else {
+                  gameFeedback.innerText = `本局结束，等待下一局游戏开始。`;
+                }
+                ws.occupied = false;
+                break;
+              case 'occupied':
+                gameFeedback.innerText = `已取得控制权：${command.clientID}`;
+                ws.occupied = true;
+                break;
+              case 'hpchanged':
+                gameFeedback.innerText = `HP：${command.data}`;
+                break;
+              case 'down':
+                gameFeedback.innerText = `已被击倒。`;
+                ws.occupied = false;
+                break;
+            }
+          });
+        },
+        send: (action, data) => {
+          if (!ws.socket) {
+            return;
+          }
+          ws.socket.emit(
+            'game-signal',
+            JSON.stringify({
+              clientID: ws.clientID,
+              action: action,
+              data: data,
+            })
+          );
+        },
+        move: (x, y) => {
+          if (game.state !== 'started') {
+            return;
+          }
+          ws.send('move', [x, y]);
+        },
+        stop: () => {
+          if (game.state !== 'started') {
+            return;
+          }
+          ws.send('stop');
+        },
+        fire: () => {
+          if (game.state !== 'started') {
+            return;
+          }
+          ws.send('fire');
+        },
+        occupy: () => {
+          if (game.state !== 'started') {
+            return false;
+          }
+          if (ws.occupied) {
+            return false;
+          }
+          ws.send('occupy');
+          return true;
+        },
+      };
+
+      const joystick = {
+        manager: undefined,
+        firePressed: false,
+        firingInterval: undefined,
+        firingIntervalTime: 500,
+        init: (container) => {
+          if (typeof container === 'string') {
+            container = document.getElementById(container);
+          }
+          joystick.manager = nipplejs.create({
+            zone: container,
+            color: '#ffffff',
+            size: 200,
+          });
+          joystick.manager
+            .on('added', function (evt, nipple) {
+              buttonStick.style.backgroundColor = '#00000000';
+              nipple.on('start move end dir plain', throttle(joystick.move, 200));
+            })
+            .on('removed', function (evt, nipple) {
+              buttonStick.style.backgroundColor = '#66666666';
+              ws.stop();
+              nipple.off('start move end dir plain');
+            });
+        },
+        move: (evt, data) => {
+          if (evt.type !== 'move') {
+            return;
+          }
+          if (data.distance < 10) {
+            ws.stop();
+            return;
+          }
+          let x = 0;
+          let y = 0;
+          const theta = data.angle.radian;
+          x = 150 * Math.cos(theta);
+          y = -150 * Math.sin(theta);
+          ws.move(x, y);
+        },
+        fire: () => {
+          ws.fire();
+        },
+        continuousFire: () => {
+          if (joystick.firingInterval) {
+            return;
+          }
+          ws.fire();
+          joystick.firingInterval = setInterval('ws.fire();', joystick.firingIntervalTime);
+        },
+        stopFire: () => {
+          if (joystick.firingInterval) {
+            clearInterval(joystick.firingInterval);
+            joystick.firingInterval = undefined;
+          }
+        },
+      };
+
+      joystick.init('left');
+      ws.init();
+      buttonFire.addEventListener('pointerdown', () => {
+        joystick.continuousFire();
+      });
+      buttonFire.addEventListener('pointerup', () => {
+        joystick.stopFire();
+      });
+      buttonFire.addEventListener('pointerout', () => {
+        joystick.stopFire();
+      });
+      buttonOccupy.addEventListener('pointerdown', () => {
+        if (ws.occupy()) {
+          gameFeedback.innerText = `正在抢夺控制权`;
+        }
+      });
+    </script>
+  </body>
+</html>

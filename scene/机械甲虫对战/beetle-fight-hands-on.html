@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>Beetle Fight - Powered by TGAPI (tuguan.net)</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=0.5, maximum-scale=1.0" />
+    <link rel="stylesheet" href="./css/game.css" />
+    <link rel="stylesheet" href="./css/loading.css" />
+  </head>
+  <body>
+    <div id="container" style="position: absolute; width: 100%; height: 100%; background-color: #00101f99; color: #ffffff; padding: 0px"></div>
+
+    <!-- 三维场景库 -->
+    <script src="./lib/TGApp.min.js"></script>
+
+    <!-- Web Socket 库 -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <!-- 游戏逻辑代码：类 -->
+    <script src="./js-hands-on/FightState.js"></script>
+    <script src="./js-hands-on/WalkState.js"></script>
+    <script src="./js-hands-on/Beetle.js"></script>
+    <script src="./js-hands-on/ProgressBar.js"></script>
+
+    <!-- 游戏逻辑代码：静态对象 -->
+    <script src="./js-hands-on/arena.js"></script>
+    <script src="./js-hands-on/game.js"></script>
+    <script src="./js-hands-on/ws.js"></script>
+    <script src="./js-hands-on/gamepad.js"></script>
+
+    <script>
+      // 游戏逻辑代码
+
+      // TODO 2.a 创建场景实例对象
+      // let appInstance = new TGApp.App();
+      // 结束 - 创建场景实例对象
+      let time = new Date().getTime();
+
+      // 渲染帧循环
+      function animate() {
+        let currentTime = new Date().getTime();
+        let delta = (currentTime - time) / 1000;
+        time = currentTime;
+        if (gamepad) {
+          gamepad.update(game.selected, delta);
+        }
+
+        game.loop(delta);
+        requestAnimationFrame(animate);
+      }
+
+      // 初始化场景
+      function init(url, token) {
+        // TODO 2.b 使用访问 token 初始化场景
+        // appInstance.initScene(
+        //   {
+        //     container: document.getElementById('container'),
+        //     mode: 'scene',
+        //     url: url, // 场景地址
+        //     resourceBasePath: './lib/scene', // 端渲染模型资源路径
+        //     token: token,
+        //   },
+        //   (result) => {
+        //     if (result.result === 1) {
+        //       // 图观接口调用：相机自动环绕。
+        //       appInstance.uniCall('rotateCamera', { enabled: true, duration: 120 });
+        //       // TODO 3. 图观接口调用：添加场景点击事件的监听。
+        //       // appInstance.uniCall('addEventListener', {
+        //       //   eventName: 'onSceneClick',
+        //       //   callback: (e) => {
+        //       //     const beetleSize = 10;
+        //       //     // 判断是否点击了甲虫
+        //       //     const pickedBeetles = game.pickBeetles(e.data[0].coord, beetleSize);
+        //       //     if (pickedBeetles.length > 0) {
+        //       //       if (pickedBeetles[0].beetle.isDown) {
+        //       //         return;
+        //       //       }
+        //       //       if (!game.selected || pickedBeetles[0].beetle.name !== game.selected.name) {
+        //       //         game.selected && game.selected.release();
+        //       //         if (pickedBeetles[0].beetle.occupy('本地玩家')) {
+        //       //           game.selected = pickedBeetles[0].beetle;
+        //       //         }
+        //       //       }
+        //       //       return;
+        //       //     }
+        //       //     if (game.selected) {
+        //       //       arena.clampToArena(e.data[0].coord);
+        //       //       if (!game.selected.isWalking()) {
+        //       //         // TODO 7. 播放行走动画
+        //       //         // // 图观接口调用：播放模型动画“行走-前进02”，对应在场景编辑器中设置的关节动画。
+        //       //         // appInstance.uniCall('playModelAnimation', { id: game.selected.name, name: '行走-前进02', state: 'begin' });
+        //       //         // // 播放行走音效。
+        //       //         // game.selected.playSFX('walking');
+        //       //         // 结束 - 播放行走动画
+        //       //       } else {
+        //       //         game.selected.walkState.break();
+        //       //       }
+        //       //       game.selected.walk(e.data[0].coord);
+        //       //       game.selected.playSFX('move');
+        //       //     }
+        //       //   },
+        //       // });
+        //       // 结束 - 图观接口调用：添加场景点击事件的监听。
+        //       document.addEventListener('keydown', (key) => {
+        //         if (key.code === 'Space' || key.code === 'KeyA') {
+        //           game.selected && game.selected.fire();
+        //           return;
+        //         }
+        //         if (key.code === 'Delete') {
+        //           game.cheat('win', game.selected ? game.selected.name : 'SpiderA');
+        //           return;
+        //         }
+        //       });
+        //       ws.init();
+        //       game.ui.showButtonStart();
+        //       game.ui.progressBar.progress = 1.0;
+        //       game.ui.progressBar.destroy();
+        //       animate();
+        //     } else {
+        //       console.error('初始化失败。');
+        //     }
+        //   }
+        // );
+        // 结束- 使用访问 token 初始化场景
+      }
+
+      // 通过 XmlHttpRequest 获取或提交指定的 JSON 资源
+      function fetchJSON(url, method = '', headers, body) {
+        switch (method.toUpperCase()) {
+          case 'GET':
+          case 'DELETE':
+          case 'HEAD':
+          case 'POST':
+          case 'PUT':
+            break;
+          default:
+            method = 'GET';
+            break;
+        }
+        return new Promise(function (resolve, reject) {
+          let xhr = new XMLHttpRequest();
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+              if (xhr.status == 200 || xhr.status == 204) {
+                resolve(xhr.responseText);
+              } else {
+                reject(new Error(xhr.statusText));
+              }
+            }
+          };
+          xhr.open(method, url, true);
+          if (headers instanceof Array) {
+            for (header of headers) {
+              xhr.setRequestHeader(header.key, header.value);
+            }
+          }
+          xhr.send(JSON.stringify(body));
+        });
+      }
+
+      // TODO 1. 从场景服务器获取访问 token
+      // // tokenURL 的来源可参考开发手册：
+      // // https://www.tuguan.net/doc/tg-api/ （开始指南 -> 快速上手）
+      // const tokenURL = 'https://www.tuguan.net/api/user/v1/visitorScene/x01zzwsp';
+      // // sceneURL 来源自场景编辑器发布后的“二次开发地址”
+      // const sceneURL = 'https://www.tuguan.net/publish/scene/api/x01zzwsp';
+
+      // fetchJSON(tokenURL, 'POST').then((response) => {
+      //   if (!response) {
+      //     return;
+      //   }
+      //   let result = JSON.parse(response);
+      //   if (!result || !result.accessToken) {
+      //     return;
+      //   }
+      //   init(sceneURL, result.accessToken);
+      // });
+      // 结束 - 从场景服务器获取访问 token
+    </script>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-连线对象-标准_模型平面_模型</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+
+      .app > .avw-loader {
+        display: none;
+      }
+
+      .app .legends {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-连线对象-标准_模型平面_模型</span><br />
+        <span class="ctrl">使用 movingModel 接口移动对象位置，用平面线展示指挥车与机动车、直升机通讯关系</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  var pathData = [
+    // 无人机
+    { coord: [237.0172621591, 215.0497969897], coordZ: 100, speed: 60 },
+    { coord: [235.847, -197.0822553469], coordZ: 100, speed: 60 },
+    { coord: [-242.551, -200.5019470933], coordZ: 100, speed: 60 },
+    { coord: [-240.172, 211.018], coordZ: 100, speed: 60 },
+    { coord: [237.0172621591, 215.0497969897], coordZ: 100, speed: 60 },
+  ];
+  var pathData1 = [
+    //救护车
+    { coord: [236.593786058, -45.2658123235], coordZ: -19.99, speed: 40 },
+    { coord: [-236.1420958158, -46.9590634313], coordZ: -19.99, speed: 40 },
+    { coord: [236.593786058, -45.2658123235], coordZ: -19.99, speed: 40 },
+  ];
+  var lineData = [
+    {
+      overlayType: 'model',
+      idLayer: '',
+      startIdObj: '指挥车',
+      startOffset: [0, 0, 0],
+      endIdObj: '救护车运输',
+      endOffset: [0, 0, 0],
+      type: 'Arrow01',
+      texture: '../../image/line/T_M_JuJiChe_Link.jpg',
+      textureSpeed: 0.2,
+      color: '#FF7C00',
+      width: 6,
+      shapeType: 'curve',
+      curvature: 0.3,
+      angleOrder: 'xyz',
+    },
+    {
+      overlayType: 'model',
+      idLayer: '',
+      startIdObj: '无人机巡航',
+      startOffset: [0, 0, 0],
+      endIdObj: '指挥车',
+      endOffset: [0, 0, 0],
+      type: 'Arrow01',
+      texture: '../../image/line/T_M_WuRenJi02_link.jpg',
+      textureSpeed: 0.3,
+      color: '#12F37C',
+      width: 6,
+      shapeType: 'curve',
+      curvature: 0.3,
+      angleOrder: 'xyz',
+    },
+  ];
+
+  var avwLoader = document.querySelector('.avw-loader');
+  // 初始化加载图观三维场景服务
+  function init() {
+    // 初始化图观App
+    window.appInstance = new TGApp.App();
+    window.appInstance.initService(
+      {
+        container: document.getElementById('container'),
+        mode: 'streaming',
+        token: streaming2024Config.lineToken, //StreamingServer服务器获取token
+        url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+      },
+      (result) => {
+        //添加TGAPI事件回调，图观场景服务初始化成功后
+        window.appInstance.uniCall(
+          'addEventListener',
+          {
+            eventName: 'onServiceInit',
+            callback: (res) => {
+              // 隐藏遮罩
+              avwLoader.style.display = 'flex';
+              appInstance.uniCall(
+                'switchState',
+                {
+                  name: '默认状态',
+                  sceneName: '通信关系',
+                },
+                (result) => {
+                  avwLoader.style.display = 'none';
+                  addLine();
+                }
+              );
+            },
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
+    );
+  }
+
+  // 添加关系线
+  function addLine() {
+    lineData.map((val, ind) => {
+      let jsonData = {
+        id: ind + 1,
+        label: '',
+        labelColor: '#ffffff',
+        labelBackgroundColor: '#333333',
+        labelFontSize: 20,
+        autoScale: true,
+        ...val,
+      };
+      appInstance.uniCall('addConnection', jsonData, (result) => {
+        console.log(result);
+        if (lineData.length - 1 == ind) {
+          movingModel('无人机巡航', [0, 0, 0], pathData);
+          movingModel('救护车运输', [0, 0, 0], pathData1);
+        }
+      });
+    });
+  }
+
+  //  持续移动模型
+  function movingModel(id, offset, points) {
+    let jsonData = {
+      id: id, // 模型对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+      coordType: 1, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+      coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+      loopMode: 'round', // 循环模式，none：不循环；round：往返循环；repeat：从头循环
+      reverse: false, // 是否沿路径反向移动，true：反向运动；false：正向运动
+      direction: 'path', // 沿路径调整方向，path：沿路径调整模型方向；self：模型自己原本方向不变
+      offset: offset, // 沿 XYZ 三轴向的偏移量（单位：米）
+      points: points,
+    };
+    appInstance.uniCall('movingModel', jsonData, (result) => {
+      console.log(result);
+    });
+  }
+
+  init();
+</script>

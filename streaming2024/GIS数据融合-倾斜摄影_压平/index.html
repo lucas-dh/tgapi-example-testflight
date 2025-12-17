@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-GIS数据融合-倾斜摄影_压平</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-GIS数据融合-倾斜摄影_压平</span><br />
+        <span>展示 3DTile 压平效果</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.globalgisToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                setBaseCenter();
+                freeCamera();
+                add3DTitle();
+                setCamera();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 添加倾斜摄影
+    function add3DTitle() {
+      let jsonData = {
+        id: '3DTileLayer', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '3D标题', // 图层名称，支持为图层自定义名称
+        url: 'https://mapserver.obs-website.cn-north-4.myhuaweicloud.com/huaian/3dtile/tileset.json', // 3dTile入口描述文件地址
+        type: 'b3dm', // 3dTile类别，b3dm； i3dm；s3dm，目前仅支持 b3dm
+        // token: 'ABCDEFG', // 预留字段
+        LOD: 6, // 倾斜摄影数据的细节加载系数。表示在当前视野距离下，加载倾斜摄影数据的级别系数。流渲染默认值是 16，如果想更加清晰，可以设置 8 或者 4，一定是 2 的倍数。端渲染默认是 6，如果想更加清晰，可以设置 7 或者 8。加载越清晰的数据会越耗费渲染侧的性能。
+        centerTranslate: [-2000, -4000, 0], // 倾斜摄影数据中心点在x, y, z方向上的二次位移。数据默认值加偏移量是新位置，支持负数。（单位：米）
+        centerRotation: [0, 0, 0], // 倾斜摄影数据中心点在x, y, z方向上的二次旋转。（单位：度）值域 -360~360
+        visible: true, // 显隐控制，true：显示；false：隐藏
+        alpha: 0.5, // 透明度，0：完全透明；1：完全不透明
+      }; // 中心基准点调用 setBaseCenter 方法，默认都是东8时区
+
+      appInstance.uniCall('add3DTile', jsonData, (result) => {
+        console.log(result);
+
+        addArea();
+      });
+    }
+
+    // 添加区域
+    function addArea() {
+      let jsonData = {
+        id: 'Area',
+        name: '区域轮廓',
+        coordType: 0,
+        coordTypeZ: 0,
+        coordZ: 10,
+        type: 'Segment03',
+        color: '#FF0000',
+        visible: true,
+        areaHeight: 150,
+        alpha: 0.5,
+        fillArea: 'Gradient01',
+        fillPosition: 'none',
+        tag: 'custominfo',
+        snapSurface: 0,
+        points: [
+          {
+            coord: [119.04539538402, 33.62171100787],
+          },
+          {
+            coord: [119.0467023777, 33.61806936596],
+          },
+          {
+            coord: [119.05462562695, 33.62088409923],
+          },
+          {
+            coord: [119.05287032594, 33.62451961974],
+          },
+        ],
+      };
+
+      appInstance.uniCall('addArea', jsonData, (result) => {
+        console.log(result);
+
+        addTerrainProcess();
+      });
+    }
+
+    // 进行地形处理-压平
+    function addTerrainProcess() {
+      let jsonData = {
+        id: 'idObj', //图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        terrainType: '3dtile', //需要处理的地形类型，"3dtile"：通过add3DTile添加的倾斜摄影，"GISMap“，通过addGISMap添加的GIS地图
+        terrainId: '3DTileLayer', //add3DTile添加的倾斜摄影或者通过addGISMap添加的GIS地图时传入的id
+        areaId: 'Area', //需要处理的区域范围，需要之前通过addArea添加一个区域对象，这里填入区域的Id。此指令执行完成后，原area对象可以删除或者更新，并不影响之前已经处理的范围。
+        processType: 'flatten', //地形处理的类型，"dig"：挖洞，"flatten"：压平
+        flattenFeather: 10, //压平的羽化范围，可以让压平的边缘看起来更加自然（单位：米）
+      };
+
+      appInstance.uniCall('addTerrainProcess', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置基准点
+    function setBaseCenter() {
+      let jsonData = {
+        originLon: 119.07354118272, // 中心点经度
+        originLat: 33.5821773188, // 中心点纬度
+        originHeight: 0, // 单位m
+      };
+      appInstance.uniCall('setBaseCenter', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 取消限制镜头
+    function freeCamera() {
+      let jsonData = {
+        state: 'free', //restricted：受限；free：不受限制
+      };
+      appInstance.uniCall('setCameraRestrictionState', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 设置相机
+    function setCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        centerCoord: [119.05371342418, 33.62023661692], // 中心点的坐标 lng,lat
+        coordZ: 0, // Z 轴高度（单位：米）
+        distance: 3500, // 镜头距中心点距离(单位:米)
+        pitch: 70, // 镜头俯仰角(5~89)
+        heading: 0, // 镜头偏航角(0正北, 0~359)
+        fly: false, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+        // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+        duration: 0, // 飞行时间，秒
+      };
+
+      appInstance.uniCall('setCamera', jsonData, (result) => {
+        console.log(result);
+        restrictCamera();
+      });
+    }
+
+    // 限制镜头
+    function restrictCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        limitPitch: [0, 89], //摄像机 镜头垂直俯仰角 限制 (-89~89)
+        limitYaw: [0, 359], //摄像机 镜头水平摇摆角 限制 (0正北, 0~359)
+        limitCoordZ: [0, 40000], //摄像机 坐标高度限制 (单位:米)
+        limitDistance: [1000, 6000], //摄像机 镜头距离限制 (单位:米)
+        center: [119.0547247322, 33.61587527205], //视点 限制区中心坐标
+        radius: 100000, //视点 限制区半径，会形成一个球体，并在所有条件中取交集
+      };
+      appInstance.uniCall('restrictCamera', jsonData, (result) => {
+        console.log(result);
+      });
+
+      let jsonData2 = { state: 'restricted' }; //restricted：受限；free：不受限制
+      appInstance.uniCall('setCameraRestrictionState', jsonData2, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

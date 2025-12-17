@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型关节-机械臂_关节控制</title>
+    <link
+      rel="stylesheet"
+      href="../../css/common.css"
+    />
+ <link rel="stylesheet" href="../../css/elementui.css" />
+  <script src="../../js/config.js"></script>
+
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <script src="../../lib/axios.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/elementui.js"></script>
+    <script src="./controlRobotArmJoint.js"></script>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a
+        ><span>-API代码示例-模型关节-机械臂_关节控制</span><br />
+        <span class="ctrl">通过控制面板参数/按钮，对机械臂关节进行控制</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 按钮 -->
+      <ul class="legends">
+        <li
+          v-for="(item,index) in legendList"
+          :key="item.id"
+          @click="controlChecked(item,index)"
+          :class="[item.active ? 'active' : '']"
+        >
+          {{item.action}}
+        </li>
+      </ul>
+      <!-- 关节控制进度条 -->
+      <ul class="slider" v-show="isSlider">
+        <div class="title">关节设置(浮点类型)</div>
+        <div class="block" v-for="(item,index) in ullist" :key="index">
+          <span class="demonstration">{{item.articulation}}</span>
+          <el-slider
+            v-model="item.currentValue"
+            :min="item.minValue"
+            :max="item.maxValue"
+            @change="changeData(item,$event)"
+          >
+          </el-slider>
+          <span class="number">{{item.currentValue}}</span>
+        </div>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span
+          >基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span
+        >
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div v-show="isZZ" class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-建筑对象-建筑高亮_房间</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+    <style>
+      .app > .avw-loader {
+        display: none;
+      }
+
+      .app .legends {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-建筑对象-建筑高亮_房间</span><br />
+        <span class="ctrl">点击按钮拆分到某个楼层并高亮房间</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 按钮菜单 -->
+      <ul class="legends">
+        <li onclick="legendClick(0)">高亮房间1</li>
+        <li onclick="legendClick(1)">高亮房间2</li>
+        <li onclick="legendClick(2)">高亮房间3</li>
+        <li onclick="legendClick(3)">取消高亮</li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // 实例化图观引擎
+    let appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    let legendPanel = document.querySelector('.legends');
+    let avwLoader = document.querySelector('.avw-loader');
+
+    let legendList = [
+      {
+        id: 1,
+        action: '高亮房间1',
+        value: 'Building01',
+        roomName: 'building01_floor10_room01房间01',
+        iconName: 'site_02',
+        coord: [116.34918058878459, 40.083137931053235],
+        coordZ: 35,
+      },
+      {
+        id: 2,
+        action: '高亮房间2',
+        value: 'Building01',
+        roomName: 'building01_floor10_room01房间02',
+        iconName: 'site_02',
+        coord: [116.34913713492753, 40.08312433146997],
+        coordZ: 35,
+      },
+      {
+        id: 3,
+        action: '高亮房间3',
+        value: 'Building01',
+        roomName: 'building01_floor10_room01房间03',
+        iconName: 'site_02',
+        coord: [116.34913139373583, 40.08307921840637],
+        coordZ: 35,
+      },
+      {
+        id: 4,
+        action: '取消高亮',
+        roomName: 'building01_floor10_room01房间03',
+        value: 'Building01',
+      },
+    ];
+
+    // 初始化加载图观三维场景服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.getElementById('container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                //添加TGAPI事件回调，图观场景服务初始化成功后
+                // 隐藏遮罩
+                avwLoader.style.display = 'none';
+                legendPanel.style.display = 'block';
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    function legendClick(index) {
+      // 点击高亮菜单按钮
+      Array.from(legendPanel.children).forEach((item) => item.classList.remove('active'));
+      event.target.classList.add('active');
+
+      data = legendList[index];
+
+      appInstance.uniCall('clearOverlayType', { overlayType: 'all' }, (res) => {});
+      // 取消高亮
+      if (data.id == 4) {
+        appInstance.uniCall(
+          'setCamera',
+          {
+            coordType: 0,
+            coordTypeZ: 0,
+            centerCoord: [116.3488375, 40.0842803], //以深圳湾经纬度为例
+            coordZ: -30.79,
+            distance: 780.62,
+            pitch: 30.85,
+            heading: 330.2,
+            fly: true,
+            duration: 0.5,
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+        appInstance.uniCall(
+          'resetBuildingFloor',
+          {
+            id: 'Building01',
+            animation: 1,
+          },
+          function (result) {
+            console.log(result);
+          }
+        );
+        appInstance.uniCall(
+          'highlightRoom',
+          {
+            id: data.value,
+            floor: 6,
+            room: data.roomName,
+            type: 'none',
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+        return;
+      }
+
+      // 高亮房间
+      legendList[3].value = data.value;
+      legendList[3].roomName = data.roomName;
+      let jsonData = {
+        buildingId: data.value,
+        pitch: 30,
+        heading: 0,
+        distance: 100,
+        floor: 6,
+        room: data.roomName,
+      };
+      appInstance.uniCall('focusRoom', jsonData, (result) => {
+        console.log(result);
+
+        appInstance.uniCall(
+          'showBuildingFloor',
+          {
+            id: data.value,
+            floor: 6,
+            animation: 1,
+          },
+          (result) => {
+            appInstance.uniCall(
+              'highlightRoom',
+              {
+                id: data.value,
+                floor: 6,
+                room: data.roomName,
+                type: 'style1',
+              },
+              (result) => {
+                console.log(result);
+                addLand(data);
+              }
+            );
+          }
+        );
+      });
+    }
+
+    // 添加地标点
+    function addLand(data) {
+      let jsonData = {
+        id: data.roomName,
+        coordType: 0,
+        coordTypeZ: 0,
+        iconName: data.iconName,
+        autoScale: false,
+        visible: true,
+        label: data.roomName,
+        iconScale: 1,
+        labelScale: 1,
+        tag: data.roomName, // 用户自定标签，用户保存用户的扩展数据
+        coord: data.coord, //以深圳湾经纬度为例
+        coordZ: data.coordZ,
+      };
+
+      appInstance.uniCall('addLandmark', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

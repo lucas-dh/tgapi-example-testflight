@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-性能测试</title>
+
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js-performance/TGApp.min.js"></script>
+    <script src="./index.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+
+      .legends {
+        top: 50%;
+        padding: 0;
+        display: none;
+      }
+
+      .legends li {
+        width: 260px;
+      }
+
+      #txtLogs {
+        width: 260px;
+        height: 100px;
+        background-color: #002a34;
+        color: #ffffff;
+      }
+
+      #btnRotate {
+        width: 100%;
+        color: #ccc;
+        background: #013240;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-端渲染性能测试</span><br />
+        <span class="ctrl">图观模型-模型型号地标图-性能测试</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <ul class="legends">
+        <li onclick="btnSwitchStateClick('5层')">切换到5层</li>
+        <li onclick="btnSwitchStateClick('默认状态')">切换到默认状态</li>
+        <li onclick="btnAddClick()">添加10*100（图层*数量）</li>
+        <li onclick="btnAddClick2()">添加100*10（图层*数量）</li>
+        <li onclick="btnAddClick3()">添加140*10（图层*数量）</li>
+        <li onclick="btnAddClick7()">添加200*10（图层*数量）</li>
+        <li onclick="btnAddClick8()">添加220*10（图层*数量）</li>
+        <li onclick="btnAddClick9()">添加240*10（图层*数量）</li>
+        <li onclick="btnAddClick4()">按孪易数量添加</li>
+        <li onclick="btnRemoveClick()">删除对象</li>
+        <li id="btnRotate">
+          <span>环绕</span>
+          <input type="checkbox" id="chkRotate" onchange="changeRotate()" />
+        </li>
+        <div id="txtLogs" />
+      </ul>
+
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+</html>
+<style>
+  html,
+  body {
+    background-color: #00000000;
+  }
+</style>

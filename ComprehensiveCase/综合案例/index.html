@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>图观引擎-API代码示例-模型控制-抽稀地标图_全球范围_性能</title> -->
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="https://www.tuguan.net/public/tgapp4/TGApp.min.js"></script>
+    <script src="../../js/config4.js"></script>
+    <script src="../../lib/axios.js"></script>
+    <script src="../../lib/vue.js"></script>
+    <script src="../../lib/elementui.js"></script>
+    <script src="./index.js"></script>
+</head>
+<style>
+    .legends {
+        height: 500px;
+        overflow: auto;
+    }
+</style>
+
+<body>
+    <div class="app" id="app">
+        <!-- 头部 -->
+        <!-- <div class="header-wrap">
+            <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型控制-抽稀地标图_全球范围_性能</span><br />
+            <span>在全球范围下 展示抽稀地标图图层</span>
+            <img src="../../image/tuguan.png" />
+
+        </div> -->
+        <div class="allLengs" v-show="!isFold">数据量:<span>{{data2.toLocaleString()}}</span>条</div>
+        <!-- 场景 -->
+        <div id="container"></div>
+        <!-- <ul class="legends" v-if="isFold" style="height: 100px;">
+            <li @click="fold()">>></li>
+        </ul> -->
+        <ul class="legends" v-if="!isFold" style="margin-top: 350px;height: 300px;">
+            <li v-for="(item,index) in legendList4" :key="item.id" @click="automaticRotation(item)" :class="[item.active?'active':'']">{{item.action}}</li>
+        </ul>
+        <ul class="legends" v-if="!isFold" style="height: 350px;">
+            <li v-for="(item,index) in legendList2" :key="item.id" @click="switchCreama(item,index)">
+                <span>{{item.name}}</span>
+
+            </li>
+        </ul>
+        <!-- <ul class="legends">
+            <li v-for="(item,index) in legendList1" :key="item.id" @click="controlPathChecked(item,index)">
+                <span>{{item.name}}</span>
+                <input type="checkbox" :checked="item.active" />
+            </li>
+        </ul> -->
+        <!-- <ul class="legends" style="margin-left: 220px;">
+            <li v-for="(item,index) in legendList3" :key="item.id" @click="switchstatus(item,index)">
+                <span>{{item.sceneName}}-{{item.name}}</span>
+
+            </li>
+        </ul> -->
+        <!-- <ul class="legends" style="margin-left: 220px;">
+            <li v-for="(item,index) in legendList" :key="item.id" @click="controlChecked(item,index)">
+                <span>{{item.name}}</span>
+                <input type="checkbox" :checked="item.active" />
+            </li>
+        </ul> -->
+        <!-- 底部 -->
+        <div class="footer-box">
+            <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+            <span>版权所有 北京数字冰雹信息技术有限公司</span>
+        </div>
+        <!-- 进度条遮罩 -->
+        <div v-show="isZZ" class="avw-loader">
+            <section><span class="loader-112">L &nbsp; ading </span></section>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>
+    图观引擎-API代码示例-数据图层-立柱图_模型平面_全国人口
+  </title>
+  <link rel="stylesheet" href="../../css/common.css" />
+  <link rel="stylesheet" href="../../css/elementui.css" />
+  <script src="../../js/config.js"></script>
+
+  <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+  <script src="../../lib/axios.js"></script>
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/elementui.js"></script>
+  <script src="./3DColumnChinaHuman.js"></script>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-数据图层-立柱图_模型平面_全国人口</span><br />
+      <span>三维柱图展示全国各省男女人口分布情况</span>
+      <img src="../../image/tuguan.png" />
+    </div>
+    <!-- 场景 -->
+    <div id="container"></div>
+    <!-- 图例 -->
+    <ul class="legends">
+      <li v-for="(item,index) in legendList" :key="item.id">
+        <span>{{item.action}}</span>
+        <span :class="item.Ids"></span>
+      </li>
+    </ul>
+    <!-- 底部 -->
+    <div class="footer-box">
+      <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+      <span>版权所有 北京数字冰雹信息技术有限公司</span>
+    </div>
+    <!-- 进度条遮罩 -->
+    <div v-show="isZZ" class="avw-loader">
+      <section><span class="loader-112">L &nbsp; ading </span></section>
+    </div>
+  </div>
+</body>
+
+</html>

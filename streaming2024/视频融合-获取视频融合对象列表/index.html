@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-视频融合-获取视频融合对象列表</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="../../js/config.js"></script>
+
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      .message_right {
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        right: 1%;
+        left: auto;
+      }
+      .app > .avw-loader {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-视频融合-获取视频融合对象列表</span><br />
+        <span class="ctrl">点击按钮切换状态，点击对象名称聚焦对象</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends"></ul>
+      <ul class="legends message_right"></ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var legendList = [
+    //按钮数据
+    {
+      id: 1,
+      action: '切换状态1',
+      value: '第一排效果',
+      active: false,
+    },
+    {
+      id: 2,
+      action: '切换状态2',
+      value: '第二排效果',
+      active: false,
+    },
+    {
+      id: 3,
+      action: '恢复',
+      value: '默认状态',
+      active: false,
+    },
+  ];
+  var BuildingList = []; //视频融合对象列表
+  var VideoFusion = {
+    StaticMeshActor_0: { pitch: 3, heading: 0, distance: 500 },
+    StaticMeshActor_1: { pitch: 3, heading: 0, distance: 310 },
+    StaticMeshActor_2: { pitch: 3, heading: 0, distance: 310 },
+    StaticMeshActor_3: { pitch: 3, heading: 0, distance: 500 },
+    StaticMeshActor_4: { pitch: 3, heading: 0, distance: 500 },
+    StaticMeshActor_5: { pitch: 2, heading: 0, distance: 400 },
+    StaticMeshActor_6: { pitch: 2, heading: 0, distance: 400 },
+    StaticMeshActor_7: { pitch: 2, heading: 0, distance: 530 },
+  };
+
+  //改变前端样式方法
+  function initStyle() {
+    var legends = document.getElementsByClassName('legends')[0];
+    var removeLegends = legends.querySelectorAll('li');
+    removeLegends.forEach((value) => {
+      value.remove();
+    });
+    legendList.forEach((value) => {
+      // 创建新的li元素
+      var newLi = document.createElement('li');
+      newLi.textContent = value.action;
+      if (value.active) {
+        newLi.class = 'active';
+      } else {
+        newLi.class = '';
+      }
+      // 给新添加的元素添加点击事件
+      newLi.addEventListener('click', (event) => changeModelArticulation(value));
+      legends.appendChild(newLi);
+    });
+
+    var messageRight = document.getElementsByClassName('message_right')[0];
+    var removeMessageRight = messageRight.querySelectorAll('li');
+    removeMessageRight.forEach((value) => {
+      value.remove();
+    });
+    BuildingList.forEach((value) => {
+      // 创建新的li元素
+      var newLi = document.createElement('li');
+      newLi.textContent = value.action;
+      if (value.active) {
+        newLi.class = 'active';
+      } else {
+        newLi.class = '';
+      }
+      // 给新添加的元素添加点击事件
+      newLi.addEventListener('click', (event) => switchState(value));
+      messageRight.appendChild(newLi);
+    });
+  }
+
+  var avwLoader = document.querySelector('.avw-loader');
+  // 初始化加载图观三维场景服务
+  function init() {
+    window.appInstance = new TGApp.App();
+    window.appInstance.initService(
+      {
+        container: document.getElementById('container'),
+        mode: 'streaming',
+        token: streaming2024Config.videoFusionFlatToken, //StreamingServer服务器获取token
+        url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+      },
+      (result) => {
+        window.appInstance.uniCall(
+          'addEventListener',
+          {
+            eventName: 'onServiceInit',
+            callback: (res) => {
+              //添加TGAPI事件回调，图观场景服务初始化成功后
+              // 隐藏遮罩
+              avwLoader.style.display = 'none';
+            },
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
+    );
+  }
+
+  // 聚焦视频融合对象
+  function switchState(item) {
+    BuildingList.forEach((n) => {
+      if (n.id == item.id) {
+        n.active = true;
+      } else {
+        n.active = false;
+      }
+    });
+    let jsonData = {
+      id: item.id,
+      duration: 1,
+      ...VideoFusion[item.id],
+    };
+    initStyle();
+    appInstance.uniCall('focusVideoFusionObject', jsonData, function (result) {
+      console.log(result);
+    });
+  }
+
+  // 切换场景状态----获取视频融合对象列表
+  function changeModelArticulation(el) {
+    BuildingList = [];
+    legendList.forEach((item) => {
+      if (item.id == el.id) {
+        item.active = true;
+      } else {
+        item.active = false;
+      }
+    });
+    initStyle();
+    appInstance.uniCall(
+      'switchState',
+      {
+        name: el.value,
+        sceneName: '默认场景',
+      },
+      (result) => {
+        appInstance.uniCall('getVideoFusionList', {}, (result) => {
+          console.log(result);
+          if (el.id == 3) return;
+          BuildingList = result.data.filter((n) => {
+            return n.visible;
+          });
+        });
+      }
+    );
+  }
+
+  init();
+  initStyle();
+</script>

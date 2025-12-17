@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-数据图层-轨迹图_模型平面_样式</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-数据图层-轨迹图_模型平面_样式</span><br />
+        <span>展示轨迹图样式</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var legendPanel = document.querySelector('.legends');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.chinaToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                // 添加轨迹图
+                addTrailLayer();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 获取数据并添加轨迹图
+    function addTrailLayer() {
+      getJsonData('./json/省.json').then((data) => {
+        addStart(data);
+      });
+    }
+
+    // 添加轨迹图
+    function addStart(inJsonArr) {
+      let Data = [];
+      inJsonArr.province.map((item, index) => {
+        if (item.provinceName.indexOf('北京市') == -1) {
+          let obj = {
+            id: index,
+            coord: ['116.405285', '39.904989'], // XY 轴坐标，X：经度；Y：纬度
+            coordZ: 0, // Z 轴高度（单位：米）
+            type: 'poiCar', // 数据点图例类别
+          };
+          Data.push(obj);
+        }
+      });
+
+      let jsonData = {
+        id: 'trail', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '轨迹图', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        trackStyle: 'style001', // 尾迹内置风格
+        trackDuration: 20, // 尾迹粒子生命周期(单位：秒)
+        trackWidth: 10000, // 尾迹粒子的宽度
+        objLife: 40, // 批号消批时间长度(单位：秒)
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+        duration: 30, // 从上一位置移动到新位置花费的时间长度（单位，秒）这里的值是更新数据可以使用的默认值
+        legends: [
+          {
+            name: 'poiCar', // 图层内图例名称，新建时调用者自己传入的唯一名称，用于各种操作的图例识别
+            iconName: 'taxi', // 内置图标名称：见图观官网统一API开发手册
+            trackColor: '#ff0000', // 轨迹颜色（HEX 颜色值）
+            iconScale: 0.5,
+          },
+        ],
+        data: Data,
+      };
+      appInstance.uniCall('addTrailLayer', jsonData, (result) => {
+        console.log(result);
+        addTrail(inJsonArr);
+      });
+    }
+
+    // 更新轨迹图
+    function addTrail(inJsonArr) {
+      let Data = [];
+      inJsonArr.province.map((item, index) => {
+        if (item.provinceName.indexOf('北京市') == -1) {
+          let obj = {
+            id: index,
+            coord: [item.lon, item.lat], // XY 轴坐标，X：经度；Y：纬度
+            coordZ: 0, // Z 轴高度（单位：米）
+            type: 'poiCar', // 数据点图例类别
+          };
+          Data.push(obj);
+        }
+      });
+      let jsonData = {
+        id: 'trail', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: '轨迹图', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        isAppend: true, // 是否追加数据（按数据顺序），true：按新数据 更新原有重复数据 & 追加新数据；false：清除原有数据 & 重建新数据
+        duration: 30, // 从上一位置移动到新位置花费的时间长度（单位，秒）这里的值优先级高于 addTrailLayer 中的 duration 值
+        data: Data,
+      };
+
+      setTimeout(() => {
+        appInstance.uniCall('updateTrailLayerCoord', jsonData, (result) => {
+          console.log(result);
+        });
+      }, 1000);
+      setTimeout(() => {
+        let jsonData = {
+          overlayType: 'all',
+        };
+        appInstance.uniCall('clearOverlayType', jsonData, (result) => {
+          console.log(result);
+        });
+        addTrailLayer();
+      }, 40000);
+    }
+
+    // 获取数据
+    function getJsonData(url) {
+      return new Promise((resolve) => {
+        fetch(url, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then((res) => {
+            resolve(res);
+          });
+      });
+    }
+
+    init();
+  </script>
+</html>

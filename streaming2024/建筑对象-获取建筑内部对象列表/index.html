@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-建筑对象-获取建筑内部对象列表</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      .app > .avw-loader {
+        display: none;
+      }
+
+      .app .legends {
+        display: none;
+      }
+
+      .app .message {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-建筑对象-获取建筑内部对象列表</span><br />
+        <span class="ctrl">点击按钮显示场景建筑列表</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 按钮菜单 -->
+      <ul class="legends" style="top: 14%">
+        <li onclick="getBuildingModelList(event)">获取内部建筑列表Building01</li>
+      </ul>
+      <div class="message message_left">
+        <code>
+          <pre></pre>
+        </code>
+      </div>
+      <div class="message message_right"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    // 实例化图观引擎
+    let appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    let legendPanel = document.querySelector('.legends');
+    let messagePanel = document.querySelectorAll('.message');
+    let messageLeftPanel = document.querySelector('.message_left code pre');
+    let messageRightPanel = document.querySelector('.message_right');
+    let avwLoader = document.querySelector('.avw-loader');
+
+    // 初始化加载图观三维场景服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.getElementById('container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                //添加TGAPI事件回调，图观场景服务初始化成功后
+                // 隐藏遮罩
+                avwLoader.style.display = 'none';
+                legendPanel.style.display = 'block';
+                messagePanel.forEach((item) => (item.style.display = 'block'));
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 获取建筑内部对象列表
+    function getBuildingModelList(event) {
+      // 点击高亮菜单按钮
+      if (Array.from(event.target.classList).includes('active')) {
+        event.target.classList.remove('active');
+      } else {
+        event.target.classList.add('active');
+      }
+
+      appInstance.uniCall('getModelsByBuilding', { id: 'Building01' }, (result) => {
+        console.log(result);
+
+        if (result.buildings.length > 0) {
+          // 左侧面板数据信息
+          messageLeftPanel.innerText = JSON.stringify(result.buildings, null, 2);
+
+          // 右侧面板数据信息
+          messageRightPanel.innerHTML = '';
+
+          let buildingUl = document.createElement('ul');
+          result.buildings.forEach((item, index) => {
+            let buildingLi = document.createElement('li');
+            buildingLi.innerText = item.id;
+            buildingLi.classList.add('building');
+            buildingLi.addEventListener('click', (event) => addModel(event, item));
+
+            let floorUl = document.createElement('ul');
+            item.floors.forEach((item2, index2) => {
+              let ulDom = document.createElement('ul');
+              let floorLi = document.createElement('li');
+              floorLi.innerText = `${item2.num}层`;
+              floorLi.classList.add('building');
+              floorLi.style.paddingLeft = '40px';
+              floorLi.addEventListener('click', (event) => addModel(event, item, item2));
+
+              ulDom.appendChild(floorLi);
+
+              let roomUl = document.createElement('ul');
+              item2.rooms.forEach((item3, index3) => {
+                let roomLi = document.createElement('li');
+                roomLi.innerText = item3.name;
+                roomLi.classList.add('building');
+                roomLi.style.paddingLeft = '70px';
+                roomLi.addEventListener('click', (event) => addModel(event, item, item2, item3));
+
+                roomUl.appendChild(roomLi);
+                ulDom.appendChild(roomUl);
+              });
+
+              floorUl.appendChild(ulDom);
+            });
+
+            buildingUl.appendChild(buildingLi);
+            buildingUl.appendChild(floorUl);
+          });
+
+          messageRightPanel.appendChild(buildingUl);
+        }
+      });
+    }
+
+    // 聚焦高亮建筑
+    function addModel(event, item, item2, item3) {
+      appInstance.uniCall('clearOverlayType', { overlayType: 'all' }, (res) => {});
+      if (item && item2 && item3) {
+        let jsonData = {
+          buildingId: item.id,
+          pitch: 30,
+          heading: 0,
+          distance: 100,
+          floor: item2.num,
+          room: item3.name,
+        };
+        appInstance.uniCall(
+          'showBuildingFloor',
+          {
+            id: item.id,
+            floor: item2.num,
+            animation: 1,
+          },
+          (result) => {
+            appInstance.uniCall('focusRoom', jsonData, (result) => {
+              appInstance.uniCall(
+                'highlightRoom',
+                {
+                  id: item.id,
+                  floor: item2.num,
+                  room: item3.name,
+                  type: 'style1',
+                },
+                (result) => {
+                  addLanmark(item3);
+                }
+              );
+            });
+          }
+        );
+      } else if (item && item2) {
+        let jsonData = {
+          buildingId: item.id,
+          pitch: 30,
+          heading: 340,
+          distance: 300,
+        };
+        appInstance.uniCall('focusBuilding', jsonData, (result) => {
+          appInstance.uniCall(
+            'showBuildingFloor',
+            {
+              id: item.id,
+              floor: item2.num,
+              animation: 1,
+            },
+            () => {
+              appInstance.uniCall(
+                'highlightFloor',
+                {
+                  id: item.id,
+                  floor: item2.num,
+                  type: 'style1',
+                },
+                () => {
+                  addLanmark(item2);
+                }
+              );
+            }
+          );
+        });
+      } else {
+        appInstance.uniCall('resetBuildingFloor', { id: 'Building', animation: 1 }, (result) => {
+          console.log(result);
+          let jsonData = {
+            buildingId: item.id,
+            pitch: 30,
+            heading: 340,
+            distance: 300,
+          };
+          appInstance.uniCall('focusBuilding', jsonData, () => {
+            appInstance.uniCall(
+              'highlightBuilding',
+              {
+                id: item.id,
+                type: 'style1',
+              },
+              () => {
+                addLanmark(item);
+              }
+            );
+          });
+        });
+      }
+      var buildings = document.querySelectorAll('.building');
+      buildings.forEach((it) => {
+        it.style.backgroundColor = 'transparent';
+      });
+      event.target.style.backgroundColor = '#007d9d';
+    }
+
+    // 添加地标点
+    function addLanmark(item) {
+      let jsonData = {
+        id: item.models[0],
+        coordType: 0,
+        coordTypeZ: 0,
+        iconName: 'site_02',
+        autoScale: false,
+        visible: true,
+        label: item.models[0],
+        iconScale: 1,
+        labelScale: 1,
+        tag: item.models[0], // 用户自定标签，用户保存用户的扩展数据
+        coord: item.coord, //以深圳湾经纬度为例
+        coordZ: item.coordZ + item.size[2],
+      };
+      appInstance.uniCall('addLandmark', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

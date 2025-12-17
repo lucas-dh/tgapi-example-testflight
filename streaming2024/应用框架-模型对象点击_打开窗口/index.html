@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-应用框架-模型对象点击_打开窗口</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-应用框架-模型对象点击_打开窗口</span><br />
+        <span class="ctrl">点击场景中的“住宅楼”模型，弹窗显示该对象信息</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                setCamera();
+                addLandmark();
+                //注册模型点击事件
+                onModelClick();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    //添加住宅楼图标
+    function addLandmark() {
+      let jsonData = {
+        id: 'landmark', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        iconName: 'custom-住宅楼', // 内置图标名称，见图观官网统一API开发手册
+        iconScale: 0.7, // 默认值是1表示原大，0 - 1：表示缩小倍率，大于1：表示放大倍率
+        autoScale: false, // 如果开启后，图标会按照摄像机远近自动缩放大小
+        label: '', // 图标标签文本
+        tag: 'custominfo', // 用户自定标签，用户保存用户的扩展数据
+        coord: [116.34940202499243, 40.08507886803248], // XY 轴坐标，X：经度；Y：纬度
+        coordZ: 30, // Z 轴高度（单位：米）
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+      };
+
+      appInstance.uniCall('addLandmark', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    //点击添加tip
+    function addTip(ids) {
+      if (!document.getElementById(`${ids}`)) {
+        let videoBox = document.createElement('div');
+        videoBox.id = ids;
+        videoBox.innerHTML = `<div class="box-industry">
+                             <div class="title">
+                                 <span class="fontStyle">住宅楼</span>
+                             </div>
+                             <div class="table">
+                                 <div class="content">
+                                     <div class="name">建筑名称：</div>
+                                     <div class="value">G5栋</div>
+                                 </div>
+                                 <div class="content">
+                                     <div class="name">总楼层数：</div>
+                                     <div class="value">6层</div>
+                                 </div>
+                                 <div class="content">
+                                     <div class="name">总房间数：</div>
+                                     <div class="value">48间</div>
+                                 </div>
+                                 <div class="content">
+                                     <div class="name">建成时间：</div>
+                                     <div class="value">2000年12月6日</div>
+                                 </div>
+                             </div>
+                         </div>`;
+        document.body.appendChild(videoBox);
+
+        // 动态添加tip
+        let jsonData = {
+          id: ids,
+          url: '',
+          divId: ids,
+          size: [330, 230],
+          offset: [70, 80],
+          isShowClose: true,
+        };
+        appInstance.uniCall('addModelTip', jsonData, (result) => {
+          console.log(result);
+        });
+      }
+    }
+
+    function onModelClick() {
+      //开启模型点击事件
+      let jsonData = {
+        modelType: 'model',
+        type: 'click',
+      };
+      appInstance.uniCall('pickModel', jsonData, (result) => {
+        console.log(result);
+      });
+      //监听模型点击事件
+      appInstance.uniCall(
+        'addEventListener',
+        {
+          eventName: 'onModelClick',
+          callback: function (event) {
+            console.log(event);
+            if (event.id == '06_SM_Residence_007') {
+              addTip(event.id);
+            } else {
+              appInstance.uniCall('clearModelSelected', {}, (result) => {
+                console.log(result);
+              });
+            }
+          },
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+    }
+
+    //设置场景镜头视野
+    function setCamera() {
+      let jsonData = {
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        centerCoord: [116.3496353, 40.08395], // 中心点的坐标 lng,lat
+        coordZ: 9.46, // Z 轴高度（单位：米）
+        distance: 361.04, // 镜头距中心点距离(单位:米)
+        pitch: 7.63, // 镜头俯仰角(5~89)
+        heading: 181.24, // 镜头偏航角(0正北, 0~359)
+        fly: false, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+        // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+        duration: 1, // 飞行时间，秒
+      };
+
+      appInstance.uniCall('setCamera', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

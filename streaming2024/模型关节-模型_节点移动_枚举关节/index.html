@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型关节-模型_节点移动_枚举关节</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .app > .avw-loader {
+        display: none;
+      }
+      .app .legends {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型关节-模型_节点移动_枚举关节</span><br />
+        <span class="ctrl">点击按钮查看节点移动效果</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends">
+        <li class="active" onclick="legendClick(0)">初始状态</li>
+        <li onclick="legendClick(1)">位置2</li>
+        <li onclick="legendClick(2)">位置3</li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var lastIndex = 0;
+    var legends = [
+      {
+        action: '初始状态',
+        value: '位置1',
+      },
+      {
+        action: '位置2',
+        value: '位置2',
+      },
+      {
+        action: '位置3',
+        value: '位置3',
+      },
+    ];
+    var legendPanel = document.querySelector('.legends');
+    var avwLoader = document.querySelector('.avw-loader');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.jxbToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                avwLoader.style.display = 'flex';
+                appInstance.uniCall(
+                  'addEventListener',
+                  {
+                    eventName: 'onStateSwitch',
+                    callback: function (event) {
+                      console.log(event);
+                      avwLoader.style.display = 'none';
+                    },
+                  },
+                  (result) => {
+                    console.log(result);
+                  }
+                );
+                window.appInstance.uniCall(
+                  'switchState',
+                  {
+                    name: '节点移动-枚举',
+                    sceneName: '关节控制',
+                  },
+                  (result) => {
+                    console.log(result);
+                    legendPanel.style.display = 'block';
+                  }
+                );
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    //设置节点
+    function legendClick(index) {
+      if (lastIndex == index) {
+        return;
+      }
+      legendPanel.children[lastIndex].classList.remove('active');
+      legendPanel.children[index].classList.add('active');
+      lastIndex = index;
+      let jsonData = {
+        id: '机械臂',
+        layerId: '',
+        duration: 0,
+        data: [
+          {
+            articulation: '节点移动_枚举型',
+            type: 'enum',
+            value: legends[index].value,
+          },
+        ],
+      };
+      appInstance.uniCall('setModelArticulation', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    init();
+  </script>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-数据图层-地标图_瓦片球体_图例</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .allLengs {
+        display: none;
+      }
+      .legends {
+        display: none;
+      }
+      .legends input {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-数据图层-地标图_瓦片球体_图例</span><br />
+        <span>点击按钮，地标图切换展示世界各国家/首都/主要城市分布情况</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <div class="allLengs">当前对象总数<span id="spCount">521</span>条</div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 图例 -->
+      <ul class="legends">
+        <li onclick="legendClick(this,'countries',247)">
+          <span>国家</span>
+          <input type="checkbox" checked="checked" />
+        </li>
+        <li onclick="legendClick(this,'capitals',274)">
+          <span>首都</span>
+          <input type="checkbox" checked="checked" />
+        </li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var count = 521; //总对象数
+    var legendPanel = document.querySelector('.legends');
+    var countPanel = document.querySelector('.allLengs');
+    var spCount = document.querySelector('#spCount');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streaming2024Config.globalgisToken, //StreamingServer服务器获取token
+          url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                legendPanel.style.display = 'block';
+                countPanel.style.display = 'block';
+
+                // 添加各类型图层
+                addLandmarkLayer();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 添加国家地标
+    function addCountry(inJsonArr) {
+      let Data = inJsonArr.country.map((item) => {
+        return {
+          id: item.ID,
+          type: '国家',
+          label: item.name,
+          coord: [item.lon, item.lat],
+          coordZ: 0,
+        };
+      });
+      let jsonData = {
+        id: 'countries',
+        name: '国家图层',
+        coordType: 0,
+        coordTypeZ: 0,
+        autoScale: false,
+        visible: true,
+        legends: [
+          {
+            name: '国家',
+            color: '#FFF',
+            iconName: 'site_02',
+            labelScale: 0.5,
+            iconScale: 0.3,
+          },
+        ],
+        data: Data,
+      };
+
+      appInstance.uniCall('addLandmarkLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 添加首都地标
+    function addCapital(inJsonArr) {
+      let Data = inJsonArr.capital.map((item) => {
+        return {
+          id: item.ID,
+          type: '首都',
+          label: item.name,
+          coord: [item.lon, item.lat],
+          coordZ: 0,
+        };
+      });
+      let jsonData = {
+        id: 'capitals',
+        name: '首都图层',
+        coordType: 0,
+        coordTypeZ: 0,
+        autoScale: false,
+        visible: true,
+        legends: [
+          {
+            name: '首都',
+            color: '#73FFFF',
+            iconName: 'site_02',
+            labelScale: 0.5,
+            iconScale: 0.3,
+          },
+        ],
+        data: Data,
+      };
+
+      appInstance.uniCall('addLandmarkLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    //控制显示隐藏
+    function legendClick(li, Ids, number) {
+      li.children[1].checked = !li.children[1].checked;
+      if (li.children[1].checked) {
+        count += number;
+      } else {
+        count -= number;
+      }
+      spCount.textContent = count;
+      let jsonData = {
+        id: Ids,
+        overlayType: 'landmarkLayer',
+        visible: li.children[1].checked,
+      };
+      appInstance.uniCall('setOverlayVisibility', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 添加地标图
+    function addLandmarkLayer() {
+      getJsonData('./json/全球国家.json').then((data) => {
+        addCountry(data);
+      });
+      getJsonData('./json/全球首都.json').then((data) => {
+        addCapital(data);
+      });
+    }
+
+    // 获取数据
+    function getJsonData(url) {
+      return new Promise((resolve) => {
+        fetch(url, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' },
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            }
+          })
+          .then((res) => {
+            resolve(res);
+          });
+      });
+    }
+
+    init();
+  </script>
+</html>

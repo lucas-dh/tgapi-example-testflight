@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-应用框架-图层对象点击_切换页面</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .first,
+      .second {
+        display: none;
+      }
+      .nav {
+        border: 1px solid #e4e7ed;
+        border-radius: 4px;
+        display: none;
+      }
+      .nav .tab {
+        font-weight: bold;
+        color: #ededed;
+        text-decoration: none;
+        display: inline-block;
+        width: 130px;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 21px;
+        margin: 0 2px;
+        background-color: rgba(163, 156, 156, 0.6196078431);
+        transition: color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+        box-sizing: border-box;
+      }
+      .nav .tab:hover {
+        color: #409eff;
+        cursor: pointer;
+      }
+      .nav .tab.active {
+        background-color: rgba(163, 156, 156, 0.6196078431) !important;
+        color: #409eff;
+        border: 2px solid #66ffff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-应用框架-图层对象点击_切换页面</span><br />
+        <span class="ctrl">点击图层中的“告警事件”，切换页面内容</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 页面容器 -->
+      <div class="first">
+        <div class="left">
+          <div class="font">页面一图表区域</div>
+        </div>
+        <div class="right">
+          <div class="font">页面一图表区域</div>
+        </div>
+      </div>
+      <div class="second">
+        <div class="left">
+          <div class="font">页面二图表区域</div>
+        </div>
+        <div class="right">
+          <div class="font">页面二图表区域</div>
+        </div>
+      </div>
+      <!-- tab、栏 -->
+      <div class="nav">
+        <div id="" class="tab tab-first active" onclick="handleClick('first')">页面一</div>
+        <div class="tab tab-second" onclick="handleClick('second')">页面二</div>
+      </div>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var pageName = 'first';
+    var navPanel = document.querySelector('.nav');
+    var firstHeader = document.querySelector('.tab-first');
+    var secondHeader = document.querySelector('.tab-second');
+    var firstTab = document.querySelector('.first');
+    var secondTab = document.querySelector('.second');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.shequToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                navPanel.style.display = 'flex';
+                firstTab.style.display = 'block';
+
+                addLandmark();
+                //注册地标图层点击事件
+                onLandmarkLayerClick();
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    //添加图层
+    function addLandmark() {
+      let jsonData = {
+        id: 'eventLayerId', // 图层对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        name: 'layerName', // 图层名称，支持为图层自定义名称
+        coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        visible: true, // 添加当前图层时默认是显示还是隐藏
+        legends: [
+          // 定义图层包含图例，支持为不同图例定义各自样式
+          {
+            name: '摄像头', // 图层内图例名称，新建时调用者自己传入的唯一名称，用于各种操作的图例识别
+            icon: 'event_01', // 内置图标名称，详见下表：内置图标；或根据项目，在场景中预置好的图标对象的名称，包含文字样式定义
+            iconScale: 0.5, // 默认值是 1 表示原大，0 - 1：表示缩小倍率，大于 1：表示放大倍率
+            type: 'wave', // 区域边界样式类别，详见下表：区域边界样式类别
+            color: '#ff0000', // 颜色（HEX 颜色值）
+            fillArea: 'type01', // 区域填充样式类别，详见下表：区域填充样式类别
+            speed: 50, // 气泡扩散速度（单位：米/秒）
+            radius: 100, // 气泡最大半径（单位：米）
+          },
+        ],
+        data: [
+          // 定义图层可视化数据
+          {
+            id: '事件01', // 图层子对象 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+            coord: [116.3495406421435, 40.083762842088], // XY 轴坐标，X：经度；Y：纬度
+            coordZ: 68, // Z 轴高度（单位：米）
+            message: '', // 数据点事件信息
+            type: '摄像头', // 数据点图例类别
+          },
+        ],
+      };
+
+      appInstance.uniCall('addEventLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    function onLandmarkLayerClick() {
+      //开启事地标图点击事件
+      appInstance.uniCall(
+        'pickOverlay',
+        {
+          overlayType: 'eventLayer',
+          idLayer: '',
+          type: 'click',
+          isShowDecorator: false,
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+      //监听事件图点击事件
+      appInstance.uniCall(
+        'addEventListener',
+        {
+          eventName: 'onEventLayerClick',
+          callback: function (event) {
+            firstTab.style.display = 'none';
+            secondTab.style.display = 'block';
+            firstHeader.classList.remove('active');
+            secondHeader.classList.add('active');
+          },
+        },
+        (result) => {
+          console.log(result);
+        }
+      );
+    }
+    //导航控制页面展示
+    function handleClick(name) {
+      pageName = name;
+      if (name === 'first') {
+        firstTab.style.display = 'block';
+        secondTab.style.display = 'none';
+        firstHeader.classList.add('active');
+        secondHeader.classList.remove('active');
+      } else {
+        firstTab.style.display = 'none';
+        secondTab.style.display = 'block';
+        firstHeader.classList.remove('active');
+        secondHeader.classList.add('active');
+      }
+    }
+
+    init();
+  </script>
+</html>

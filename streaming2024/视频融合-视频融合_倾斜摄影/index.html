@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-视频融合-视频融合_倾斜摄影</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/elementui.css" />
+    <script src="../../js/config.js"></script>
+
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      .message_right {
+        position: absolute;
+        width: 300px;
+        top: 50%;
+        right: 1%;
+        left: auto;
+      }
+      .app > .avw-loader {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="//www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-视频融合-视频融合_倾斜摄影</span><br />
+        <span class="ctrl">点击按钮选择不同对象，聚焦展示视频内容</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <!-- 底部 -->
+      <ul class="legends"></ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+      <!-- 进度条遮罩 -->
+      <div class="avw-loader">
+        <section><span class="loader-112">L &nbsp; ading </span></section>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  //视频融合对象列表
+  var BuildingList = [];
+  //视频融合对象数据视角信息集合
+  var rowData = [
+    {
+      coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+      coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+      centerCoord: [113.1076985, 28.2058031], // 中心点的坐标 lng,lat
+      coordZ: 18.35, // Z 轴高度（单位：米）
+      distance: 82.5,
+      pitch: 65.5,
+      heading: 281.65, // 镜头偏航角(0正北, 0~359)
+      fly: true, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+      // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+      duration: 1, // 飞行时间，秒
+      name: '视频融合对象2',
+    },
+    {
+      coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+      coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+      centerCoord: [113.1067245, 28.2045794], // 中心点的坐标 lng,lat
+      coordZ: -214.12, // Z 轴高度（单位：米）
+      distance: 320,
+      pitch: 84.34,
+      heading: 104.81, // 镜头偏航角(0正北, 0~359)
+      fly: true, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+      // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+      duration: 1, // 飞行时间，秒
+      name: '视频融合对象1',
+    },
+    {
+      coordType: 0, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+      coordTypeZ: 0, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+      centerCoord: [113.1082237, 28.20556], // 中心点的坐标 lng,lat
+      coordZ: 49.95, // Z 轴高度（单位：米）
+      distance: 190.38,
+      pitch: 30,
+      heading: 159.47, // 镜头偏航角(0正北, 0~359)
+      fly: true, // true: 飞行动画(飞行时间根据当前点与目标点计算,则pitch及heading不生效, 会自行计算);
+      // false: 立刻跳转过去(有一个短暂飞行动画,并按照distance, pitch, heading设置镜头)
+      duration: 1, // 飞行时间，秒
+      name: '恢复',
+    },
+  ];
+
+  var avwLoader = document.querySelector('.avw-loader');
+
+  //改变前端样式方法
+  function initStyle() {
+    var list = document.getElementsByClassName('legends');
+    var removeList = list[0].querySelectorAll('li');
+    removeList.forEach((value) => {
+      value.remove();
+    });
+
+    BuildingList.forEach((value, index) => {
+      // 创建新的li元素
+      var newLi = document.createElement('li');
+      newLi.textContent = value.id;
+      if (value.active) {
+        newLi.class = 'active';
+      } else {
+        newLi.class = '';
+      }
+      // 给新添加的元素添加点击事件
+      newLi.addEventListener('click', (event) => switchState(value, index));
+      list[0].insertBefore(newLi, list[0].firstChild);
+    });
+  }
+
+  // 初始化加载图观三维场景服务
+  function init() {
+    // 初始化图观App
+    window.appInstance = new TGApp.App();
+    window.appInstance.initService(
+      {
+        container: document.getElementById('container'),
+        mode: 'streaming',
+        token: streaming2024Config.videoFusionFlatToken, //StreamingServer服务器获取token
+        url: streaming2024Config.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+      },
+      (result) => {
+        window.appInstance.uniCall(
+          'addEventListener',
+          {
+            eventName: 'onServiceInit',
+            callback: (res) => {
+              //添加TGAPI事件回调，图观场景服务初始化成功后
+              // 隐藏遮罩
+              avwLoader.style.display = 'flex';
+              appInstance.uniCall(
+                'switchState',
+                {
+                  name: '默认状态',
+                  sceneName: '倾斜摄影',
+                },
+                (result) => {
+                  avwLoader.style.display = 'none';
+                }
+              );
+            },
+          },
+          (result) => {
+            console.log(result);
+          }
+        );
+      }
+    );
+  }
+
+  // 聚焦视频融合对象
+  function switchState(item) {
+    BuildingList.forEach((n) => {
+      if (n.id == item.id) {
+        n.active = true;
+      } else {
+        n.active = false;
+      }
+    });
+    var rowDatas = rowData.find((r) => r.name === item.id);
+    appInstance.uniCall('setCamera', rowDatas, function (result) {
+      console.log(result);
+    });
+  }
+
+  init();
+</script>

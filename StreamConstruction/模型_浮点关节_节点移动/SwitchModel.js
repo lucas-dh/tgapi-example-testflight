@@ -1,0 +1,87 @@
+window.onload = function () {
+  var vm = new Vue({
+    el: "#app",
+    data: {
+      isZZ: false,
+      legendList: [
+        {
+          action: '关闭移动',
+          stateName: '模型_浮点关节0_节点移动',
+          active: true
+        },
+        {
+          action: '开始移动',
+          stateName: '模型_浮点关节_节点移动',
+          active: false
+        },
+      ]
+    },
+    methods: {
+      // 初始化加载图观三维场景服务
+      init(token) {
+        let _this = this;
+        //使用授权码读取模型文件初始化场景
+        window.appInstance = new TGApp.App();
+        window.appInstance.initService(
+          {
+            container: document.getElementById("container"),
+            mode: "streaming",
+            token: streamingConfig.jxbToken, //StreamingServer服务器获取token
+            url: streamingConfig.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+            
+          },
+          (result) => {
+            window.appInstance.uniCall(
+              "addEventListener",
+              {
+              eventName: "onServiceInit",
+                callback: (res) => {
+                  _this.isZZ = true
+                  _this.isZZ = false;
+                  appInstance.uniCall(
+                    'switchState',
+                    {
+                      name: '模型_浮点关节0_节点移动',
+                      sceneName: "模型_浮点关节_节点移动"
+                    },
+                    (result) => {
+                      console.log(result);
+                    }
+                  );
+                },
+              },
+              (result) => {
+                console.log(result);
+              }
+            );
+          }
+        );
+      },
+      //点击进行场景切换 legendList
+      controlChecked(el) {
+        // 控制高亮
+        this.legendList.forEach((item) => {
+          if (item.action == el.action) {
+            item.active = true;
+            appInstance.uniCall(
+              'switchState',
+              {
+                name: item.stateName,
+                sceneName: "模型_浮点关节_节点移动"
+              },
+              (result) => {
+                console.log(result);
+              }
+            );
+          } else {
+            item.active = false;
+          }
+        });
+      },
+    },
+
+    mounted() {
+      this.init();
+    },
+  });
+};

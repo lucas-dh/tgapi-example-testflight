@@ -1,0 +1,88 @@
+{
+  "lineData": [
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务01",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 0,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    },
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务02",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 0,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    },
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务03",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 0,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    },
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务04",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 1,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    },
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务05",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 0,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    },
+    {
+      "startIdObj": "总部云",
+      "startOffset": [0, 0, 0],
+      "endIdObj": "云服务06",
+      "endOffset": [0, 0, 0],
+      "type": "Arrow01",
+      "texture": "../../image/line/black.png",
+      "color": "#81F3FA",
+      "textureSpeed": 0,
+      "width": 0.6,
+      "shapeType": "curve",
+      "curvature": 0.1,
+      "angleOrder": "xyz"
+    }
+  ]
+}

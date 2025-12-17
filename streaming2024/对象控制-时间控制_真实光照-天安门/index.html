@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>图观引擎-API代码示例-环境仿真-精确日照_升降旗时间</title>/script> -->
+
+  <link rel="stylesheet" href="../../css/common.css" />
+  <script src="../../js/config.js"></script>
+
+  <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+
+  <script src="./realSunShine.js"></script>
+  <style>
+    /* ---mystyle--- */
+    .custom-panel {
+      transform: scale(0.88);
+      position: fixed;
+      top: 80px;
+      right: -27px;
+      width: 544px;
+      height: 130px;
+      padding: 20px;
+      border: 1px solid #baafa3;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      color: white;
+      border: 1px solid #a3a4a6;
+    }
+
+    .divMask {
+      position: fixed;
+      width: 544px;
+      height: 130px;
+      padding: 20px;
+      border: 1px solid #baafa3;
+      background-color: rgba(0, 0, 0, 0.36);
+      display: grid;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      color: white;
+      border: 1px solid #a3a4a6;
+      transform: scale(0.88);
+      right: -27px;
+      top: 80px;
+    }
+
+    .blue-box {
+      background-color: #327396;
+      padding: 4px 8px;
+      margin-right: 20px;
+      height: 24px;
+    }
+
+    .blue-box:nth-of-type(1) {
+      width: 192px;
+    }
+
+    .blue-box:nth-of-type(2) {
+      width: 144px;
+    }
+
+    .blue-box:nth-of-type(3) {
+      width: 121px;
+    }
+
+    .divShowValue {
+      font-size: 34px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    button {
+      color: #c2d5e0;
+      background-color: #327396;
+      border: 1px solid #44b3dd;
+      padding: 2px 10px;
+      cursor: pointer;
+      border-radius: 4px !important;
+
+    }
+
+    .blue-box button {
+      float: right;
+      width: 48px;
+      height: 24px;
+      padding: 0px;
+      font-size: 14px;
+    }
+
+    .blue-box .el-icon-close {
+      float: right;
+      scale: 1.3;
+      margin-top: 4px;
+      margin-right: -3px;
+      cursor: pointer;
+    }
+
+    #btnNow {
+
+      float: left;
+      margin-top: 12px;
+      width: 130px;
+      height: 32px;
+      padding: 4px 0px;
+      background-color: #327396;
+      font-size: 16px;
+
+    }
+
+    .speed {
+      grid-column: 2 / span 2;
+    }
+
+    .divWindow {
+      top: 20px;
+      right: 20px;
+      width: 216px;
+      height: 170px;
+      position: fixed;
+      color: white;
+      border: 1px solid #a3a4a6;
+      background-color: rgba(0, 0, 0, 0.75);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .divWindow .blue-box {
+      width: 200px;
+    }
+
+
+    select {
+      height: 28px;
+      padding-left: 2px;
+      border-radius: 3px;
+      border-color: #a3a4a6;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      line-height: 30px;
+
+    }
+
+
+    select:focus option:checked {
+      color: white;
+      background-color: 327396;
+    }
+
+    .divWindow .child {
+      width: 170px;
+      margin-top: 15px;
+      margin-left: 20px;
+    }
+
+    .divSelectDate {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    .divSelectDate select {
+      margin-right: 3px;
+      font-size: 14px;
+
+    }
+
+    .divSelectDate>:nth-child(1),
+    .divSelectDate>:nth-child(4) {
+      width: 58px;
+
+    }
+
+    .divSelectDate>:nth-child(2) {
+      width: 52px;
+
+    }
+
+    .divSelectDate>:nth-child(3) {
+      width: 52px;
+    }
+
+
+    .divOkButton {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      margin-top: 20px;
+      margin-right: 12px;
+      margin-bottom: 10px;
+    }
+
+    .divOkButton button {
+      width: 60px;
+      height: 28px;
+      margin-right: 5px;
+    }
+
+    .divSetDate {
+      top: 130px;
+      right: 307px;
+      transform: scale(0.88);
+    }
+
+    .divSetTime {
+      top: 130px;
+      right: 150px;
+      transform: scale(0.88);
+    }
+
+    .divSetWeather {
+      top: 130px;
+      right: 13px;
+      transform: scale(0.88);
+    }
+
+    .divSetWeather .divOkButton {
+      margin-top: 40px;
+    }
+
+    .divSetWeather .child {
+      margin-top: 35px;
+    }
+
+    /* ---mystyle--- */
+
+    .speed {
+      grid-column: 2 / span 2;
+      margin-top: 12px;
+      margin-right: 20px;
+      font-size: 18px;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .speed button {
+      height: 32px;
+      width: 50px;
+      font-size: 16px;
+      background-color: black;
+      border: 1px solid #44b3dd;
+    }
+
+    .speed button:checked {
+      border: 1px solid #44b3dd;
+      background-color: #327396;
+    }
+
+    /* 隐藏原始的checkbox */
+    input[type="radio"] {
+      display: none;
+    }
+
+    /* 自定义button样式 */
+    .custom-button {
+      display: inline-block;
+      padding: 5px 16px;
+
+      margin-left: 4px;
+      font-size: 14px;
+      background-color: black;
+      border: 1px solid #6f6f6f;
+
+      border-radius: 4px !important;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* 当checkbox被选中时改变button样式 */
+    input[type="radio"]:checked+.custom-button {
+      border: 1px solid #44b3dd;
+      background-color: #327396;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app" id="app">
+    <!-- 头部 -->
+    <div class="header-wrap">
+      <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-环境仿真-精确日照_升降旗时间</span><br />
+      <span>展示时间控制_真实光照</span>
+      <img src="../../image/tuguan.png" />
+    </div>
+    <!-- 场景 -->
+    <div id="container"></div>
+
+
+    <div class="custom-panel">
+      <div class="blue-box">日期
+        <button onclick="setDate()">设置</button>
+      </div>
+
+      <div class="blue-box">时间
+        <button onclick="setTime()">设置</button>
+      </div>
+
+      <div class="blue-box">天气
+        <button onclick="setWeather()">设置</button>
+      </div>
+      <label class="divShowValue format-date"> </label>
+      <div class="divShowValue format-time"> </div>
+      <div class="divShowValue weather-name"> </div>
+
+      <button id="btnNow" onclick="goToToday()">恢复当前时间</button>
+      <div class="speed">
+        <span style="margin-top:4px">调整倍速：</span>
+        <input type="radio" name="contact" checked id="x1" value="1" onchange="updateSpped(1)">
+        <label for="x1" class="custom-button">X1</label>
+        <input type="radio" name="contact" id="x2" value="60" onchange="updateSpped(60)">
+        <label for="x2" class="custom-button">X60</label>
+        <input type="radio" name="contact" id="x5" value="300" onchange="updateSpped(300)">
+        <label for="x5" class="custom-button">X300</label>
+      </div>
+    </div>
+    <div class="divMask" v-if="showSetDate||showSetTime||showSetWeather"></div>
+    <!--日期设置窗口-->
+    <div class="divWindow divSetDate">
+      <div class="blue-box">日期设置
+        <i class="el-icon-close" onclick="closeWindow()"></i>
+      </div>
+      <select id="seasonSelect" class="child" onchange="changeSolarTerms()"> </select>
+      <div class="divSelectDate">
+        <select class="select-year" v-model="selectedYear" onchange="changeYear(event)"> </select>
+        <select class="select-month" v-model="selectedMoth" onchange="changeMonth(event)"> </select>
+        <select class="select-day" v-model="selectedDay" onchange="changeDay(event)"> </select>
+      </div>
+      <div class="divOkButton">
+        <button onclick="closeWindow()">取消</button>
+        <button onclick="updateDate()">确定</button>
+      </div>
+    </div>
+
+    <!--时间设置窗口-->
+    <div class="divWindow divSetTime">
+      <div class="blue-box">时间设置
+        <i class="el-icon-close" onclick="closeWindow()"></i>
+      </div>
+      <select id="timeSelect" class="child" onchange="changeUpOrDownTime(event)">
+        <option value="null">自定义</option>
+        <option value="upTime">升旗时间</option>
+        <option value="downTime">降旗时间</option>
+      </select>
+      <div class="divSelectDate">
+        <select class="select-hour" v-model="selectedHour" onchange="changeUpdateHour(event)"> </select>
+        <select class="select-minutes" v-model="selectedMinute" onchange="changeUpdateMinute(event)"> </select>
+        <select class="select-seconds" v-model="selectedSecond" onchange="changeUpdateSecond(event)"> </select>
+      </div>
+      <div class="divOkButton">
+        <button onclick="closeWindow()">取消</button>
+        <button onclick="updateTime()">确定</button>
+      </div>
+    </div>
+    <!--天气设置窗口-->
+    <div class="divWindow divSetWeather">
+      <div class="blue-box">天气设置
+        <i class="el-icon-close" onclick="closeWindow()"></i>
+      </div>
+
+      <select v-model="selectedWeatherValue" id="selWeather" class="child" onchange="changeUpdateWeather(event)"> </select>
+
+      <div class="divOkButton">
+        <button onclick="closeWindow()">取消</button>
+        <button onclick="changeWeather()">确定</button>
+      </div>
+    </div>
+  </div>
+
+</html>

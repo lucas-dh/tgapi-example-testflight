@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图观引擎-API代码示例-模型数据图层-模型地标图_动态读取</title>
+    <link rel="stylesheet" href="../../css/common.css" />
+    <script src="../../js/config.js"></script>
+    <script src="//www.tuguan.net/public/tgapp/TGApp.min.js"></script>
+    <style>
+      ::selection {
+        background: transparent !important;
+      }
+      .legends {
+        width: 200px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="app" id="app">
+      <!-- 头部 -->
+      <div class="header-wrap">
+        <a href="https://www.tuguan.net" target="_blank">图观引擎</a><span>-API代码示例-模型数据图层-模型地标图_动态读取</span><br />
+        <span>展示通过设置 isReferenceType=true 参数，添加“引用型模型地标图”的加载性能</span>
+        <img src="../../image/tuguan.png" />
+      </div>
+      <!-- 场景 -->
+      <div id="container"></div>
+      <ul class="legends">
+        <li class="active" onclick="legendClick(0)">默认状态</li>
+        <li onclick="legendClick(1)">第一层</li>
+        <li onclick="legendClick(2)">第二层</li>
+        <li onclick="legendClick(3)">第三层</li>
+      </ul>
+      <!-- 底部 -->
+      <div class="footer-box">
+        <span>基于图观™数字孪生应用开发引擎构建 https://www.tuguan.net</span>
+        <span>版权所有 北京数字冰雹信息技术有限公司</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 实例化图观引擎
+    var appInstance = new TGApp.App();
+
+    // 声明并赋值页面交互dom变量
+    var trailData = undefined;
+    var lastState = undefined;
+    var lastIndex = 0;
+    var legends = [
+      {
+        action: '默认状态',
+        state: '默认状态',
+        value: '',
+      },
+      {
+        action: '第一层',
+        state: '一层有投影',
+        value: 'zxmrfJvR4XFsOmA2',
+        coordZ: 0,
+      },
+      {
+        action: '第二层',
+        state: '二层有投影',
+        value: 'g1RSub-5GIFj5ugC',
+        coordZ: 40,
+      },
+      {
+        action: '第三层',
+        state: '三层有投影',
+        value: 'ThKyTzfqCvDj40K4',
+        coordZ: 60,
+      },
+    ];
+    var legendPanel = document.querySelector('.legends');
+
+    // 初始化服务
+    function init() {
+      appInstance.initService(
+        {
+          name: '默认服务',
+          container: document.querySelector('#container'),
+          mode: 'streaming',
+          token: streamingConfigUE5.combinationToken, //StreamingServer服务器获取token
+          url: streamingConfigUE5.url, //StreamingServer服务器接口地址和端口，需要进行替换为实际地址
+        },
+        (result) => {
+          window.appInstance.uniCall(
+            'addEventListener',
+            {
+              eventName: 'onServiceInit',
+              callback: (res) => {
+                window.appInstance.uniCall(
+                  'switchState',
+                  {
+                    name: '默认状态',
+                    sceneName: '多级卷钻43',
+                  },
+                  (result) => {
+                    console.log(result);
+                    legendPanel.style.display = 'block';
+                  }
+                );
+              },
+            },
+            (result) => {
+              console.log(result);
+            }
+          );
+        }
+      );
+    }
+
+    // 设置节点
+    function legendClick(index) {
+      if (lastIndex == index) {
+        return;
+      }
+      legendPanel.children[lastIndex].classList.remove('active');
+      legendPanel.children[index].classList.add('active');
+      lastIndex = index;
+
+      let item = legends[index];
+      appInstance.uniCall('clearOverlayType', { overlayType: 'all' }, (res) => {
+        appInstance.uniCall(
+          'switchState',
+          {
+            name: item.state,
+            sceneName: '多级卷钻43',
+          },
+          (result) => {
+            if (index) {
+              addModelLandmark(trailData, item.value, item.coordZ);
+            }
+          }
+        );
+      });
+    }
+
+    // 添加模型地标图
+    function addModelLandmark(list, id, coordZ) {
+      let data = [];
+      list.map((item, index) => {
+        let obj = {
+          id: id + index,
+          label: '',
+          coord: item.coord, // XY 轴坐标，X：经度；Y：纬度
+          coordZ: coordZ, // Z 轴高度（单位：米）
+          rotation: [0, 0, 0],
+          type: 'modelLayer', // 数据点图例类别
+        };
+        data.push(obj);
+      });
+
+      let jsonData = {
+        id: id, // 模型对象图层 id，新建时调用者自己传入的唯一标识，用于各种操作的对象识别
+        coordType: 1, // XY 轴坐标类别，0：X 经度，Y 纬度；1：X 米，Y米，相对世界00点
+        coordTypeZ: 1, // Z 轴坐标类别，0：相对 3D 世界 0 海拔；1：相对 3D 世界地表；2：相对 3D 模型表面（单位：米）
+        snapSurface: 1, // 启用自动贴地。0：不贴地；1：贴地
+        alpha: 1, // 透明度，0：完全透明；1：完全不透明
+        modelMaxDistance: 1500, // 模型最大可见距离（单位：米），不可见后显示icon
+        iconMaxDistance: 1500, // icon最大可见距离（单位：米），不可见后隐藏
+        modelLandmarkDataId: '', // 对应本服务器上modelLandmark数据Id，如果找到id，则下方的data不起作用
+        visible: true, // 添加当前图层时默认显示还是隐藏
+        isReferenceType: true,
+        legends: [
+          {
+            name: 'modelLayer', // 图层内图例名称，新建时调用者自己传入的唯一名称，用于各种操作的图例识别
+            modelType: 'car01', // 模型类型
+            scale: 1, // 整体放缩倍数（单位：倍）
+            iconName: 'car', // 内置图标名称，详见下表：内置图标；或根据项目，在场景中预置好的图标对象的名称，包含文字样式定义
+            labelColor: '#ff0000', // 标签文本颜色，可选值，默认白色
+            labelBackgroundColor: '#333333', // 标签文本背景颜色，可选值，默认灰色
+          },
+        ],
+        data: data,
+      };
+      appInstance.uniCall('addModelLandmarkLayer', jsonData, (result) => {
+        console.log(result);
+      });
+    }
+
+    // 创建模型轨迹图数据
+    function createData() {
+      let data = [];
+      for (let n = 0; n < 25; n++) {
+        for (let i = 0; i < 20; i++) {
+          let list = {
+            coord: [-21 + i * 2.75, -29 + n * 2.25],
+          };
+          data.push(list);
+        }
+      }
+      trailData = data;
+    }
+
+    createData();
+    init();
+  </script>
+</html>
